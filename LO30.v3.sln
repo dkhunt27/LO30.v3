@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LO30.Data", "LO30.Data\LO30.Data.csproj", "{5B17AD4A-89AF-4B76-989F-E1D1C3061BA9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LO30.Logger", "LO30.Logger\LO30.Logger.csproj", "{B6424267-17E2-4832-91FF-3BCB083E14FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LO30.Web.Client", "LO30.Web.Client\LO30.Web.Client.csproj", "{A2635D2D-3913-400A-9F2A-9786B8037085}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{0F11C18D-0726-49D5-9C72-226AF191664D}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5B17AD4A-89AF-4B76-989F-E1D1C3061BA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B17AD4A-89AF-4B76-989F-E1D1C3061BA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B17AD4A-89AF-4B76-989F-E1D1C3061BA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B17AD4A-89AF-4B76-989F-E1D1C3061BA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6424267-17E2-4832-91FF-3BCB083E14FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6424267-17E2-4832-91FF-3BCB083E14FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6424267-17E2-4832-91FF-3BCB083E14FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6424267-17E2-4832-91FF-3BCB083E14FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2635D2D-3913-400A-9F2A-9786B8037085}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2635D2D-3913-400A-9F2A-9786B8037085}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2635D2D-3913-400A-9F2A-9786B8037085}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2635D2D-3913-400A-9F2A-9786B8037085}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Logging.6.0.1304.0\lib\NET45
+	EndGlobalSection
+EndGlobal
