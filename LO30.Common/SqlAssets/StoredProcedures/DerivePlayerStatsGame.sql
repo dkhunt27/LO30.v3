@@ -239,6 +239,14 @@ BEGIN TRY
 		ssepp.GameId between @StartingGameId and @EndingGameId
 
 	print ' '
+	print 'Update Subs line/position'
+	-- was affecting other PKs due to potential to sub for multiple lines/positions
+	update #statsDetail
+	set Line = 0, Position = 'S'
+	where Sub = 1
+
+
+	print ' '
 	print 'Count Player Stats Game'
 
 	insert into #playerStatGamesNew
