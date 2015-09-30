@@ -2318,7 +2318,7 @@
     <Content Include="Views\Home\IndexNg.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Shared\_Layout-New.cshtml" />
+    <Content Include="Views\Shared\_Layout-v2-noNg.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Scripts\scripts.min.js.map">
       <DependentUpon>scripts.min.js</DependentUpon>
@@ -2326,7 +2326,7 @@
     <Content Include="Scripts\slider_revolution.min.js.map">
       <DependentUpon>slider_revolution.min.js</DependentUpon>
     </Content>
-    <Content Include="Views\Shared\_Layout - Orig.cshtml" />
+    <Content Include="Views\Shared\_Layout-Orig.cshtml" />
     <Content Include="Views\AboutUs\ContactUs.cshtml" />
     <Content Include="Views\AboutUs\Index.cshtml" />
     <Content Include="Views\AboutUs\Rules.cshtml" />
@@ -2338,7 +2338,6 @@
     <Content Include="Views\AboutUs\Services.cshtml" />
     <Content Include="Views\Navigation\NavAdmin.cshtml" />
     <Content Include="Views\Navigation\NavPublic.cshtml" />
-    <Content Include="Views\Navigation\NavBoard.cshtml" />
     <Content Include="Areas\AdminDataProcessing\AdminDataProcessing.Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Navigation\NavAdmin-OldNavBar.cshtml" />
@@ -2354,11 +2353,11 @@
     <Content Include="Views\AdminSettings\Delete.cshtml" />
     <Content Include="Scripts\version.json" />
     <Content Include="Views\Schedule\TeamFeed.cshtml" />
-    <None Include="Web.config.template" />
     <Content Include="Views\Schedule\Index.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Views\Shared\_Layout-v2.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -26,7 +26,7 @@ namespace LO30.Data.Models
     [Required]
     public int SubbingForPlayerId { get; set; }
 
-    [Required]
+    [Required, MaxLength(5)]
     public string JerseyNumber { get; set; }
 
     [Required]

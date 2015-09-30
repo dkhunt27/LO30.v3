@@ -27,7 +27,7 @@ namespace LO30.Data.Models
     [Required]
     public bool HomeTeam { get; set; }
 
-    [Required]
+    [Required, MaxLength(5)]
     public string JerseyNumber { get; set; }
 
     [Required]

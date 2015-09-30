@@ -8,7 +8,7 @@
 
   <meta charset="utf-8" />
   <title>@ViewBag.Title - LO30</title>
-  <meta name="keywords" content="Hockey,Livonia,Over30" />
+  <meta name="keywords" content="Hockey,Livonia,Over30s" />
   <meta name="description" content="" />
   <meta name="Author" content="Dan Hunt" />
   <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
@@ -34,9 +34,9 @@
   <link href="~/Content/Template/plugins/revolution-slider/css/settings.css" rel="stylesheet" type="text/css" />
 
   <!-- THEME CSS -->
-  @*<link href="~/Content/Template/css/essentials.css" rel="stylesheet" type="text/css" />*@
-  @*<link href="~/Content/Template/css/layout.css" rel="stylesheet" type="text/css" />*@
-  @*<link href="~/Content/Template/css/layout-responsive.css" rel="stylesheet" type="text/css" />*@
+  <link href="~/Content/Template/css/essentials.css" rel="stylesheet" type="text/css" />
+  <link href="~/Content/Template/css/layout.css" rel="stylesheet" type="text/css" />
+  <link href="~/Content/Template/css/layout-responsive.css" rel="stylesheet" type="text/css" />
   <link href="~/Content/Template/css/color_scheme/darkblue.css" rel="stylesheet" type="text/css" /><!-- blue: default style -->
   <link id="css_dark_skin" href="~/Content/Template/css/layout-responsive.css" rel="stylesheet" type="text/css" /><!-- DARK SKIN -->
   <!-- Morenizr -->
@@ -66,6 +66,7 @@
     </div>
   </header>
 
+  <span id="header_shadow"></span>
   <!-- /TOP NAV -->
   <div id="body">
     @RenderSection("featured", required: false)

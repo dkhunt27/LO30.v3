@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F70EEEDC-848F-45C1-9CA8-02B1329F3E94}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DataImporter</RootNamespace>
+    <AssemblyName>DataImporter</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Importers\Access\AccessImporter.cs" />
+    <Compile Include="Importers\Access\AccessImporter.Division.cs" />
+    <Compile Include="Importers\Access\AccessImporter.Game.cs" />
+    <Compile Include="Importers\Access\AccessImporter.GameRoster.cs" />
+    <Compile Include="Importers\Access\AccessImporter.GameTeam.cs" />
+    <Compile Include="Importers\Access\AccessImporter.Penalty.cs" />
+    <Compile Include="Importers\Access\AccessImporter.Player.cs" />
+    <Compile Include="Importers\Access\AccessImporter.PlayerDraft.cs" />
+    <Compile Include="Importers\Access\AccessImporter.PlayerRating.cs" />
+    <Compile Include="Importers\Access\AccessImporter.PlayerStatus.cs" />
+    <Compile Include="Importers\Access\AccessImporter.PlayerStatusType.cs" />
+    <Compile Include="Importers\Access\AccessImporter.ScoreSheetEntry.cs" />
+    <Compile Include="Importers\Access\AccessImporter.ScoreSheetEntryPenalty.cs" />
+    <Compile Include="Importers\Access\AccessImporter.ScoreSheetEntrySub.cs" />
+    <Compile Include="Importers\Access\AccessImporter.Season.cs" />
+    <Compile Include="Importers\Access\AccessImporter.Team.cs" />
+    <Compile Include="Importers\Access\AccessImporter.TeamRoster.cs" />
+    <Compile Include="Importers\Access\AccessImporter.zzzz.cs" />
+    <Compile Include="Importers\ImportStats.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LO30.Logger\LO30.Logger.csproj">
+      <Project>{b6424267-17e2-4832-91ff-3bcb083e14fb}</Project>
+      <Name>LO30.Logger</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
