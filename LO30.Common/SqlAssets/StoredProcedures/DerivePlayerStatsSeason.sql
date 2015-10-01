@@ -7,7 +7,7 @@ CREATE PROCEDURE dbo.DerivePlayerStatsSeason
 	@DryRun int = 0
 AS
 BEGIN TRY
-
+	SET NOCOUNT ON
 /*
 -- START comment this out when saving as stored proc
 	DECLARE @StartingSeasonId int;
@@ -73,9 +73,6 @@ BEGIN TRY
 		0 as ExistingRecordsUpdated,
 		0 as ProcessedRecordsMatchExistingRecords
 
-	print ' '
-	print 'Count Player Stats Game'
-
 	insert into #playerStatSeasonsNew
 	select
 		s.PlayerId,
@@ -119,8 +116,6 @@ BEGIN TRY
 								GameWinningGoals)
 
 
-	PRINT ' '
-	PRINT 'Count Copying PlayerStatGames'
 	INSERT INTO #playerStatSeasonsCopy
 	SELECT 
 		PlayerId,
@@ -154,7 +149,7 @@ BEGIN TRY
 	IF (@dryrun = 1) 
 	BEGIN
 		-- this is not a dry run
-		SELECT 'DRY RUN. NOT UPDATING REAL TABLES' as RUN_TYPE
+		PRINT 'DRY RUN. NOT UPDATING REAL TABLES'
 
 		update #playerStatSeasonsCopy
 		set
@@ -188,7 +183,7 @@ BEGIN TRY
 	ELSE
 	BEGIN
 		-- this is not a dry run
-		SELECT 'NOT A DRY RUN. UPDATING REAL TABLES' as RUN_TYPE
+		PRINT 'NOT A DRY RUN. UPDATING REAL TABLES'
 
 		update PlayerStatSeasons
 		set

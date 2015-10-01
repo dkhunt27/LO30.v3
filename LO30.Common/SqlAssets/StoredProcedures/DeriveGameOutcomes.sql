@@ -7,7 +7,7 @@ CREATE PROCEDURE dbo.DeriveGameOutcomes
 	@DryRun int = 0
 AS
 BEGIN TRY
-
+	SET NOCOUNT ON
 /*
 -- START comment this out when saving as stored proc
 	DECLARE @StartingGameId int;
@@ -81,9 +81,7 @@ BEGIN TRY
 		0 as ExistingRecordsUpdated,
 		0 as ProcessedRecordsMatchExistingRecords
 
-	PRINT ' '
-	PRINT 'Count GamePIMS (records <= games to process x 2)'
-
+	-- 'Count GamePIMS (records <= games to process x 2)'
 	INSERT INTO #gamePIMs
 	SELECT
 		gt.GameId,
@@ -98,9 +96,7 @@ BEGIN TRY
 		gt.GameId,
 		gt.TeamId
 
-	PRINT ' '
-	PRINT 'Count GameOutComes (games to process x 2)'
-
+	-- 'Count GameOutComes (games to process x 2)'
 	INSERT INTO #gameOutcomesNew
 	SELECT
 		gt.GameId,
@@ -114,13 +110,24 @@ BEGIN TRY
 		gs1.Score as GoalsFor,
 		gs2.Score as GoalsAgainst,
 		case when gp.PIM is null then 0 else gp.PIM end as PenaltyMinutes,
-		0 as Subs,
+		sub.Subs,
 		0 as Overriden,
 		gt.OpponentTeamId,
 		gt.SeasonId,
 		NULL as BCS
 	FROM
 		GameTeams gt inner join
+		(SELECT 
+			GameId, 
+			TeamId, 
+			count(SubbingForPlayerId) as Subs
+		FROM 
+			GameRosters 
+		WHERE 
+			SubbingForPlayerId is not null 
+		GROUP BY
+			GameId, 
+			TeamId) sub on (gt.GameId = sub.GameId AND gt.TeamId = sub.TeamId) inner join
 		GameScores gs1 on (gt.GameId = gs1.GameId AND gt.TeamId = gs1.TeamId AND gs1.Period = 0) inner join
 		GameScores gs2 on (gt.GameId = gs2.GameId AND gt.OpponentTeamId = gs2.TeamId AND gs2.Period = 0) left join
 		#gamePIMs gp on (gt.GameId = gp.GameId AND gt.TeamId = gp.TeamId)
@@ -142,8 +149,7 @@ BEGIN TRY
 								OpponentTeamId,
 								SeasonId)
 
-	PRINT ' '
-	PRINT 'Count Copying GameOutcomes'
+	-- 'Count Copying GameOutcomes'
 	INSERT INTO #gameOutcomesCopy
 	SELECT 
 		GameId,
@@ -174,7 +180,7 @@ BEGIN TRY
 	IF (@dryrun = 1) 
 	BEGIN
 		-- this is not a dry run
-		SELECT 'DRY RUN. NOT UPDATING REAL TABLES' as RUN_TYPE
+		PRINT 'DRY RUN. NOT UPDATING REAL TABLES'
 
 		update #gameOutcomesCopy
 		set
@@ -209,9 +215,9 @@ BEGIN TRY
 	ELSE
 	BEGIN
 		-- this is not a dry run
-		SELECT 'NOT A DRY RUN. UPDATING REAL TABLES' as RUN_TYPE
+		PRINT 'NOT A DRY RUN. UPDATING REAL TABLES'
 
-		update #gameOutcomesCopy
+		update GameOutcomes
 		set
 			HomeTeam = n.HomeTeam,
 			Outcome = n.Outcome,

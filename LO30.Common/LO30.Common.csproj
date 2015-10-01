@@ -39,7 +39,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -63,23 +62,36 @@
     <None Include="RawData\Access\Teams.json" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="SQL\StoredProcedures\DerivePlayerStatsCareer.sql" />
-    <Content Include="SQL\StoredProcedures\DerivePlayerStatsSeason.sql" />
-    <Content Include="SQL\StoredProcedures\DerivePlayerStatsTeam.sql" />
-    <Content Include="SQL\StoredProcedures\DerivePlayerStatsGame.sql" />
-    <Content Include="SQL\StoredProcedures\DeriveTeamStandings.sql" />
-    <Content Include="SQL\StoredProcedures\DeriveGameOutcomes.sql" />
-    <Content Include="SQL\StoredProcedures\DeriveGameScores.sql" />
-    <Content Include="SQL\StoredProcedures\DeriveScoreSheetEntryProcessedPenalties.sql" />
-    <Content Include="SQL\StoredProcedures\DeriveScoreSheetEntryProcessedGoals.sql" />
-    <Content Include="SQL\StoredProcedures\DeriveGameRosters.sql" />
-    <Content Include="SQL\StoredProcedures\DeriveScoreSheetEntryProcessedSubs.sql" />
-    <Content Include="SQL\Views\BoxScoresDetailView.sql" />
-    <Content Include="SQL\Views\BoxScoresSummaryView.sql" />
-    <Content Include="SQL\Views\GameRostersView.sql" />
-    <Content Include="SQL\Views\GamesView.sql" />
-    <Content Include="SQL\Views\GameTeamsView.sql" />
-    <Content Include="SQL\Views\TeamRostersView.sql" />
+    <Content Include="SqlAssets\StoredProcedures\DeriveGoalieStatsCareer.sql" />
+    <Content Include="SqlAssets\StoredProcedures\DeriveGoalieStatsSeason.sql" />
+    <Content Include="SqlAssets\StoredProcedures\DeriveGoalieStatsTeam.sql" />
+    <Content Include="SqlAssets\StoredProcedures\DeriveGoalieStatsGame.sql" />
+    <Content Include="SqlAssets\StoredProcedures\DeriveGameOutcomes.sql" />
+    <Content Include="SqlAssets\StoredProcedures\DeriveGameRosters.sql" />
+    <Content Include="SqlAssets\StoredProcedures\DeriveGameScores.sql" />
+    <Content Include="SqlAssets\StoredProcedures\DerivePlayerStatsCareer.sql" />
+    <Content Include="SqlAssets\StoredProcedures\DerivePlayerStatsGame.sql" />
+    <Content Include="SqlAssets\StoredProcedures\DerivePlayerStatsSeason.sql" />
+    <Content Include="SqlAssets\StoredProcedures\DerivePlayerStatsTeam.sql" />
+    <Content Include="SqlAssets\StoredProcedures\DeriveScoreSheetEntryProcessedGoals.sql" />
+    <Content Include="SqlAssets\StoredProcedures\DeriveScoreSheetEntryProcessedPenalties.sql" />
+    <Content Include="SqlAssets\StoredProcedures\DeriveScoreSheetEntryProcessedSubs.sql" />
+    <Content Include="SqlAssets\StoredProcedures\DeriveTeamStandings.sql" />
+    <Content Include="SqlAssets\Views\BoxScoresDetailView.sql" />
+    <Content Include="SqlAssets\Views\BoxScoresSummaryView.sql" />
+    <Content Include="SqlAssets\Views\GameRostersView.sql" />
+    <Content Include="SqlAssets\Views\GoalieStatCareersView.sql" />
+    <Content Include="SqlAssets\Views\GoalieStatSeasonsView.sql" />
+    <Content Include="SqlAssets\Views\GoalieStatTeamsView.sql" />
+    <Content Include="SqlAssets\Views\PlayerStatCareersView.sql" />
+    <Content Include="SqlAssets\Views\GoalieStatGamesView.sql" />
+    <Content Include="SqlAssets\Views\PlayerStatSeasonsView.sql" />
+    <Content Include="SqlAssets\Views\PlayerStatTeamsView.sql" />
+    <Content Include="SqlAssets\Views\PlayerStatGamesView.sql" />
+    <Content Include="SqlAssets\Views\GamesView.sql" />
+    <Content Include="SqlAssets\Views\GameTeamsView.sql" />
+    <Content Include="SqlAssets\Views\TeamStandingsView.sql" />
+    <Content Include="SqlAssets\Views\TeamRostersView.sql" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="RawData\SqlServer\" />

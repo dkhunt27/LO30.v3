@@ -7,6 +7,7 @@ CREATE PROCEDURE dbo.DeriveScoreSheetEntryProcessedGoals
 	@DryRun int = 0
 AS
 BEGIN TRY
+	SET NOCOUNT ON
 
 	DECLARE @TimePerPeriod int;
 	SET @TimePerPeriod = 14;
@@ -186,8 +187,7 @@ BEGIN TRY
 					PowerPlayGoal,
 					GameWinningGoal)
 
-	PRINT ' '
-	PRINT 'Count Copying ScoreSheetEntryProcessedGoals'
+
 	INSERT INTO #scoreSheetEntryProcessedGoalsCopy
 	SELECT 
 		ScoreSheetEntryGoalId,
@@ -228,7 +228,7 @@ BEGIN TRY
 		PRINT 'DRY RUN. NOT UPDATING REAL TABLES'
 
 
-        /* Audit records change
+     /* Audit records change
 			select * from #scoreSheetEntryProcessedGoalsCopy where ScoreSheetEntryGoalId = 3372
 			select * from #scoreSheetEntryProcessedGoalsNew where ScoreSheetEntryGoalId = 3372
 		*/
@@ -254,22 +254,6 @@ BEGIN TRY
 			#scoreSheetEntryProcessedGoalsNew n ON (c.ScoreSheetEntryGoalId = n.ScoreSheetEntryGoalId)
 		where
 		    c.BCS <> n.BCS
-
-			/*c.ScoreSheetEntryGoalId = 1 AND
-			c.SeasonId <> n.SeasonId OR
-			c.TeamId <> n.TeamId OR
-			c.GameId <> n.GameId OR
-			c.Period <> n.Period OR
-			c.HomeTeam <> n.HomeTeam OR
-			c.GoalPlayerId <> n.GoalPlayerId OR
-			c.Assist1PlayerId <> n.Assist1PlayerId OR
-			c.Assist2PlayerId <> n.Assist2PlayerId OR
-			c.Assist3PlayerId <> n.Assist3PlayerId OR
-			c.TimeRemaining <> n.TimeRemaining OR
-			c.TimeElapsed <> n.TimeElapsed OR
-			c.ShortHandedGoal <> n.ShortHandedGoal OR
-			c.PowerPlayGoal <> n.PowerPlayGoal OR
-			c.GameWinningGoal <> n.GameWinningGoal*/
 
 		update #results set ExistingRecordsUpdated = @@ROWCOUNT
 
@@ -311,23 +295,7 @@ BEGIN TRY
 			#scoreSheetEntryProcessedGoalsNew n ON (c.ScoreSheetEntryGoalId = n.ScoreSheetEntryGoalId)
 		where
 		    c.BCS <> n.BCS
-			
-			/*
-			c.SeasonId <> n.SeasonId OR
-			c.TeamId <> n.TeamId OR
-			c.GameId <> n.GameId OR
-			c.Period <> n.Period OR
-			c.HomeTeam <> n.HomeTeam OR
-			c.GoalPlayerId <> n.GoalPlayerId OR
-			c.Assist1PlayerId <> n.Assist1PlayerId OR
-			c.Assist2PlayerId <> n.Assist2PlayerId OR
-			c.Assist3PlayerId <> n.Assist3PlayerId OR
-			c.TimeRemaining <> n.TimeRemaining OR
-			c.TimeElapsed <> n.TimeElapsed OR
-			c.ShortHandedGoal <> n.ShortHandedGoal OR
-			c.PowerPlayGoal <> n.PowerPlayGoal OR
-			c.GameWinningGoal <> n.GameWinningGoal
-			*/
+
 
 		update #results set ExistingRecordsUpdated = @@ROWCOUNT
 
@@ -370,13 +338,10 @@ BEGIN TRY
 			ScoreSheetEntryProcessedGoals c ON (c.ScoreSheetEntryGoalId = n.ScoreSheetEntryGoalId)
 		where
 			c.GameId is null
-        order by
-		    n.GameId,
+    order by
+		  n.GameId,
 			n.Period,
 			n.TimeElapsed
-
-
-
 
 		update #results set NewRecordsInserted = @@ROWCOUNT
 	END

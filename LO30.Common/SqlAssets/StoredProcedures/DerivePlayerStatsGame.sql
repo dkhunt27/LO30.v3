@@ -7,7 +7,7 @@ CREATE PROCEDURE dbo.DerivePlayerStatsGame
 	@DryRun int = 0
 AS
 BEGIN TRY
-
+	SET NOCOUNT ON
 /*
 -- START comment this out when saving as stored proc
 	DECLARE @StartingGameId int;
@@ -102,8 +102,29 @@ BEGIN TRY
 		0 as ProcessedRecordsMatchExistingRecords
 
 
-	print ' '
-	print 'Count ScoreSheetEntryProcessed Goals'
+	-- insert record for games played, for games without points
+	insert into #statsDetail
+	select
+		gr.PlayerId,
+		gr.GameId,
+		gr.TeamId,
+		g.Playoffs,
+		gr.SeasonId,
+		gr.Sub,
+		gr.Line,
+		gr.Position,
+		0 as Goals,
+		0 as Assists,
+		0 as Points,
+		0 as PenaltyMinutes,
+		0 as PowerPlayGoals,
+		0 as ShortHandedGoals,
+		0 as GameWinningGoals
+	from
+		GameRosters gr inner join
+		Games g on (gr.GameId = g.GameId)
+	where
+		gr.GameId between @StartingGameId and @EndingGameId
 
 	insert into #statsDetail
 	select
@@ -128,9 +149,6 @@ BEGIN TRY
 		Games g on (ssepg.GameId = g.GameId)
 	where
 		ssepg.GameId between @StartingGameId and @EndingGameId
-
-	print ' '
-	print 'Count ScoreSheetEntryProcessed Assist 1'
 
 	insert into #statsDetail
 	select
@@ -157,9 +175,6 @@ BEGIN TRY
 		ssepg.GameId between @StartingGameId and @EndingGameId
 
 
-	print ' '
-	print 'Count ScoreSheetEntryProcessed Assist 2'
-
 	insert into #statsDetail
 	select
 		ssepg.Assist2PlayerId as PlayerId,
@@ -183,9 +198,6 @@ BEGIN TRY
 		Games g on (ssepg.GameId = g.GameId)
 	where
 		ssepg.GameId between @StartingGameId and @EndingGameId
-
-	print ' '
-	print 'Count ScoreSheetEntryProcessed Assist 3'
 
 	insert into #statsDetail
 	select
@@ -211,9 +223,6 @@ BEGIN TRY
 	where
 		ssepg.GameId between @StartingGameId and @EndingGameId
 
-	print ' '
-	print 'Count ScoreSheetEntryPenaltyProcessed PIMs'
-
 	insert into #statsDetail
 	select
 		ssepp.PlayerId as PlayerId,
@@ -238,16 +247,10 @@ BEGIN TRY
 	where
 		ssepp.GameId between @StartingGameId and @EndingGameId
 
-	print ' '
-	print 'Update Subs line/position'
 	-- was affecting other PKs due to potential to sub for multiple lines/positions
 	update #statsDetail
 	set Line = 0, Position = 'S'
 	where Sub = 1
-
-
-	print ' '
-	print 'Count Player Stats Game'
 
 	insert into #playerStatGamesNew
 	select
@@ -281,7 +284,6 @@ BEGIN TRY
 		s.Line,
 		s.Position
 
-
 	update #playerStatGamesNew
 	set
 		BCS = BINARY_CHECKSUM(PlayerId,
@@ -301,8 +303,6 @@ BEGIN TRY
 								GameWinningGoals)
 
 
-	PRINT ' '
-	PRINT 'Count Copying PlayerStatGames'
 	INSERT INTO #playerStatGamesCopy
 	SELECT 
 		PlayerId,
@@ -342,7 +342,7 @@ BEGIN TRY
 	IF (@dryrun = 1) 
 	BEGIN
 		-- this is not a dry run
-		SELECT 'DRY RUN. NOT UPDATING REAL TABLES' as RUN_TYPE
+		PRINT 'DRY RUN. NOT UPDATING REAL TABLES'
 
 		update #playerStatGamesCopy
 		set
@@ -381,7 +381,7 @@ BEGIN TRY
 	ELSE
 	BEGIN
 		-- this is not a dry run
-		SELECT 'NOT A DRY RUN. UPDATING REAL TABLES' as RUN_TYPE
+		PRINT 'NOT A DRY RUN. UPDATING REAL TABLES'
 
 		update PlayerStatGames
 		set

@@ -7,7 +7,7 @@ CREATE PROCEDURE dbo.DeriveTeamStandings
 	@DryRun int = 0
 AS
 BEGIN TRY
-
+	SET NOCOUNT ON
 /*
 -- START comment this out when saving as stored proc
 	DECLARE @StartingGameId int;
@@ -112,9 +112,7 @@ BEGIN TRY
 		0 as ExistingRecordsUpdated,
 		0 as ProcessedRecordsMatchExistingRecords
 
-	print ' '
-	print 'Count Team Standings Detail (games to process x 2)'
-
+	-- 'Count Team Standings Detail (games to process x 2)'
 	insert into #teamStandingsDetail
 	select
 		gt.GameId,
@@ -138,9 +136,7 @@ BEGIN TRY
 	where
 		gt.GameId between @StartingGameId and @EndingGameId
 
-	print ' '
-	print 'Count TeamStandings (count of teams 8 or 16 if with playoffs)'
-
+	-- 'Count TeamStandings (count of teams 8 or 16 if with playoffs)'
 	insert into #teamStandingsNew
 	select
 		tsd.TeamId,
@@ -171,22 +167,19 @@ BEGIN TRY
 		tsd.SeasonId,
 		tsd.DivisionId
 
-	print ' '
-	print 'Count Set Points (count of teams 8 or 16 if with playoffs)'
+	-- 'Count Set Points (count of teams 8 or 16 if with playoffs)'
 	UPDATE #teamStandingsNew
 	SET
 		Points = (Wins * 2) + Ties
 
-	print ' '
-	print 'Count Set DivisionId of Regular Season (count of teams 8)'
+	-- 'Count Set DivisionId of Regular Season (count of teams 8)'
 	UPDATE #teamStandingsNew
 	SET
 		DivisionId = 1
 	WHERE
 		Playoffs = 0
 
-	print ' '
-	print 'Count Determine Ranking (count of teams 8 or 16 if with playoffs)'
+	-- 'Count Determine Ranking (count of teams 8 or 16 if with playoffs)'
 	INSERT INTO #teamStandingsRank
 	SELECT
 		n.TeamId,
@@ -201,8 +194,7 @@ BEGIN TRY
 	FROM
 		#teamStandingsNew n
 
-	print ' '
-	print 'Count Set Rank (count of teams 8 or 16 if with playoffs)'
+	-- 'Count Set Rank (count of teams 8 or 16 if with playoffs)'
 	UPDATE #teamStandingsNew
 	SET
 		Ranking = r.Ranking
@@ -228,8 +220,7 @@ BEGIN TRY
 								PenaltyMinutes,
 								Subs)
 
-	PRINT ' '
-	PRINT 'Count Copying GameOutcomes'
+	-- 'Count Copying TeamStandings'
 	INSERT INTO #teamStandingsCopy
 	SELECT 
 		TeamId,
@@ -266,7 +257,7 @@ BEGIN TRY
 	IF (@dryrun = 1) 
 	BEGIN
 		-- this is not a dry run
-		SELECT 'DRY RUN. NOT UPDATING REAL TABLES' as RUN_TYPE
+		PRINT 'DRY RUN. NOT UPDATING REAL TABLES'
 
 		update #teamStandingsCopy
 		set
@@ -304,7 +295,7 @@ BEGIN TRY
 	ELSE
 	BEGIN
 		-- this is not a dry run
-		SELECT 'NOT A DRY RUN. UPDATING REAL TABLES' as RUN_TYPE
+		PRINT 'NOT A DRY RUN. UPDATING REAL TABLES'
 
 		update TeamStandings
 		set
@@ -322,8 +313,8 @@ BEGIN TRY
 			Subs = n.Subs
 		from
 			TeamStandings r INNER JOIN
-			#teamStandingsNew c ON (r.TeamId = c.TeamId AND r.Playoffs = c.Playoffs) INNER JOIN
-			#teamStandingsCopy n ON (c.TeamId = n.TeamId AND c.Playoffs = n.Playoffs)
+			#teamStandingsCopy c ON (r.TeamId = c.TeamId AND r.Playoffs = c.Playoffs) INNER JOIN
+			#teamStandingsNew n ON (c.TeamId = n.TeamId AND c.Playoffs = n.Playoffs)
 		where
 		    c.BCS <> n.BCS
 

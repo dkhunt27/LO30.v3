@@ -7,6 +7,7 @@ CREATE PROCEDURE dbo.DeriveScoreSheetEntryProcessedPenalties
 	@DryRun int = 0
 AS
 BEGIN TRY
+	SET NOCOUNT ON
 
 	DECLARE @TimePerPeriod int;
 	SET @TimePerPeriod = 14;
@@ -49,7 +50,7 @@ BEGIN TRY
 		PenaltyId int NULL,
 		TimeRemaining nvarchar(5) NOT NULL,
 		TimeElapsed time(7) NULL,
-		PenaltyMinutes bit NOT NULL,
+		PenaltyMinutes int NOT NULL,
 		BCS int NULL
 	)
 	CREATE UNIQUE INDEX PK ON #scoreSheetEntryProcessedPenaltiesCopy(ScoreSheetEntryPenaltyId)
@@ -65,7 +66,7 @@ BEGIN TRY
 		PenaltyId int NULL,
 		TimeRemaining nvarchar(5) NOT NULL,
 		TimeElapsed time(7) NULL,
-		PenaltyMinutes bit NOT NULL,
+		PenaltyMinutes int NOT NULL,
 		BCS int NULL
 	)
 	CREATE UNIQUE INDEX PK ON #scoreSheetEntryProcessedPenaltiesNew(ScoreSheetEntryPenaltyId)
@@ -167,8 +168,7 @@ BEGIN TRY
 					TimeElapsed,
 					PenaltyMinutes)
 
-	PRINT ' '
-	PRINT 'Count Copying ScoreSheetEntryProcessedPenalties'
+
 	INSERT INTO #scoreSheetEntryProcessedPenaltiesCopy
 	SELECT 
 		ScoreSheetEntryPenaltyId,

@@ -7,7 +7,7 @@ CREATE PROCEDURE dbo.DeriveGameScores
 	@DryRun int = 0
 AS
 BEGIN TRY
-
+	SET NOCOUNT ON
 /*
 -- START comment this out when saving as stored proc
 	DECLARE @StartingGameId int;
@@ -80,9 +80,7 @@ BEGIN TRY
 		0 as ProcessedRecordsMatchExistingRecords
 
 
-	PRINT ' '
-	PRINT 'Count of possible games scores (games to process x 6)'
-	
+	-- 'Count of possible games scores (games to process x 6)'
 	INSERT INTO #gameScoresTemp
 	SELECT
 		gt.GameId,
@@ -98,9 +96,7 @@ BEGIN TRY
 	ORDER BY
 		1,2
 
-	PRINT ' '
-	PRINT 'Count of actual games scores'
-	
+	-- 'Count of actual games scores'
 	INSERT INTO #gameScoresTemp
 	SELECT
 		gt.GameId,
@@ -119,9 +115,7 @@ BEGIN TRY
 		ssepg.Period,
 		gt.SeasonId
 
-	PRINT ' '
-	PRINT 'Count of actual games ... total/final scores'
-	
+	-- 'Count of actual games ... total/final scores'
 	INSERT INTO #gameScoresTemp
 	SELECT
 		gt.GameId,
@@ -136,9 +130,7 @@ BEGIN TRY
 		gt.TeamId,
 		gt.SeasonId
 
-	PRINT ' '
-	PRINT 'Count of all games scores (games to process x 6)'
-	
+	--'Count of all games scores (games to process x 6)'
 	INSERT INTO #gameScoresNew
 	SELECT
 		GameId,
@@ -163,8 +155,7 @@ BEGIN TRY
 					Score,
 					SeasonId)
 
-	PRINT ' '
-	PRINT 'Count Copying GameScores'
+	-- 'Count Copying GameScores'
 	INSERT INTO #gameScoresCopy
 	SELECT 
 		GameId,
@@ -184,8 +175,7 @@ BEGIN TRY
 	BEGIN
 		PRINT 'DRY RUN. NOT UPDATING REAL TABLES'
 
-
-        /* Audit records change
+    /* Audit records change
 			select * from #gameScoresCopy where GameId = 3372
 			select * from #gameScoresNew where GameId = 3372
 		*/

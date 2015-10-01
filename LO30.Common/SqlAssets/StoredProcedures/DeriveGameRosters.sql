@@ -1,5 +1,4 @@
-﻿
---DROP PROCEDURE [dbo].[DeriveGameRosters]
+﻿--DROP PROCEDURE [dbo].[DeriveGameRosters]
 
 CREATE PROCEDURE dbo.DeriveGameRosters
 	@StartingGameId int = 0, 
@@ -7,7 +6,7 @@ CREATE PROCEDURE dbo.DeriveGameRosters
 	@DryRun int = 0
 AS
 BEGIN TRY
-
+	SET NOCOUNT ON
 /*
 -- START comment this out when saving as stored proc
 	DECLARE @StartingGameId int;
@@ -106,7 +105,7 @@ BEGIN TRY
 	-- PROCESS JERSEY UPDATES (player forgot jersey)
 	INSERT INTO #gameRostersNew
 	SELECT
-	    g.SeasonId,
+	  g.SeasonId,
 		gt.TeamId,
 		g.GameId,
 		tr.PlayerId,
@@ -168,8 +167,25 @@ BEGIN TRY
 							Sub,
 							SubbingForPlayerId)
 
-	PRINT ' '
-	PRINT 'Count Copying GameRosters'
+	-- AUDIT Duplicate Jersey Numbers
+	INSERT INTO #gameRostersCopy    -- just inserting into this table to remove the output to the screen
+  SELECT
+		a.*
+	FROM
+		#gameRostersNew a INNER JOIN
+		#gameRostersNew b ON (a.SeasonId = b.SeasonId AND a.TeamId = b.TeamId AND a.GameId = b.GameId AND a.PlayerNumber = b.PlayerNumber)
+	WHERE
+		a.PlayerId <> b.PlayerId
+    ORDER BY
+		a.SeasonId,
+		a.GameId,
+		a.TeamId,
+		a.PlayerNumber,
+		a.RatingPrimary,
+		a.RatingSecondary
+
+	IF (@@ROWCOUNT > 0) THROW 51000, 'Duplicate Jersey Numbers', 1;
+
 	INSERT INTO #gameRostersCopy
 	SELECT 
 	    SeasonId,
@@ -199,26 +215,6 @@ BEGIN TRY
 	FROM 
 		GameRosters
 
-
-	PRINT ' '
-	PRINT 'AUDIT Duplicate Jersey Numbers'
-    SELECT
-		*
-	FROM
-		#gameRostersNew a INNER JOIN
-		#gameRostersNew b ON (a.SeasonId = b.SeasonId AND a.TeamId = b.TeamId AND a.GameId = b.GameId AND a.PlayerNumber = b.PlayerNumber)
-	WHERE
-		a.PlayerId <> b.PlayerId
-    ORDER BY
-		a.SeasonId,
-		a.GameId,
-		a.TeamId,
-		a.PlayerNumber,
-		a.RatingPrimary,
-		a.RatingSecondary
-
-	IF (@@ROWCOUNT > 0) THROW 51000, 'Duplicate Jersey Numbers', 1;
-
 	IF (@DryRun = 1) 
 	BEGIN
 		PRINT 'DRY RUN. NOT UPDATING REAL TABLES'
@@ -229,8 +225,6 @@ BEGIN TRY
 		*/
 
 		-- NEED TO DELETE ANY GAME ROSTERS THAT MIGHT HAVE ALREADY PROCESSED, BUT ARE GOING TO BE CHANGED
-		PRINT ' '
-		PRINT 'Deleting Bad Previously Processed GameRosters'
 		delete from #gameRostersCopy
 		from
 			#gameRostersNew n inner join
@@ -271,8 +265,6 @@ BEGIN TRY
 		PRINT 'NOT A DRY RUN. UPDATING REAL TABLES'
 
 		-- NEED TO DELETE ANY GAME ROSTERS THAT MIGHT HAVE ALREADY PROCESSED, BUT ARE GOING TO BE CHANGED
-		PRINT ' '
-		PRINT 'Deleting Bad Previously Processed GameRosters'
 		delete from GameRosters
 		from
 			#gameRostersNew n inner join
@@ -280,7 +272,7 @@ BEGIN TRY
 
 		update GameRosters
 		set
-		    SeasonId = n.SeasonId,
+		  SeasonId = n.SeasonId,
 			PlayerId = n.PlayerId,
 			Position = n.Position,
 			RatingPrimary = n.RatingPrimary,

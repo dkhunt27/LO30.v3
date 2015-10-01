@@ -7,7 +7,7 @@ CREATE PROCEDURE dbo.DeriveScoreSheetEntryProcessedSubs
 	@DryRun int = 0
 AS
 BEGIN TRY
-
+	SET NOCOUNT ON
 /*
 -- START comment this out when saving as stored proc
     DECLARE @StartingGameId int;
@@ -118,34 +118,10 @@ BEGIN TRY
 									HomeTeam,
 									JerseyNumber)
 
-	PRINT ' '
-	PRINT 'Count Copying ScoreSheetEntryProcessedSubs'
-	INSERT INTO #scoreSheetEntryProcessedSubsCopy
-	SELECT 
-		ScoreSheetEntrySubId,
-		SeasonId,
-		TeamId,
-		GameId,
-		SubPlayerId,
-		SubbingForPlayerId,
-		HomeTeam,
-		JerseyNumber,
-		BINARY_CHECKSUM(ScoreSheetEntrySubId,
-							SeasonId,
-							TeamId,
-							GameId,
-							SubPlayerId,
-							SubbingForPlayerId,
-							HomeTeam,
-							JerseyNumber) as BCS
-	FROM 
-		ScoreSheetEntryProcessedSubs
-
-
-	PRINT ' '
-	PRINT 'AUDIT Duplicate Subbing For Player Ids'
-    SELECT
-		*
+	-- AUDIT Duplicate Subbing Players
+	INSERT INTO #scoreSheetEntryProcessedSubsCopy   -- just inserting into this table to remove the output to the screen
+  SELECT
+		a.*
 	FROM
 		#scoreSheetEntryProcessedSubsNew a INNER JOIN
 		#scoreSheetEntryProcessedSubsNew b ON (a.SeasonId = b.SeasonId AND a.TeamId = b.TeamId AND a.GameId = b.GameId AND a.SubPlayerId = b.SubPlayerId)
@@ -182,10 +158,10 @@ BEGIN TRY
 	IF (@@ROWCOUNT > 0) THROW 51000, 'Duplicate Sub Player Ids', 1;
 	*/
 
-	PRINT ' '
-	PRINT 'AUDIT Duplicate  PK2'
-    SELECT
-		*
+	-- AUDIT Duplicate PK2
+	INSERT INTO #scoreSheetEntryProcessedSubsCopy    -- just inserting into this table to remove the output to the screen
+  SELECT
+		a.*
 	FROM
 		#scoreSheetEntryProcessedSubsNew a INNER JOIN
 		#scoreSheetEntryProcessedSubsNew b ON (a.SeasonId = b.SeasonId AND a.TeamId = b.TeamId AND a.GameId = b.GameId AND a.SubPlayerId = b.SubPlayerId AND a.SubbingForPlayerId = b.SubbingForPlayerId)
@@ -200,12 +176,32 @@ BEGIN TRY
 
 	IF (@@ROWCOUNT > 0) THROW 51000, 'Duplicate PK2', 1;
 
+	INSERT INTO #scoreSheetEntryProcessedSubsCopy
+	SELECT 
+		ScoreSheetEntrySubId,
+		SeasonId,
+		TeamId,
+		GameId,
+		SubPlayerId,
+		SubbingForPlayerId,
+		HomeTeam,
+		JerseyNumber,
+		BINARY_CHECKSUM(ScoreSheetEntrySubId,
+							SeasonId,
+							TeamId,
+							GameId,
+							SubPlayerId,
+							SubbingForPlayerId,
+							HomeTeam,
+							JerseyNumber) as BCS
+	FROM 
+		ScoreSheetEntryProcessedSubs
+
 	IF (@DryRun = 1) 
 	BEGIN
 		PRINT 'DRY RUN. NOT UPDATING REAL TABLES'
 
-
-        /* Audit records change
+    /* Audit records change
 			select * from #scoreSheetEntryProcessedSubsCopy where GameId = 3367
 			select * from #scoreSheetEntryProcessedSubsNew where GameId = 3367
 		*/
@@ -260,8 +256,6 @@ BEGIN TRY
 		    c.BCS <> n.BCS
 			
 		update #results set ExistingRecordsUpdated = @@ROWCOUNT
-
-
 
 		insert into ScoreSheetEntryProcessedSubs
 		select
