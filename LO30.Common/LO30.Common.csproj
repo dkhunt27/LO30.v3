@@ -62,6 +62,7 @@
     <None Include="RawData\Access\Teams.json" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="SqlAssets\StoredProcedures\DeriveForWebGoalieStats.sql" />
     <Content Include="SqlAssets\StoredProcedures\DeriveGoalieStatsCareer.sql" />
     <Content Include="SqlAssets\StoredProcedures\DeriveGoalieStatsSeason.sql" />
     <Content Include="SqlAssets\StoredProcedures\DeriveGoalieStatsTeam.sql" />
@@ -70,6 +71,7 @@
     <Content Include="SqlAssets\StoredProcedures\DeriveGameRosters.sql" />
     <Content Include="SqlAssets\StoredProcedures\DeriveGameScores.sql" />
     <Content Include="SqlAssets\StoredProcedures\DerivePlayerStatsCareer.sql" />
+    <Content Include="SqlAssets\StoredProcedures\DeriveForWebPlayerStats.sql" />
     <Content Include="SqlAssets\StoredProcedures\DerivePlayerStatsGame.sql" />
     <Content Include="SqlAssets\StoredProcedures\DerivePlayerStatsSeason.sql" />
     <Content Include="SqlAssets\StoredProcedures\DerivePlayerStatsTeam.sql" />
