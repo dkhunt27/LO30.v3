@@ -13,18 +13,27 @@ namespace LO30.Controllers.Data.Games
     {
     }
 
-    //public List<GameTeam> GetGameTeams()
-    //{
-    //  var results = _repo.GetGameTeams();
-    //  return results.OrderByDescending(x => x.GameId)
-    //                .ToList();
-    //}
+    public List<GameTeam> GetGameTeams()
+    {
+      var results = new List<GameTeam>();
 
-    //public List<GameTeam> GetGameTeamsByGameId(int gameId)
-    //{
-    //  var results = _repo.GetGameTeamsByGameId(gameId);
-    //  return results;
+      using (var context = new LO30Context())
+      {
+        results = context.GameTeams.ToList();
+      }
+      return results.OrderByDescending(x => x.GameId)
+                    .ToList();
+    }
 
-    //}
+    public List<GameTeam> GetGameTeamsByGameId(int gameId)
+    {
+      var results = new List<GameTeam>();
+
+      using (var context = new LO30Context())
+      {
+        results = context.GameTeams.Where(x=>x.GameId == gameId).ToList();
+      }
+      return results;
+    }
   }
 }

@@ -62,6 +62,7 @@
     <None Include="RawData\Access\Teams.json" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="SqlAssets\StoredProcedures\DeriveForWebTeamStandings.sql" />
     <Content Include="SqlAssets\StoredProcedures\DeriveForWebGoalieStats.sql" />
     <Content Include="SqlAssets\StoredProcedures\DeriveGoalieStatsCareer.sql" />
     <Content Include="SqlAssets\StoredProcedures\DeriveGoalieStatsSeason.sql" />

@@ -1,6 +1,7 @@
 ﻿var lo30NgApp = angular.module("lo30NgApp", ['ngRoute', 'ngResource', 'ngAnimate', 'ui.bootstrap', 'toaster', 'angularMoment']);
 
-lo30NgApp.value("constApisUrl", "/api/v3");
+lo30NgApp.constant("constApisUrl", "/api/v3");
+lo30NgApp.constant("constCurrentSeasonId", 56);
 
 lo30NgApp.config(
   [
@@ -31,7 +32,7 @@ lo30NgApp.config(
         controller: "gamesBoxScoresController",
         templateUrl: "/Templates/Games/BoxScores.html"
       });
-      $routeProvider.when("/Games/Results/:seasonId/:playoffs/:seasonTeamId", {
+      $routeProvider.when("/Games/Results/:seasonId/:playoffs/:teamId", {
         controller: "gamesResultsController",
         templateUrl: "/Templates/Games/Results.html"
       });
@@ -91,7 +92,7 @@ lo30NgApp.config(
       });
 
       // Schedule
-      $routeProvider.when("/Schedule/Settings/:seasonId/:playoffs/:seasonTeamId", {
+      $routeProvider.when("/Schedule/Settings/:seasonId/:playoffs/:teamId", {
         controller: "iCalController",
         templateUrl: "/Templates/iCal.html"
       });

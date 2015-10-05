@@ -13,37 +13,53 @@ namespace LO30.Controllers.Data.Games
     {
     }
 
-    //public List<GameRoster> GetGameRosters()
-    //{
-    //  var results = _repo.GetGameRosters();
-    //  return results.OrderByDescending(x => x.GameTeam.GameId)
-    //                .OrderBy(x => x.Line)
-    //                .OrderByDescending(x => x.Position)
-    //                .OrderBy(x => x.RatingPrimary)
-    //                .OrderBy(x => x.RatingSecondary)
-    //                .ToList();
-    //}
+    public List<GameRoster> GetGameRosters()
+    {
+      var results = new List<GameRoster>();
 
-    //public List<GameRoster> GetGameRostersByGameId(int gameId)
-    //{
-    //  var results = _repo.GetGameRostersByGameId(gameId);
-    //  return results.OrderByDescending(x => x.GameTeam.GameId)
-    //                .OrderBy(x=>x.Line)
-    //                .OrderByDescending(x=>x.Position)
-    //                .OrderBy(x=>x.RatingPrimary)
-    //                .OrderBy(x=>x.RatingSecondary)
-    //                .ToList();
-    //}
+      using (var context = new LO30Context())
+      {
+        results = context.GameRosters.ToList();
+      }
+      return results.OrderByDescending(x => x.GameId)
+                    .OrderBy(x => x.Line)
+                    .OrderByDescending(x => x.Position)
+                    .OrderBy(x => x.RatingPrimary)
+                    .OrderBy(x => x.RatingSecondary)
+                    .ToList();
+    }
 
-    //public List<GameRoster> GetGameRostersByGameIdAndHomeTeam(int gameId, bool homeTeam)
-    //{
-    //  var results = _repo.GetGameRostersByGameIdAndHomeTeam(gameId, homeTeam);
-    //  return results.OrderByDescending(x => x.GameTeam.GameId)
-    //                .OrderBy(x => x.Line)
-    //                .OrderByDescending(x => x.Position)
-    //                .OrderBy(x => x.RatingPrimary)
-    //                .OrderBy(x => x.RatingSecondary)
-    //                .ToList();
-    //}
+    public List<GameRoster> GetGameRostersByGameId(int gameId)
+    {
+      var results = new List<GameRoster>();
+
+      using (var context = new LO30Context())
+      {
+        results = context.GameRosters.Where(x=>x.GameId == gameId).ToList();
+      }
+      return results.OrderByDescending(x => x.GameId)
+                    .OrderBy(x => x.Line)
+                    .OrderByDescending(x => x.Position)
+                    .OrderBy(x => x.RatingPrimary)
+                    .OrderBy(x => x.RatingSecondary)
+                    .ToList();
+    }
+
+    public List<GameRoster> GetGameRostersByGameIdAndHomeTeam(int gameId, bool homeTeam)
+    {
+      var results = new List<GameRoster>();
+
+      // TODO ...wire up homeTeam
+      using (var context = new LO30Context())
+      {
+        results = context.GameRosters.Where(x=>x.GameId == gameId).ToList();
+      }
+      return results.OrderByDescending(x => x.GameId)
+                    .OrderBy(x => x.Line)
+                    .OrderByDescending(x => x.Position)
+                    .OrderBy(x => x.RatingPrimary)
+                    .OrderBy(x => x.RatingSecondary)
+                    .ToList();
+    }
   }
 }

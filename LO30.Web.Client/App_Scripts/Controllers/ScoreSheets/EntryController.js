@@ -88,7 +88,7 @@ lo30NgApp.controller('scoreSheetsEntryController',
         );
       };
 
-      $scope.getTeamRosters = function (seasonTeamId, homeTeam) {
+      $scope.getTeamRosters = function (teamId, homeTeam) {
         var retrievedType, teamRostersLoaded, teamRosters;
 
         if (homeTeam) {
@@ -104,7 +104,7 @@ lo30NgApp.controller('scoreSheetsEntryController',
         $scope.events[teamRostersLoaded] = false;
         $scope.data[teamRosters] = [];
 
-        dataServiceTeamRosters.listTeamRostersBySeasonTeamIdAndYYYYMMDD(seasonTeamId, $scope.data.gameSelected.gameYYYYMMDD).$promise.then(
+        dataServiceTeamRosters.listTeamRostersByTeamIdAndYYYYMMDD(teamId, $scope.data.gameSelected.gameYYYYMMDD).$promise.then(
           function (result) {
             // service call on success
             if (result && result.length && result.length > 0) {
@@ -231,13 +231,13 @@ lo30NgApp.controller('scoreSheetsEntryController',
 
         $scope.$watch('events.gameTeamHomeLoaded', function (val) {
           if (val === true) {
-            $scope.getTeamRosters($scope.data.gameTeamHome.seasonTeamId, true);
+            $scope.getTeamRosters($scope.data.gameTeamHome.teamId, true);
           }
         }, true);
 
         $scope.$watch('events.gameTeamAwayLoaded', function (val) {
           if (val === true) {
-            $scope.getTeamRosters($scope.data.gameTeamAway.seasonTeamId, false);
+            $scope.getTeamRosters($scope.data.gameTeamAway.teamId, false);
           }
         }, true);
       }

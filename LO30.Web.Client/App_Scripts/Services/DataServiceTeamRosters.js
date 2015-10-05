@@ -8,25 +8,25 @@ lo30NgApp.factory("dataServiceTeamRosters",
     function (constApisUrl, $resource) {
 
       var resourceTeamRosters = $resource(constApisUrl + '/teamRosters');
-      var resourceTeamRostersBySeasonTeamIdAndYYYYMMDD = $resource(constApisUrl + '/teamRosters/:seasonTeamId/:yyyymmdd', { seasonTeamId: '@seasonTeamId', yyyymmdd: '@yyyymmdd' });
-      var resourceTeamRosterBySeasonTeamIdPlayerIdAndYYYYMMDD = $resource(constApisUrl + '/teamRoster/:seasonTeamId/:yyyymmdd/:playerId', { seasonTeamId: '@seasonTeamId', yyyymmdd: '@yyyymmdd', playerId: '@playerId' });
+      var resourceTeamRostersByTeamIdAndYYYYMMDD = $resource(constApisUrl + '/teamRosters/:teamId/:yyyymmdd', { teamId: '@teamId', yyyymmdd: '@yyyymmdd' });
+      var resourceTeamRosterByTeamIdPlayerIdAndYYYYMMDD = $resource(constApisUrl + '/teamRoster/:teamId/:yyyymmdd/:playerId', { teamId: '@teamId', yyyymmdd: '@yyyymmdd', playerId: '@playerId' });
 
       var listTeamRosters = function () {
         return resourceTeamRosters.query();
       };
 
-      var listTeamRostersBySeasonTeamIdAndYYYYMMDD = function (seasonTeamId, yyyymmdd) {
-        return resourceTeamRostersBySeasonTeamIdAndYYYYMMDD.query({ seasonTeamId: seasonTeamId, yyyymmdd: yyyymmdd });
+      var listTeamRostersByTeamIdAndYYYYMMDD = function (teamId, yyyymmdd) {
+        return resourceTeamRostersByTeamIdAndYYYYMMDD.query({ teamId: teamId, yyyymmdd: yyyymmdd });
       };
       
-      var getTeamRosterBySeasonTeamIdYYYYMMDDAndPlayerId = function (seasonTeamId, yyyymmdd, playerId) {
-        return resourceTeamRosterBySeasonTeamIdYYYYMMDDAndPlayerId.get({ seasonTeamId: seasonTeamId, yyyymmdd: yyyymmdd, playerId: playerId });
+      var getTeamRosterByTeamIdYYYYMMDDAndPlayerId = function (teamId, yyyymmdd, playerId) {
+        return resourceTeamRosterByTeamIdYYYYMMDDAndPlayerId.get({ teamId: teamId, yyyymmdd: yyyymmdd, playerId: playerId });
       };
 
       return {
         listTeamRosters: listTeamRosters,
-        listTeamRostersBySeasonTeamIdAndYYYYMMDD: listTeamRostersBySeasonTeamIdAndYYYYMMDD,
-        getTeamRosterBySeasonTeamIdYYYYMMDDAndPlayerId: getTeamRosterBySeasonTeamIdYYYYMMDDAndPlayerId
+        listTeamRostersByTeamIdAndYYYYMMDD: listTeamRostersByTeamIdAndYYYYMMDD,
+        getTeamRosterByTeamIdYYYYMMDDAndPlayerId: getTeamRosterByTeamIdYYYYMMDDAndPlayerId
       };
     }
   ]

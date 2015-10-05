@@ -8,7 +8,8 @@ lo30NgApp.controller('playersGoalieController',
     '$routeParams',
     'alertService',
     'dataServicePlayers',
-    function ($scope, $timeout, $routeParams, alertService, dataServicePlayers) {
+    'constCurrentSeasonId',
+    function ($scope, $timeout, $routeParams, alertService, dataServicePlayers, constCurrentSeasonId) {
 
       $scope.initializeScopeVariables = function () {
 
@@ -72,7 +73,7 @@ lo30NgApp.controller('playersGoalieController',
 
         //TODO make this a user selection
         if (sjv.isEmpty($routeParams.seasonId)) {
-          $scope.data.selectedSeasonId = 54;
+          $scope.data.selectedSeasonId = constCurrentSeasonId;
         } else {
           $scope.data.selectedSeasonId = $routeParams.seasonId;
         }

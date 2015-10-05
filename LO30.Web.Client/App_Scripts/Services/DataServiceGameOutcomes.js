@@ -7,33 +7,33 @@ lo30NgApp.factory("dataServiceGameOutcomes",
     "$resource",
     function (constApisUrl, $resource) {
 
-      var resourceGameOutcomes = $resource(constApisUrl + '/gameOutcomes/:fullDetail', { fullDetail: '@fullDetail' });
-      var resourceGameOutcomesByGameId = $resource(constApisUrl + '/gameOutcomes/:gameId/:fullDetail', { gameId: '@gameId', fullDetail: '@fullDetail' });
-      var resourceGameOutcomesBySeasonTeamId = $resource(constApisUrl + '/gameOutcomesBySeasonTeam/:seasonId/:playoffs/:seasonTeamId/:fullDetail', { seasonId: '@seasonId', playoffs: '@playoffs', seasonTeamId: '@seasonTeamId', fullDetail: '@fullDetail' });
+      var resourceGameOutcomes = $resource(constApisUrl + '/gameOutcomes', {});
+      var resourceGameOutcomesByGameId = $resource(constApisUrl + '/gameOutcomes/:gameId', { gameId: '@gameId' });
+      var resourceGameOutcomesByTeamId = $resource(constApisUrl + '/gameOutcomesByTeam/:seasonId/:playoffs/:teamId', { seasonId: '@seasonId', playoffs: '@playoffs', teamId: '@teamId' });
 
-      var resourceGameOutcomeByGameIdAndHomeTeam = $resource(constApisUrl + '/gameOutcome/:gameId/:homeTeam/:fullDetail', { gameId: '@gameId', homeTeam: '@homeTeam', fullDetail: '@fullDetail' });
+      var resourceGameOutcomeByGameIdAndHomeTeam = $resource(constApisUrl + '/gameOutcome/:gameId/:homeTeam', { gameId: '@gameId', homeTeam: '@homeTeam' });
 
-      var listGameOutcomes = function (fullDetail) {
-        return resourceGameOutcomes.query({ fullDetail: fullDetail });
+      var listGameOutcomes = function () {
+        return resourceGameOutcomes.query({});
       };
 
-      var listGameOutcomesByGameId = function (gameId, fullDetail) {
-        return resourceGameOutcomesByGameId.query({ gameId: gameId, fullDetail: fullDetail });
+      var listGameOutcomesByGameId = function (gameId) {
+        return resourceGameOutcomesByGameId.query({ gameId: gameId });
       };
 
-      var getGameOutcomeByGameIdAndHomeTeam = function (gameId, homeTeam, fullDetail) {
-        return resourceGameOutcomesByGameIdAndHomeTeam.get({ gameId: gameId, homeTeam: homeTeam, fullDetail: fullDetail });
+      var getGameOutcomeByGameIdAndHomeTeam = function (gameId, homeTeam) {
+        return resourceGameOutcomesByGameIdAndHomeTeam.get({ gameId: gameId, homeTeam: homeTeam });
       };
 
-      var listGameOutcomesBySeasonTeamId = function (seasonId, playoffs, seasonTeamId, fullDetail) {
-        return resourceGameOutcomesBySeasonTeamId.query({ seasonId: seasonId, playoffs: playoffs, seasonTeamId: seasonTeamId, fullDetail: fullDetail });
+      var listGameOutcomesByTeamId = function (seasonId, playoffs, teamId) {
+        return resourceGameOutcomesByTeamId.query({ seasonId: seasonId, playoffs: playoffs, teamId: teamId });
       };
 
       return {
         listGameOutcomes: listGameOutcomes,
         listGameOutcomesByGameId: listGameOutcomesByGameId,
         getGameOutcomeByGameIdAndHomeTeam: getGameOutcomeByGameIdAndHomeTeam,
-        listGameOutcomesBySeasonTeamId: listGameOutcomesBySeasonTeamId
+        listGameOutcomesByTeamId: listGameOutcomesByTeamId
       };
     }
   ]

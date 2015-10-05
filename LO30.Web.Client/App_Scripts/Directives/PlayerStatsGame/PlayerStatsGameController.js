@@ -69,7 +69,7 @@ lo30NgApp.controller('lo30PlayerStatsGameController',
 
         if ($scope.user.clickedShowPlayerStatsGame === true) {
           // get data
-          $scope.getPlayerStatsGame($scope.playerId, $scope.seasonId, $scope.seasonTeamId, $scope.playoffs);
+          $scope.getPlayerStatsGame($scope.playerId, $scope.seasonId, $scope.teamId, $scope.playoffs);
         } else {
           // do nothing
         }

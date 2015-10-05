@@ -8,7 +8,7 @@
 
   <meta charset="utf-8" />
   <title>@ViewBag.Title - LO30</title>
-  <meta name="keywords" content="Hockey,Livonia,Over30" />
+  <meta name="keywords" content="Hockey,Livonia,Over30s" />
   <meta name="description" content="" />
   <meta name="Author" content="Dan Hunt" />
   <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
@@ -18,7 +18,7 @@
 
   <!-- WEB FONTS -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800" rel="stylesheet" type="text/css" />
-  
+
   <!-- CORE CSS -->
   <link href="~/Content/Template/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
   <link href="~/Content/Template/css/font-awesome.css" rel="stylesheet" type="text/css" />
@@ -34,9 +34,9 @@
   <link href="~/Content/Template/plugins/revolution-slider/css/settings.css" rel="stylesheet" type="text/css" />
 
   <!-- THEME CSS -->
-  @*<link href="~/Content/Template/css/essentials.css" rel="stylesheet" type="text/css" />*@
-  @*<link href="~/Content/Template/css/layout.css" rel="stylesheet" type="text/css" />*@
-  @*<link href="~/Content/Template/css/layout-responsive.css" rel="stylesheet" type="text/css" />*@
+  <link href="~/Content/Template/css/essentials.css" rel="stylesheet" type="text/css" />
+  <link href="~/Content/Template/css/layout.css" rel="stylesheet" type="text/css" />
+  <link href="~/Content/Template/css/layout-responsive.css" rel="stylesheet" type="text/css" />
   <link href="~/Content/Template/css/color_scheme/darkblue.css" rel="stylesheet" type="text/css" /><!-- blue: default style -->
   <link id="css_dark_skin" href="~/Content/Template/css/layout-responsive.css" rel="stylesheet" type="text/css" /><!-- DARK SKIN -->
   <!-- Morenizr -->
@@ -66,6 +66,7 @@
     </div>
   </header>
 
+  <span id="header_shadow"></span>
   <!-- /TOP NAV -->
   <div id="body">
     @RenderSection("featured", required: false)
@@ -111,7 +112,7 @@
   <script type="text/javascript" src="~/Scripts/moment.min.js"></script>
   <script type="text/javascript" src="~/Scripts/angular-moment.min.js"></script>
   @*<script type="text/javascript" src="~/Scripts/angulartics.min.js"></script>
-  <script type="text/javascript" src="~/Scripts/angulartics-ga.min.js"></script>*@
+    <script type="text/javascript" src="~/Scripts/angulartics-ga.min.js"></script>*@
 
   <script type="text/javascript" src="~/Content/Template/plugins/bootstrap/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="~/Content/Template/plugins/magnific-popup/jquery.magnific-popup.min.js"></script>
@@ -120,7 +121,6 @@
   <script type="text/javascript" src="~/Content/Template/plugins/knob/js/jquery.knob.js"></script>
   <script type="text/javascript" src="~/Content/Template/plugins/jquery.backstretch.min.js"></script>
   <script type="text/javascript" src="~/Content/Template/plugins/superslides/dist/jquery.superslides.min.js"></script>
-  <script type="text/javascript" src="~/Content/Template/plugins/styleswitcher/styleswitcher.js"></script><!-- STYLESWITCHER - REMOVE ON PRODUCTION/DEVELOPMENT -->
   <script type="text/javascript" src="~/Content/Template/plugins/mediaelement/build/mediaelement-and-player.min.js"></script>
 
   <!-- REVOLUTION SLIDER -->
@@ -161,8 +161,8 @@
   <script src="~/App_Scripts/Directives/GoalieStatsGame/GoalieStatsGameController.js"></script>
   <script src="~/App_Scripts/Directives/GoalieStatsSeason/GoalieStatsSeason.js"></script>
   <script src="~/App_Scripts/Directives/GoalieStatsSeason/GoalieStatsSeasonController.js"></script>
-  <script src="~/App_Scripts/Directives/GoalieStatsSeasonTeam/GoalieStatsSeasonTeam.js"></script>
-  <script src="~/App_Scripts/Directives/GoalieStatsSeasonTeam/GoalieStatsSeasonTeamController.js"></script>
+  <script src="~/App_Scripts/Directives/GoalieStatsTeam/GoalieStatsTeam.js"></script>
+  <script src="~/App_Scripts/Directives/GoalieStatsTeam/GoalieStatsTeamController.js"></script>
   <script src="~/App_Scripts/Directives/PlayerSearchSub/PlayerSubSearch.js"></script>
   <script src="~/App_Scripts/Directives/PlayerSearchSub/PlayerSubSearchController.js"></script>
   <script src="~/App_Scripts/Directives/PlayerStatsCareer/PlayerStatsCareer.js"></script>
@@ -171,8 +171,8 @@
   <script src="~/App_Scripts/Directives/PlayerStatsGame/PlayerStatsGameController.js"></script>
   <script src="~/App_Scripts/Directives/PlayerStatsSeason/PlayerStatsSeason.js"></script>
   <script src="~/App_Scripts/Directives/PlayerStatsSeason/PlayerStatsSeasonController.js"></script>
-  <script src="~/App_Scripts/Directives/PlayerStatsSeasonTeam/PlayerStatsSeasonTeam.js"></script>
-  <script src="~/App_Scripts/Directives/PlayerStatsSeasonTeam/PlayerStatsSeasonTeamController.js"></script>
+  <script src="~/App_Scripts/Directives/PlayerStatsTeam/PlayerStatsTeam.js"></script>
+  <script src="~/App_Scripts/Directives/PlayerStatsTeam/PlayerStatsTeamController.js"></script>
   <script src="~/App_Scripts/Directives/ScoringByPeriod/ScoringByPeriod.js"></script>
   <script src="~/App_Scripts/Directives/ScoringByPeriod/ScoringByPeriodController.js"></script>
   <script src="~/App_Scripts/Directives/ScoringDetail/ScoringDetail.js"></script>
@@ -196,14 +196,14 @@
   <script src="~/App_Scripts/Services/DataServiceGoalieStatsCareer.js"></script>
   <script src="~/App_Scripts/Services/DataServiceGoalieStatsGame.js"></script>
   <script src="~/App_Scripts/Services/DataServiceGoalieStatsSeason.js"></script>
-  <script src="~/App_Scripts/Services/DataServiceGoalieStatsSeasonTeam.js"></script>
+  <script src="~/App_Scripts/Services/DataServiceGoalieStatsTeam.js"></script>
   <script src="~/App_Scripts/Services/DataServiceLo30Constants.js"></script>
   <script src="~/App_Scripts/Services/DataServicePlayers.js"></script>
   <script src="~/App_Scripts/Services/DataServicePlayersSubSearch.js"></script>
   <script src="~/App_Scripts/Services/DataServicePlayerStatsCareer.js"></script>
   <script src="~/App_Scripts/Services/DataServicePlayerStatsGame.js"></script>
   <script src="~/App_Scripts/Services/DataServicePlayerStatsSeason.js"></script>
-  <script src="~/App_Scripts/Services/DataServicePlayerStatsSeasonTeam.js"></script>
+  <script src="~/App_Scripts/Services/DataServicePlayerStatsTeam.js"></script>
   <script src="~/App_Scripts/Services/DataServiceScoreSheetEntryProcessedPenalties.js"></script>
   <script src="~/App_Scripts/Services/DataServiceScoreSheetEntryProcessedScoring.js"></script>
   <script src="~/App_Scripts/Services/DataServiceSettings.js"></script>
@@ -227,7 +227,7 @@
     ga('create', 'UA-59828026-1', 'auto');
     ga('send', 'pageview');
   </script>
-  
+
   @RenderSection("scripts", required: false)
 
 </body>

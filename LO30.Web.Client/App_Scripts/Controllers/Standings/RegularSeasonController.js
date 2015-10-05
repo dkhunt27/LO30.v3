@@ -7,7 +7,8 @@ lo30NgApp.controller('standingsRegularSeasonController',
     '$timeout',
     'alertService',
     'dataServiceForWebTeamStandings',
-    function ($scope, $timeout, alertService, dataServiceForWebTeamStandings) {
+    'constCurrentSeasonId',
+    function ($scope, $timeout, alertService, dataServiceForWebTeamStandings, constCurrentSeasonId) {
 
       $scope.sortAscOnly = function (column) {
         $scope.sortOn = column;
@@ -22,7 +23,7 @@ lo30NgApp.controller('standingsRegularSeasonController',
       $scope.initializeScopeVariables = function () {
 
         $scope.data = {
-          seasonId: 54,
+          seasonId: constCurrentSeasonId,
           playoffs: false,
           teamStandings: [],
           teamStandingsDataGoodThru: "n/a"
@@ -90,7 +91,7 @@ lo30NgApp.controller('standingsRegularSeasonController',
         $scope.setWatches();
         $scope.getForWebTeamStandings();
         $timeout(function () {
-          $scope.sortAscOnly('rank');
+          $scope.sortAscOnly('ranking');
         }, 0);  // using timeout so it fires when done rendering
       };
 

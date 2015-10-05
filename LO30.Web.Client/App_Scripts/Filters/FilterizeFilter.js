@@ -22,7 +22,7 @@ lo30NgApp.filter('filterize', function() {
         // map filter keys from columns to object
         switch (filterOnKey.toLowerCase()) {
           case "rank":
-            filterKeyMapped = "rank";
+            filterKeyMapped = "ranking";
             break;
           case "team":
             filterKeyMapped = "team";

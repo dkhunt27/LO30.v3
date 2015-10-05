@@ -9,7 +9,8 @@ lo30NgApp.controller('gamesResultsController',
     'alertService',
     'dataServiceGameOutcomes',
     'dataServiceForWebTeamStandings',
-    function ($scope, $timeout, $routeParams, alertService, dataServiceGameOutcomes, dataServiceForWebTeamStandings) {
+    'constCurrentSeasonId',
+    function ($scope, $timeout, $routeParams, alertService, dataServiceGameOutcomes, dataServiceForWebTeamStandings, constCurrentSeasonId) {
 
       $scope.sortAscFirst = function (column) {
         if ($scope.sortOn === column) {
@@ -44,7 +45,7 @@ lo30NgApp.controller('gamesResultsController',
         $scope.data = {
           selectedSeasonId: -1,
           selectedPlayoffs: false,
-          selectedSeasonTeamId: -1,
+          selectedTeamId: -1,
           game: {},
           gameOutcomes: [],
           teamStandings: [],
@@ -60,16 +61,16 @@ lo30NgApp.controller('gamesResultsController',
         };
       };
 
-      $scope.getGameOutcomes = function (seasonId, playoffs, seasonTeamId) {
+      $scope.getGameOutcomes = function (seasonId, playoffs, teamId) {
         var retrievedType = "GameOutcomes";
 
         var fullDetail = true;
-        dataServiceGameOutcomes.listGameOutcomesBySeasonTeamId(seasonId, playoffs, seasonTeamId, fullDetail).$promise.then(
+        dataServiceGameOutcomes.listGameOutcomesByTeamId(seasonId, playoffs, teamId).$promise.then(
           function (result) {
             if (result && result.length && result.length > 0) {
 
               angular.forEach(result, function (item) {
-                item.gameTeam.game.gameDate = moment(item.gameTeam.game.gameYYYYMMDD, "YYYYMMDD");
+                item.game.gameDate = moment(item.game.gameYYYYMMDD, "YYYYMMDD");
                 $scope.data.gameOutcomes.push(item);
               });
 
@@ -87,7 +88,7 @@ lo30NgApp.controller('gamesResultsController',
         );
       };
 
-      $scope.getForWebTeamStandings = function (seasonId, playoffs, seasonTeamId) {
+      $scope.getForWebTeamStandings = function (seasonId, playoffs, teamId) {
         var retrievedType = "ForWebTeamStandings";
 
         dataServiceForWebTeamStandings.listForWebTeamStandings(seasonId, playoffs).$promise.then(
@@ -96,7 +97,7 @@ lo30NgApp.controller('gamesResultsController',
             if (result && result.length && result.length > 0) {
 
               angular.forEach(result, function (item) {
-                if (item.stid.toString() === seasonTeamId) {
+                if (item.tid.toString() === teamId) {
                   $scope.data.teamStandings.push(item);
                 }
               });
@@ -143,17 +144,17 @@ lo30NgApp.controller('gamesResultsController',
 
         //TODO make this a user selection
         if ($routeParams.seasonId === null) {
-          $scope.data.selectedSeasonId = 54;
+          $scope.data.selectedSeasonId = constCurrentSeasonId;
           $scope.data.selectedPlayoffs = false;
-          $scope.data.selectedSeasonTeamId = 308;
+          $scope.data.selectedTeamId = 308;
         } else {
           $scope.data.selectedSeasonId = $routeParams.seasonId;
           $scope.data.selectedPlayoffs = $routeParams.playoffs;
-          $scope.data.selectedSeasonTeamId = $routeParams.seasonTeamId;
+          $scope.data.selectedTeamId = $routeParams.teamId;
         }
 
-        $scope.getGameOutcomes($scope.data.selectedSeasonId, $scope.data.selectedPlayoffs, $scope.data.selectedSeasonTeamId);
-        $scope.getForWebTeamStandings($scope.data.selectedSeasonId, $scope.data.selectedPlayoffs, $scope.data.selectedSeasonTeamId);
+        $scope.getGameOutcomes($scope.data.selectedSeasonId, $scope.data.selectedPlayoffs, $scope.data.selectedTeamId);
+        $scope.getForWebTeamStandings($scope.data.selectedSeasonId, $scope.data.selectedPlayoffs, $scope.data.selectedTeamId);
         $scope.getForWebTeamStandingsGoodThru($scope.data.selectedSeasonId);
 
         $timeout(function () {

@@ -13,16 +13,26 @@ namespace LO30.Controllers.Data.Games
     {
     }
 
-    //public GameRoster GetByGameRosterId(int gameRosterId)
-    //{
-    //  var result = _repo.GetGameRosterByGameRosterId(gameRosterId);
-    //  return result;
-    //}
+    public GameRoster GetByGameRosterId(int gameRosterId)
+    {
+      var results = new GameRoster();
 
-    //public GameRoster GetGameRosterByGameTeamIdAndPlayerNumber(int gameTeamId, string playerNumber)
-    //{
-    //  var result = _repo.GetGameRosterByGameTeamIdAndPlayerNumber(gameTeamId, playerNumber);
-    //  return result;
-    //}
+      using (var context = new LO30Context())
+      {
+        results = context.GameRosters.Where(x => x.GameRosterId == gameRosterId).FirstOrDefault();
+      }
+      return results;
+    }
+
+    public GameRoster GetGameRosterByGameIdTeamIdAndPlayerNumber(int gameId, int teamId, string playerNumber)
+    {
+      var results = new GameRoster();
+
+      using (var context = new LO30Context())
+      {
+        results = context.GameRosters.Where(x=>x.GameId == gameId && x.TeamId == teamId && x.PlayerNumber == playerNumber).FirstOrDefault();
+      }
+      return results;
+    }
   }
 }

@@ -102,25 +102,25 @@ namespace LO30
       #region gameOutcome(s) routes
       config.Routes.MapHttpRoute(
           name: "ApiGameOutcomes",
-          routeTemplate: constApisUrl + "/gameOutcomes/{fullDetail}",
+          routeTemplate: constApisUrl + "/gameOutcomes",
           defaults: new { controller = "GameOutcomes" }
       );
 
       config.Routes.MapHttpRoute(
           name: "ApiGameOutcomes2",
-          routeTemplate: constApisUrl + "/gameOutcomes/{gameId}/{fullDetail}",
+          routeTemplate: constApisUrl + "/gameOutcomes/{gameId}",
           defaults: new { controller = "GameOutcomes" }
       );
 
       config.Routes.MapHttpRoute(
           name: "ApiGameOutcomes3",
-          routeTemplate: constApisUrl + "/gameOutcomesBySeasonTeam/{seasonId}/{playoffs}/{seasonTeamId}/{fullDetail}",
-          defaults: new { controller = "GameOutcomesBySeasonTeam" }
+          routeTemplate: constApisUrl + "/gameOutcomesByTeam/{seasonId}/{playoffs}/{teamId}",
+          defaults: new { controller = "GameOutcomesByTeam" }
       );
 
       config.Routes.MapHttpRoute(
           name: "ApiGameOutcome",
-          routeTemplate: constApisUrl + "/gameOutcome/{gameId}/{homeTeam}/{fullDetail}",
+          routeTemplate: constApisUrl + "/gameOutcome/{gameId}/{homeTeam}",
           defaults: new { controller = "GameOutcome" }
       );
       #endregion
@@ -181,17 +181,17 @@ namespace LO30
       );
       #endregion
 
-      #region goalieStat(s)SeasonTeam routes
+      #region goalieStat(s)Team routes
       config.Routes.MapHttpRoute(
-          name: "ApiGoalieStatsSeasonTeam",
-          routeTemplate: constApisUrl + "/goalieStatsSeasonTeam/{playerId}/{seasonId}",
-          defaults: new { controller = "GoalieStatsSeasonTeam", playerId = RouteParameter.Optional, seasonId = RouteParameter.Optional }
+          name: "ApiGoalieStatsTeam",
+          routeTemplate: constApisUrl + "/goalieStatsTeam/{playerId}/{seasonId}",
+          defaults: new { controller = "GoalieStatsTeam", playerId = RouteParameter.Optional, seasonId = RouteParameter.Optional }
       );
 
       config.Routes.MapHttpRoute(
-          name: "ApiGoalieStatSeasonTeam",
-          routeTemplate: constApisUrl + "/goalieStatSeasonTeam/{playerId}/{seasonTeamId}",
-          defaults: new { controller = "GoalieStatSeasonTeam" }
+          name: "ApiGoalieStatTeam",
+          routeTemplate: constApisUrl + "/goalieStatTeam/{playerId}/{teamId}",
+          defaults: new { controller = "GoalieStatTeam" }
       );
       #endregion
 
@@ -257,17 +257,17 @@ namespace LO30
       );
       #endregion
 
-      #region playerStat(s)SeasonTeam routes
+      #region playerStat(s)Team routes
       config.Routes.MapHttpRoute(
-          name: "ApiPlayerStatsSeasonTeam",
-          routeTemplate: constApisUrl + "/playerStatsSeasonTeam/{playerId}/{seasonId}",
-          defaults: new { controller = "PlayerStatsSeasonTeam", playerId = RouteParameter.Optional, seasonId = RouteParameter.Optional }
+          name: "ApiPlayerStatsTeam",
+          routeTemplate: constApisUrl + "/playerStatsTeam/{playerId}/{seasonId}",
+          defaults: new { controller = "PlayerStatsTeam", playerId = RouteParameter.Optional, seasonId = RouteParameter.Optional }
       );
 
       config.Routes.MapHttpRoute(
-          name: "ApiPlayerStatSeasonTeam",
-          routeTemplate: constApisUrl + "/playerStatSeasonTeam/{playerId}/{seasonTeamId}",
-          defaults: new { controller = "PlayerStatSeasonTeam" }
+          name: "ApiPlayerStatTeam",
+          routeTemplate: constApisUrl + "/playerStatTeam/{playerId}/{teamId}",
+          defaults: new { controller = "PlayerStatTeam" }
       );
       #endregion
 
@@ -324,13 +324,13 @@ namespace LO30
       #region teamRoster(s) routes
       config.Routes.MapHttpRoute(
           name: "ApiTeamRosters",
-          routeTemplate: constApisUrl + "/teamRosters/{seasonTeamId}/{yyyymmdd}",
-          defaults: new { controller = "TeamRosters", seasonTeamId = RouteParameter.Optional, yyyymmdd = RouteParameter.Optional }
+          routeTemplate: constApisUrl + "/teamRosters/{teamId}/{yyyymmdd}",
+          defaults: new { controller = "TeamRosters", teamId = RouteParameter.Optional, yyyymmdd = RouteParameter.Optional }
       );
 
       config.Routes.MapHttpRoute(
           name: "ApiTeamRoster",
-          routeTemplate: constApisUrl + "/teamRoster/{seasonTeamId}/{yyyymmdd}/{playerId}",
+          routeTemplate: constApisUrl + "/teamRoster/{teamId}/{yyyymmdd}/{playerId}",
           defaults: new { controller = "TeamRosters" }
       );
       #endregion

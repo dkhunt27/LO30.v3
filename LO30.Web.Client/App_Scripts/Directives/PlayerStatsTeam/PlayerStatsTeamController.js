@@ -1,13 +1,13 @@
 ﻿'use strict';
 
 /* jshint -W117 */ //(remove the undefined warning)
-lo30NgApp.controller('lo30GoalieStatsSeasonTeamController',
+lo30NgApp.controller('lo30PlayerStatsTeamController',
   [
     '$scope',
     'alertService',
     'externalLibService',
-    'dataServiceGoalieStatsSeasonTeam',
-    function ($scope, alertService, externalLibService, dataServiceGoalieStatsSeasonTeam) {
+    'dataServicePlayerStatsTeam',
+    function ($scope, alertService, externalLibService, dataServicePlayerStatsTeam) {
       var _ = externalLibService._;
 
       $scope.sortAscFirst = function (column) {
@@ -41,40 +41,40 @@ lo30NgApp.controller('lo30GoalieStatsSeasonTeamController',
       $scope.initializeScopeVariables = function () {
 
         $scope.data = {
-          goalieStatsSeasonTeam: []
+          playerStatsTeam: []
         };
 
         $scope.events = {
-          goalieStatsSeasonTeamProcessing: false,
-          goalieStatsSeasonTeamProcessed: false,
+          playerStatsTeamProcessing: false,
+          playerStatsTeamProcessed: false,
         };
 
         $scope.user = {
         };
       };
 
-      $scope.getGoalieStatsSeasonTeam = function (playerId, playoffs) {
-        var retrievedType = "GoalieStatsSeasonTeam";
+      $scope.getPlayerStatsTeam = function (playerId, playoffs) {
+        var retrievedType = "PlayerStatsTeam";
 
-        $scope.events.goalieStatsSeasonTeamProcessing = true;
-        $scope.events.goalieStatsSeasonTeamProcessed = false;
-        $scope.data.goalieStatsSeasonTeam = [];
+        $scope.events.playerStatsTeamProcessing = true;
+        $scope.events.playerStatsTeamProcessed = false;
+        $scope.data.playerStatsTeam = [];
 
-        dataServiceGoalieStatsSeasonTeam.listByPlayerId(playerId).$promise.then(
+        dataServicePlayerStatsTeam.listByPlayerId(playerId).$promise.then(
           function (result) {
             // service call on success
             if (result && result.length && result.length > 0) {
 
               angular.forEach(result, function (item, index) {
                 if (item.playoffs === playoffs) {
-                  $scope.data.goalieStatsSeasonTeam.push(item);
+                  $scope.data.playerStatsTeam.push(item);
                 }
               });
 
-              $scope.events.goalieStatsSeasonTeamProcessing = false;
-              $scope.events.goalieStatsSeasonTeamProcessed = true;
+              $scope.events.playerStatsTeamProcessing = false;
+              $scope.events.playerStatsTeamProcessed = true;
 
-              alertService.successRetrieval(retrievedType, $scope.data.goalieStatsSeasonTeam.length);
+              alertService.successRetrieval(retrievedType, $scope.data.playerStatsTeam.length);
             } else {
               // results not successful
               alertService.errorRetrieval(retrievedType, result.reason);
@@ -89,7 +89,7 @@ lo30NgApp.controller('lo30GoalieStatsSeasonTeamController',
       $scope.activate = function () {
         $scope.initializeScopeVariables();
         $scope.setWatches();
-        $scope.getGoalieStatsSeasonTeam($scope.playerId, $scope.playoffs);
+        $scope.getPlayerStatsTeam($scope.playerId, $scope.playoffs);
       };
 
       $scope.activate();

@@ -13,25 +13,32 @@ namespace LO30.Controllers.Data.Games
     {
     }
 
-    //public List<GameScore> GetGameScores(bool fullDetail = true)
-    //{
-    //  var results = _repo.GetGameScores(fullDetail);
-    //  return results.OrderByDescending(x => x.GameScoreId)
-    //                .ToList();
-    //}
+    public List<GameScore> GetGameScores(bool fullDetail = true)
+    {
+      var results = new List<GameScore>();
 
-    //public List<GameScore> GetGameScoresByGameId(int gameId, bool fullDetail = true)
-    //{
-    //  var results = _repo.GetGameScoresByGameId(gameId, fullDetail);
-    //  return results.OrderByDescending(x => x.GameTeam.GameId)
-    //                .ToList();
-    //}
+      using (var context = new LO30Context())
+      {
+        results = context.GameScores.ToList();
+      }
+      return results.OrderByDescending(x => x.GameId)
+                    .ThenBy(x=>x.Period)
+                    .ThenBy(x=>x.TeamId)
+                    .ToList();
+    }
 
-    //public List<GameScore> GetGameScoresByGameIdAndHomeTeam(int gameId, bool homeTeam, bool fullDetail = true)
-    //{
-    //  var results = _repo.GetGameScoresByGameIdAndHomeTeam(gameId, homeTeam, fullDetail);
-    //  return results.OrderByDescending(x => x.GameTeam.GameId)
-    //                .ToList();
-    //}
+    public List<GameScore> GetGameScoresByGameId(int gameId, bool fullDetail = true)
+    {
+      var results = new List<GameScore>();
+
+      using (var context = new LO30Context())
+      {
+        results = context.GameScores.Where(x=>x.GameId == gameId).ToList();
+      }
+      return results.OrderByDescending(x => x.GameId)
+                    .ThenBy(x => x.Period)
+                    .ThenBy(x => x.TeamId)
+                    .ToList();
+    }
   }
 }

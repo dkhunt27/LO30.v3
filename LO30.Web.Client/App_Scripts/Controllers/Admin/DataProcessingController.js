@@ -5,10 +5,11 @@ lo30NgApp.controller('adminDataProcessingController',
   [
     '$scope',
     'adminDataProcessingService',
-    function ($scope, adminDataProcessingService) {
+    'constCurrentSeasonId',
+    function ($scope, adminDataProcessingService, constCurrentSeasonId) {
       $scope.dataModel = {
         action: "n/a",
-        seasonId: 54,
+        seasonId: constCurrentSeasonId,
         playoff: false,
         startingGameId: 3200,
         endingGameId: 3261

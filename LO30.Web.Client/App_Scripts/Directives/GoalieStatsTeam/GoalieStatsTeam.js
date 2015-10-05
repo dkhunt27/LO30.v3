@@ -1,17 +1,17 @@
 ﻿'use strict';
 
 /* jshint -W117 */ //(remove the undefined warning)
-lo30NgApp.directive('lo30GoalieStatsSeasonTeam',
+lo30NgApp.directive('lo30GoalieStatsTeam',
   [
     function () {
       return {
         restrict: 'E',
-        templateUrl: "/Templates/Directives/GoalieStatsSeasonTeam.html",
+        templateUrl: "/Templates/Directives/GoalieStatsTeam.html",
         scope: {
           "playerId": "=",
           "playoffs": "="
         },
-        controller: "lo30GoalieStatsSeasonTeamController",
+        controller: "lo30GoalieStatsTeamController",
         link: function (scope, element, attrs, controller) {
         }
       };

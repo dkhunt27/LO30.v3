@@ -6,7 +6,7 @@ namespace LO30.Data.Extensions
 {
   public static partial class ExtensionIncludeAll
   {
-    public static IQueryable<ScoreSheetEntryProcessedPenalty> IncludeAll(this IQueryable<ScoreSheetEntryProcessedPenalty> query)
+    public static IQueryable<GameOutcome> IncludeAll(this IQueryable<GameOutcome> query)
     {
       return query
         .Include("Season")
@@ -17,7 +17,11 @@ namespace LO30.Data.Extensions
         .Include("Team.Division")
         .Include("Game")
         .Include("Game.Season")
-        .Include("Player")
+        .Include("OpponentTeam")
+        .Include("OpponentTeam.Season")
+        .Include("OpponentTeam.Coach")
+        .Include("OpponentTeam.Sponsor")
+        .Include("OpponentTeam.Division")
         ;
     }
   }

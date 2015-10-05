@@ -110,13 +110,16 @@ BEGIN TRY
 		gs1.Score as GoalsFor,
 		gs2.Score as GoalsAgainst,
 		case when gp.PIM is null then 0 else gp.PIM end as PenaltyMinutes,
-		sub.Subs,
+		case when sub.Subs is null then 0 else sub.Subs end as Subs,
 		0 as Overriden,
 		gt.OpponentTeamId,
 		gt.SeasonId,
 		NULL as BCS
 	FROM
 		GameTeams gt inner join
+		GameScores gs1 on (gt.GameId = gs1.GameId AND gt.TeamId = gs1.TeamId AND gs1.Period = 0) inner join
+		GameScores gs2 on (gt.GameId = gs2.GameId AND gt.OpponentTeamId = gs2.TeamId AND gs2.Period = 0) left join
+		#gamePIMs gp on (gt.GameId = gp.GameId AND gt.TeamId = gp.TeamId) left join
 		(SELECT 
 			GameId, 
 			TeamId, 
@@ -127,10 +130,7 @@ BEGIN TRY
 			SubbingForPlayerId is not null 
 		GROUP BY
 			GameId, 
-			TeamId) sub on (gt.GameId = sub.GameId AND gt.TeamId = sub.TeamId) inner join
-		GameScores gs1 on (gt.GameId = gs1.GameId AND gt.TeamId = gs1.TeamId AND gs1.Period = 0) inner join
-		GameScores gs2 on (gt.GameId = gs2.GameId AND gt.OpponentTeamId = gs2.TeamId AND gs2.Period = 0) left join
-		#gamePIMs gp on (gt.GameId = gp.GameId AND gt.TeamId = gp.TeamId)
+			TeamId) sub on (gt.GameId = sub.GameId AND gt.TeamId = sub.TeamId)
 	ORDER BY
 		gt.GameId,
 		gt.TeamId

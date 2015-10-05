@@ -59,6 +59,7 @@
     <Compile Include="Contexts\LO30ContextSeed.cs" />
     <Compile Include="Contexts\LO30ContextSeedInitializer.cs" />
     <Compile Include="Contexts\LO30MigrationsConfiguration.cs" />
+    <Compile Include="Extensions\ExtensionIncludeAll .GameOutcomes.cs" />
     <Compile Include="Extensions\ExtensionIncludeAll .GameTeams.cs" />
     <Compile Include="Extensions\ExtensionIncludeAll .Teams.cs" />
     <Compile Include="Extensions\ExtensionIncludeAll .ScoreSheetEntryProcessedPenalty.cs" />

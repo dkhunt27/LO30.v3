@@ -8,7 +8,8 @@ lo30NgApp.controller('statsPlayersController',
     '$routeParams',
     'alertService',
     'dataServiceForWebPlayerStats',
-    function ($scope, $timeout, $routeParams, alertService, dataServiceForWebPlayerStats) {
+    'constCurrentSeasonId',
+    function ($scope, $timeout, $routeParams, alertService, dataServiceForWebPlayerStats, constCurrentSeasonId) {
 
       var alertTitleDataRetrievalSuccessful = "Data Retrieval Successful";
       var alertTitleDataRetrievalUnsuccessful = "Data Retrieval Unsuccessful";
@@ -319,7 +320,7 @@ lo30NgApp.controller('statsPlayersController',
 
         //TODO make this a user selection
         if ($routeParams.seasonId === null) {
-          $scope.data.selectedSeasonId = 54;
+          $scope.data.selectedSeasonId = constCurrentSeasonId;
           $scope.data.selectedPlayoffs = false;
         } else {
           $scope.data.selectedSeasonId = $routeParams.seasonId;
@@ -333,8 +334,8 @@ lo30NgApp.controller('statsPlayersController',
           $scope.data.seasonTypeName = "Regular Season";
         }
 
-        if ($scope.data.selectedSeasonId == "54") {
-          $scope.data.seasonName = "2014 - 2105";
+        if ($scope.data.selectedSeasonId == constCurrentSeasonId.toString()) {
+          $scope.data.seasonName = "2015 - 2016";
         } else {
           $scope.data.seasonName = "not mapped";
         }

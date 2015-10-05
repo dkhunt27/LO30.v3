@@ -13,7 +13,7 @@
           <td class="pointer text-right" ng-class="{'td-sorted-by':sortOn === 'shutouts'}" ng-click="sortDescOnly('shutouts')">SO</td>
       </thead>
       <tbody>
-        <tr ng-repeat="item in data.goalieStatsSeasonTeam | orderBy:sortOn:sortDirection">
+        <tr ng-repeat="item in data.goalieStatsTeam | orderBy:sortOn:sortDirection">
           <td ng-class="{'td-sorted-by':sortOn === 'season.seasonName' }">{{item.season.seasonName}}</td>
           <td ng-class="{'td-sorted-by':sortOn === 'seasonTeam.team.teamShortName' }">{{item.seasonTeam.team.teamShortName}}{{item.sub == true ? "*" : ""}}</td>
           <td ng-class="{'td-sorted-by':sortOn === 'playoffs' }">{{item.playoffs}}</td>

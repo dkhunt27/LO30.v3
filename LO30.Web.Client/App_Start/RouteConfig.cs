@@ -15,7 +15,7 @@ namespace LO30
 
             routes.MapRoute(
                 name: "Schedule",
-                url: "Schedule/TeamFeed/{seasonId}/{seasonTeamId}/{playoffs}",
+                url: "Schedule/TeamFeed/{seasonId}/{teamId}/{playoffs}",
                 defaults: new { controller = "Schedule", action = "TeamFeed" }
 
             );

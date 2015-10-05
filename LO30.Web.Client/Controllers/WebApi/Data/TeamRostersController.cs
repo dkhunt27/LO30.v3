@@ -47,7 +47,7 @@ namespace LO30.Controllers.Data
                     .ToList();
     }
 
-    public TeamRoster GetTeamRosterBySeasonTeamIdYYYYMMDDAndPlayerId(int teamId, int yyyymmdd, int playerId)
+    public TeamRoster GetTeamRosterByTeamIdYYYYMMDDAndPlayerId(int teamId, int yyyymmdd, int playerId)
     {
       var results = new TeamRoster();
 
