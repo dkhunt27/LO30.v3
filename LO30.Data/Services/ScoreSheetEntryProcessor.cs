@@ -13,13 +13,13 @@ namespace LO30.Data.Services
     TimeSpan _diffFromFirst = new TimeSpan();
     TimeSpan _diffFromLast = new TimeSpan();
 
-    private LogService _logger;
+    //private LogService _logger;
     private LO30Context _context;
     private TimeService _timeService;
 
     public ScoreSheetEntryProcessor(LogService logger, LO30Context context)
     {
-      _logger = logger;
+      //_logger = logger;
       _context = context;
       _timeService = new TimeService();
     }
@@ -535,14 +535,14 @@ namespace LO30.Data.Services
                         .ToList();
         var penalties = _context.Penalties.ToList();
 
-        _logger.Write("ProcessScoreSheetEntryPenalties: scoreSheetEntryPenalties.Count: " + scoreSheetEntryPenalties.Count);
+        //_logger.Write("ProcessScoreSheetEntryPenalties: scoreSheetEntryPenalties.Count: " + scoreSheetEntryPenalties.Count);
 
         var scoreSheetEntryPenaltiesProcessed = DeriveScoreSheetEntryProcessedPenalties(scoreSheetEntryPenalties, gameTeams, gameRosters, penalties);
 
         _context.ScoreSheetEntryProcessedPenalties.AddRange(scoreSheetEntryPenaltiesProcessed);
         var modified = _context.SaveChanges();
 
-        _logger.Write("ProcessScoreSheetEntryPenalties: SaveOrUpdateScoreSheetEntryPenaltyProcessed: " + modified);
+        //_logger.Write("ProcessScoreSheetEntryPenalties: SaveOrUpdateScoreSheetEntryPenaltyProcessed: " + modified);
 
         // AUDIT ScoreSheetEntries and ScoreSheetEntriesProcessed should have same ids 
         var inputs = _context.ScoreSheetEntryPenalties.Where(x => x.GameId >= startingGameId && x.GameId <= endingGameId).ToList();
@@ -570,7 +570,7 @@ namespace LO30.Data.Services
         result.modified = -2;
         result.error = ex.Message;
 
-        _logger.Write(ex);
+        //_logger.Write(ex);
         //ErrorHandlingService.PrintFullErrorMessage(ex);
       }
 
@@ -627,7 +627,7 @@ namespace LO30.Data.Services
         result.modified = -2;
         result.error = ex.Message;
 
-        _logger.Write(ex);
+        //_logger.Write(ex);
         //ErrorHandlingService.PrintFullErrorMessage(ex);
       }
 
@@ -660,7 +660,7 @@ namespace LO30.Data.Services
         result.modified = -2;
         result.error = ex.Message;
 
-        _logger.Write(ex);
+        //_logger.Write(ex);
         //ErrorHandlingService.PrintFullErrorMessage(ex);
       }
 
@@ -717,7 +717,7 @@ namespace LO30.Data.Services
         result.modified = -2;
         result.error = ex.Message;
 
-        _logger.Write(ex);
+        //_logger.Write(ex);
         //ErrorHandlingService.PrintFullErrorMessage(ex);
       }
 
@@ -894,7 +894,7 @@ namespace LO30.Data.Services
           #endregion
         }
 
-        _logger.Write("ProcessScoreSheetEntriesIntoGameResults: savedGameOutcomes:" + modifiedCount);
+        //_logger.Write("ProcessScoreSheetEntriesIntoGameResults: savedGameOutcomes:" + modifiedCount);
 
         result.modified = modifiedCount;
       }
@@ -903,7 +903,7 @@ namespace LO30.Data.Services
         result.modified = -2;
         result.error = ex.Message;
 
-        _logger.Write(ex);
+        //_logger.Write(ex);
       }
 
       diffFromLast = DateTime.Now - last;

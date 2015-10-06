@@ -4,6 +4,7 @@ using LO30.Data.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using LO30.Data.Extensions;
 
 namespace LO30.Controllers.Data.Players
 {
@@ -13,12 +14,19 @@ namespace LO30.Controllers.Data.Players
     {
     }
 
-    //public List<Player> GetPlayers()
-    //{
-    //  var results = _repo.GetPlayers();
-    //  return results.OrderBy(x => x.LastName)
-    //                .OrderBy(x => x.FirstName)
-    //                .ToList();
-    //}
+    public List<Player> GetPlayers()
+    {
+      var results = new List<Player>();
+
+      using (var context = new LO30Context())
+      {
+        results = context.Players
+                          .IncludeAll()
+                          .ToList();
+      }
+      return results.OrderBy(x => x.LastName)
+               .ThenBy(x => x.FirstName)
+               .ToList();
+    }
   }
 }

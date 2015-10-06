@@ -22,10 +22,10 @@
             <div class="col-xs-offset-1">
               <span ng-show="item.powerPlayGoal"><strong>PP</strong> </span>
               <span ng-show="item.shortHandedGoal"><strong>SH</strong> </span>
-              <span>{{item.gameTeam.seasonTeam.team.teamShortName}} @ {{item.timeRemaining}} - <a ng-href="/Ng/#/Players/Player/{{item.goalPlayer.playerId}}">{{item.goalPlayer.firstName}} {{item.goalPlayer.lastName}}</a></span>
-              <span ng-show="item.assist1Player"> from <a ng-href="/Ng/#/Players/Player/{{item.assist1Player.playerId}}">{{item.assist1Player.firstName}} {{item.assist1Player.lastName}}</a></span>
-              <span ng-show="item.assist2Player"> and <a ng-href="/Ng/#/Players/Player/{{item.assist2Player.playerId}}">{{item.assist2Player.firstName}} {{item.assist2Player.lastName}}</a></span>
-              <span ng-show="item.assist3Player"> and <a ng-href="/Ng/#/Players/Player/{{item.assist3Player.playerId}}">{{item.assist3Player.firstName}} {{item.assist3Player.lastName}}</a></span>
+              <span>{{item.team.teamNameShort}} @ {{item.timeRemaining}} - <a ng-href="/Ng/#/Players/Player/{{item.goalPlayer.playerId}}/{{item.team.seasonId}}">{{item.goalPlayer.firstName}} {{item.goalPlayer.lastName}}</a></span>
+              <span ng-show="item.assist1Player"> from <a ng-href="/Ng/#/Players/Player/{{item.assist1Player.playerId}}/{{item.team.seasonId}}">{{item.assist1Player.firstName}} {{item.assist1Player.lastName}}</a></span>
+              <span ng-show="item.assist2Player"> and <a ng-href="/Ng/#/Players/Player/{{item.assist2Player.playerId}}/{{item.team.seasonId}}">{{item.assist2Player.firstName}} {{item.assist2Player.lastName}}</a></span>
+              <span ng-show="item.assist3Player"> and <a ng-href="/Ng/#/Players/Player/{{item.assist3Player.playerId}}/{{item.team.seasonId}}">{{item.assist3Player.firstName}} {{item.assist3Player.lastName}}</a></span>
             </div>
           </div>
         </div>
@@ -48,7 +48,7 @@
         <div ng-repeat="item in data.scoreSheetEntryPenalties1st | orderBy:'timeElapsed':data.timeElapsedSortBy">
           <div class="row">
             <div class="col-xs-offset-1">
-              <span>{{item.gameTeam.seasonTeam.team.teamShortName}} @ {{item.timeRemaining}} - <a ng-href="/Ng/#/Players/Player/{{item.player.playerId}}">{{item.player.firstName}} {{item.player.lastName}}</a> {{item.penaltyMinutes}} minutes for {{item.penalty.penaltyName}}</span>
+              <span>{{item.team.teamNameShort}} @ {{item.timeRemaining}} - <a ng-href="/Ng/#/Players/Player/{{item.player.playerId}}/{{item.team.seasonId}}">{{item.player.firstName}} {{item.player.lastName}}</a> {{item.penaltyMinutes}} minutes for {{item.penalty.penaltyName}}</span>
             </div>
           </div>
         </div>
@@ -80,10 +80,10 @@
             <div class="col-xs-offset-1">
               <span ng-show="item.powerPlayGoal"><strong>PP</strong> </span>
               <span ng-show="item.shortHandedGoal"><strong>SH</strong> </span>
-              <span>{{item.gameTeam.seasonTeam.team.teamShortName}} @ {{item.timeRemaining}} - <a ng-href="/Ng/#/Players/Player/{{item.goalPlayer.playerId}}">{{item.goalPlayer.firstName}} {{item.goalPlayer.lastName}}</a></span>
-              <span ng-show="item.assist1Player"> from <a ng-href="/Ng/#/Players/Player/{{item.assist1Player.playerId}}">{{item.assist1Player.firstName}} {{item.assist1Player.lastName}}</a></span>
-              <span ng-show="item.assist2Player"> and <a ng-href="/Ng/#/Players/Player/{{item.assist2Player.playerId}}">{{item.assist2Player.firstName}} {{item.assist2Player.lastName}}</a></span>
-              <span ng-show="item.assist3Player"> and <a ng-href="/Ng/#/Players/Player/{{item.assist3Player.playerId}}">{{item.assist3Player.firstName}} {{item.assist3Player.lastName}}</a></span>
+              <span>{{item.team.teamShortName}} @ {{item.timeRemaining}} - <a ng-href="/Ng/#/Players/Player/{{item.goalPlayer.playerId}}/{{item.team.seasonId}}">{{item.goalPlayer.firstName}} {{item.goalPlayer.lastName}}</a></span>
+              <span ng-show="item.assist1Player"> from <a ng-href="/Ng/#/Players/Player/{{item.assist1Player.playerId}}/{{item.team.seasonId}}">{{item.assist1Player.firstName}} {{item.assist1Player.lastName}}</a></span>
+              <span ng-show="item.assist2Player"> and <a ng-href="/Ng/#/Players/Player/{{item.assist2Player.playerId}}/{{item.team.seasonId}}">{{item.assist2Player.firstName}} {{item.assist2Player.lastName}}</a></span>
+              <span ng-show="item.assist3Player"> and <a ng-href="/Ng/#/Players/Player/{{item.assist3Player.playerId}}/{{item.team.seasonId}}">{{item.assist3Player.firstName}} {{item.assist3Player.lastName}}</a></span>
             </div>
           </div>
         </div>
@@ -106,7 +106,7 @@
         <div ng-repeat="item in data.scoreSheetEntryPenalties2nd | orderBy:'timeElapsed':data.timeElapsedSortBy">
           <div class="row">
             <div class="col-xs-offset-1">
-              <span>{{item.gameTeam.seasonTeam.team.teamShortName}} @ {{item.timeRemaining}} - <a ng-href="/Ng/#/Players/Player/{{item.player.playerId}}">{{item.player.firstName}} {{item.player.lastName}}</a> {{item.penaltyMinutes}} minutes for {{item.penalty.penaltyName}}</span>
+              <span>{{item.team.teamShortName}} @ {{item.timeRemaining}} - <a ng-href="/Ng/#/Players/Player/{{item.player.playerId}}/{{item.team.seasonId}}">{{item.player.firstName}} {{item.player.lastName}}</a> {{item.penaltyMinutes}} minutes for {{item.penalty.penaltyName}}</span>
             </div>
           </div>
         </div>
@@ -137,10 +137,10 @@
             <div class="col-xs-offset-1">
               <span ng-show="item.powerPlayGoal"><strong>PP</strong> </span>
               <span ng-show="item.shortHandedGoal"><strong>SH</strong> </span>
-              <span>{{item.gameTeam.seasonTeam.team.teamShortName}} @ {{item.timeRemaining}} - <a ng-href="/Ng/#/Players/Player/{{item.goalPlayer.playerId}}">{{item.goalPlayer.firstName}} {{item.goalPlayer.lastName}}</a></span>
-              <span ng-show="item.assist1Player"> from <a ng-href="/Ng/#/Players/Player/{{item.assist1Player.playerId}}">{{item.assist1Player.firstName}} {{item.assist1Player.lastName}}</a></span>
-              <span ng-show="item.assist2Player"> and <a ng-href="/Ng/#/Players/Player/{{item.assist2Player.playerId}}">{{item.assist2Player.firstName}} {{item.assist2Player.lastName}}</a></span>
-              <span ng-show="item.assist3Player"> and <a ng-href="/Ng/#/Players/Player/{{item.assist3Player.playerId}}">{{item.assist3Player.firstName}} {{item.assist3Player.lastName}}</a></span>
+              <span>{{item.team.teamShortName}} @ {{item.timeRemaining}} - <a ng-href="/Ng/#/Players/Player/{{item.goalPlayer.playerId}}/{{item.team.seasonId}}">{{item.goalPlayer.firstName}} {{item.goalPlayer.lastName}}</a></span>
+              <span ng-show="item.assist1Player"> from <a ng-href="/Ng/#/Players/Player/{{item.assist1Player.playerId}}/{{item.team.seasonId}}">{{item.assist1Player.firstName}} {{item.assist1Player.lastName}}</a></span>
+              <span ng-show="item.assist2Player"> and <a ng-href="/Ng/#/Players/Player/{{item.assist2Player.playerId}}/{{item.team.seasonId}}">{{item.assist2Player.firstName}} {{item.assist2Player.lastName}}</a></span>
+              <span ng-show="item.assist3Player"> and <a ng-href="/Ng/#/Players/Player/{{item.assist3Player.playerId}}/{{item.team.seasonId}}">{{item.assist3Player.firstName}} {{item.assist3Player.lastName}}</a></span>
             </div>
           </div>
         </div>
@@ -163,7 +163,7 @@
         <div ng-repeat="item in data.scoreSheetEntryPenalties3rd | orderBy:'timeElapsed':data.timeElapsedSortBy">
           <div class="row">
             <div class="col-xs-offset-1">
-              <span>{{item.gameTeam.seasonTeam.team.teamShortName}} @ {{item.timeRemaining}} - <a ng-href="/Ng/#/Players/Player/{{item.player.playerId}}">{{item.player.firstName}} {{item.player.lastName}}</a> {{item.penaltyMinutes}} minutes for {{item.penalty.penaltyName}}</span>
+              <span>{{item.team.teamShortName}} @ {{item.timeRemaining}} - <a ng-href="/Ng/#/Players/Player/{{item.player.playerId}}/{{item.team.seasonId}}">{{item.player.firstName}} {{item.player.lastName}}</a> {{item.penaltyMinutes}} minutes for {{item.penalty.penaltyName}}</span>
             </div>
           </div>
         </div>
@@ -194,10 +194,10 @@
             <div class="col-xs-offset-1">
               <span ng-show="item.powerPlayGoal"><strong>PP</strong> </span>
               <span ng-show="item.shortHandedGoal"><strong>SH</strong> </span>
-              <span>{{item.gameTeam.seasonTeam.team.teamShortName}} @ {{item.timeRemaining}} - <a ng-href="/Ng/#/Players/Player/{{item.goalPlayer.playerId}}">{{item.goalPlayer.firstName}} {{item.goalPlayer.lastName}}</a></span>
-              <span ng-show="item.assist1Player"> from <a ng-href="/Ng/#/Players/Player/{{item.assist1Player.playerId}}">{{item.assist1Player.firstName}} {{item.assist1Player.lastName}}</a></span>
-              <span ng-show="item.assist2Player"> and <a ng-href="/Ng/#/Players/Player/{{item.assist2Player.playerId}}">{{item.assist2Player.firstName}} {{item.assist2Player.lastName}}</a></span>
-              <span ng-show="item.assist3Player"> and <a ng-href="/Ng/#/Players/Player/{{item.assist3Player.playerId}}">{{item.assist3Player.firstName}} {{item.assist3Player.lastName}}</a></span>
+              <span>{{item.team.teamShortName}} @ {{item.timeRemaining}} - <a ng-href="/Ng/#/Players/Player/{{item.goalPlayer.playerId}}/{{item.team.seasonId}}">{{item.goalPlayer.firstName}} {{item.goalPlayer.lastName}}</a></span>
+              <span ng-show="item.assist1Player"> from <a ng-href="/Ng/#/Players/Player/{{item.assist1Player.playerId}}/{{item.team.seasonId}}">{{item.assist1Player.firstName}} {{item.assist1Player.lastName}}</a></span>
+              <span ng-show="item.assist2Player"> and <a ng-href="/Ng/#/Players/Player/{{item.assist2Player.playerId}}/{{item.team.seasonId}}">{{item.assist2Player.firstName}} {{item.assist2Player.lastName}}</a></span>
+              <span ng-show="item.assist3Player"> and <a ng-href="/Ng/#/Players/Player/{{item.assist3Player.playerId}}/{{item.team.seasonId}}">{{item.assist3Player.firstName}} {{item.assist3Player.lastName}}</a></span>
             </div>
           </div>
         </div>
@@ -220,7 +220,7 @@
         <div ng-repeat="item in data.scoreSheetEntryPenaltiesOT | orderBy:'timeElapsed':data.timeElapsedSortBy">
           <div class="row">
             <div class="col-xs-offset-1">
-              <span>{{item.gameTeam.seasonTeam.team.teamShortName}} @ {{item.timeRemaining}} - <a ng-href="/Ng/#/Players/Player/{{item.player.playerId}}">{{item.player.firstName}} {{item.player.lastName}}</a> {{item.penaltyMinutes}} minutes for {{item.penalty.penaltyName}}</span>
+              <span>{{item.team.teamNameShort}} @ {{item.timeRemaining}} - <a ng-href="/Ng/#/Players/Player/{{item.player.playerId}}/{{item.team.seasonId}}">{{item.player.firstName}} {{item.player.lastName}}</a> {{item.penaltyMinutes}} minutes for {{item.penalty.penaltyName}}</span>
             </div>
           </div>
         </div>
@@ -235,19 +235,19 @@
     <div ng-show="data.goalieStatsGameWinner.playerId !== -1">
       <div class="row">
         <div class="col-xs-offset-1">
-          <span>{{data.goalieStatsGameWinner.seasonTeam.team.teamShortName}}: <a ng-href="/Ng/#/Players/Goalie/{{data.goalieStatsGameWinner.playerId}}">{{data.goalieStatsGameWinner.player.firstName}} {{data.goalieStatsGameWinner.player.lastName}}</a> <b>Won</b></span>
+          <span>{{data.goalieStatsGameWinner.team.teamNameShort}}: <a ng-href="/Ng/#/Players/Goalie/{{data.goalieStatsGameWinner.playerId}}/{{item.team.seasonId}}">{{data.goalieStatsGameWinner.player.firstName}} {{data.goalieStatsGameWinner.player.lastName}}</a> <b>Won</b></span>
         </div>
       </div>
       <div class="row">
         <div class="col-xs-offset-1">
-          <span>{{data.goalieStatsGameLoser.seasonTeam.team.teamShortName}}: <a ng-href="/Ng/#/Players/Goalie/{{data.goalieStatsGameLoser.playerId}}">{{data.goalieStatsGameLoser.player.firstName}} {{data.goalieStatsGameLoser.player.lastName}}</a> <b>Lost</b></span>
+          <span>{{data.goalieStatsGameLoser.team.teamNameShort}}: <a ng-href="/Ng/#/Players/Goalie/{{data.goalieStatsGameLoser.playerId}}/{{item.team.seasonId}}">{{data.goalieStatsGameLoser.player.firstName}} {{data.goalieStatsGameLoser.player.lastName}}</a> <b>Lost</b></span>
         </div>
       </div>
     </div>
     <div ng-show="data.goalieStatsGameWinner.playerId === -1">
       <div class="row" ng-repeat="item in data.goalieStatsGame">
         <div class="col-xs-offset-1">
-          <span>{{item.seasonTeam.team.teamShortName}}: <a ng-href="/Ng/#/Players/Goalie/{{item.playerId}}">{{item.player.firstName}} {{item.player.lastName}}</a> <b>Tied</b></span>
+          <span>{{item.team.teamNameShort}}: <a ng-href="/Ng/#/Players/Goalie/{{item.playerId}}/{{item.team.seasonId}}">{{item.player.firstName}} {{item.player.lastName}}</a> <b>Tied</b></span>
         </div>
       </div>
     </div>

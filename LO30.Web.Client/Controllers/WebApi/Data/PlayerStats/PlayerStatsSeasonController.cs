@@ -4,6 +4,7 @@ using LO30.Data.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using LO30.Data.Extensions;
 
 namespace LO30.Controllers.Data.PlayerStats
 {
@@ -13,22 +14,54 @@ namespace LO30.Controllers.Data.PlayerStats
     {
     }
 
-    //public List<PlayerStatSeason> GetPlayerStatsSeason()
-    //{
-    //  var results = _repo.GetPlayerStatsSeason();
-    //  return results.ToList();
-    //}
+    public List<PlayerStatSeason> GetPlayerStatsSeason()
+    {
+      var results = new List<PlayerStatSeason>();
 
-    //public List<PlayerStatSeason> GetPlayerStatsSeasonByPlayerId(int playerId)
-    //{
-    //  var results = _repo.GetPlayerStatsSeasonByPlayerId(playerId);
-    //  return results;
-    //}
+      using (var context = new LO30Context())
+      {
+        results = context.PlayerStatSeasons
+                          .IncludeAll()
+                          .ToList();
+      }
 
-    //public List<PlayerStatSeason> GetPlayerStatsSeasonByPlayerIdSeasonId(int playerId, int seasonId)
-    //{
-    //  var results = _repo.GetPlayerStatsSeasonByPlayerIdSeasonId(playerId, seasonId);
-    //  return results;
-    //}
+      return results.OrderBy(x => x.Player.LastName)
+                    .ThenBy(x => x.Player.FirstName)
+                    .ToList();
+    }
+
+    public List<PlayerStatSeason> GetPlayerStatsSeasonByPlayerId(int playerId)
+    {
+      var results = new List<PlayerStatSeason>();
+
+      using (var context = new LO30Context())
+      {
+        results = context.PlayerStatSeasons
+                          .Where(x => x.PlayerId == playerId)
+                          .IncludeAll()
+                          .ToList();
+      }
+
+      return results.OrderBy(x => x.Player.LastName)
+                    .ThenBy(x => x.Player.FirstName)
+                    .ToList();
+    }
+
+    public List<PlayerStatSeason> GetPlayerStatsSeasonByPlayerIdSeasonId(int playerId, int seasonId)
+    {
+      var results = new List<PlayerStatSeason>();
+
+      using (var context = new LO30Context())
+      {
+        results = context.PlayerStatSeasons
+                          .Where(x => x.PlayerId == playerId && x.SeasonId == seasonId)
+                          .IncludeAll()
+                          .ToList();
+      }
+
+      return results.OrderBy(x => x.Player.LastName)
+                    .ThenBy(x => x.Player.FirstName)
+                    .ToList();
+    }
   }
 }

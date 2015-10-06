@@ -85,7 +85,7 @@ BEGIN TRY
 		t.TeamNameLong,
 		s.Games,
 		s.GoalsAgainst,
-		case when s.Games = 0 then 0 else s.GoalsAgainst / s.Games end,
+		case when s.Games = 0 then 0 else convert(float, s.GoalsAgainst) / convert(float,s.Games) end,
 		s.Shutouts,
 		s.Wins,
 		NULL as BCS

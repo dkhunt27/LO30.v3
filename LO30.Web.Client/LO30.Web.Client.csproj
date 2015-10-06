@@ -282,6 +282,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Scripts\Services\DataServiceScoringByPeriod.js" />
     <Content Include="Content\iCals\2015-16\BillBrown.ics" />
     <Content Include="Content\iCals\2015-16\DAndG.ics" />
     <Content Include="Content\iCals\2015-16\DPKZ.ics" />
@@ -408,6 +409,7 @@
     <Compile Include="Controllers\WebApi\Data\PlayerStats\PlayerStatsCareerController.cs" />
     <Compile Include="Controllers\WebApi\Data\Players\PlayersSubSearchController.cs" />
     <Compile Include="Controllers\WebApi\Data\Players\PlayersController.cs" />
+    <Compile Include="Controllers\WebApi\Data\ScoringByPeriod\ScoringByPeriodController.cs" />
     <Compile Include="Controllers\WebApi\Data\TeamRostersController.cs" />
     <Compile Include="Controllers\WebApi\Data\Games\GameTeamsController.cs" />
     <Compile Include="Controllers\WebApi\Data\Games\GameScoresController.cs" />

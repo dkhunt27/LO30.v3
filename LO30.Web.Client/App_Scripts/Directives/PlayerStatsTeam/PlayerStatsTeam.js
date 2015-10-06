@@ -9,6 +9,7 @@ lo30NgApp.directive('lo30PlayerStatsTeam',
         templateUrl: "/Templates/Directives/PlayerStatsTeam.html",
         scope: {
           "playerId": "=",
+          "seasonId": "=",
           "playoffs": "="
         },
         controller: "lo30PlayerStatsTeamController",

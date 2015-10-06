@@ -13,7 +13,7 @@ namespace LO30.Data.Contexts
 
     public void Seed()
     {
-      var logService = new LogService();
+      //var logService = new LogService();
       /*var aImporter = new AccessImporter(logService, _context);
       aImporter.ImportPlayerStatusTypes();
       aImporter.ImportPenalties();

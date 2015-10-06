@@ -4,6 +4,7 @@ using LO30.Data.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using LO30.Data.Extensions;
 
 namespace LO30.Controllers.Data.PlayerStats
 {
@@ -13,22 +14,51 @@ namespace LO30.Controllers.Data.PlayerStats
     {
     }
 
-    //public List<PlayerStatGame> GetPlayerStatsGame()
-    //{
-    //  var results = _repo.GetPlayerStatsGame();
-    //  return results.ToList();
-    //}
+    public List<PlayerStatGame> GetPlayerStatsGame()
+    {
+      var results = new List<PlayerStatGame>();
 
-    //public List<PlayerStatGame> GetPlayerStatsGameByPlayerId(int playerId)
-    //{
-    //  var results = _repo.GetPlayerStatsGameByPlayerId(playerId);
-    //  return results;
-    //}
+      using (var context = new LO30Context())
+      {
+        results = context.PlayerStatGames
+                          .IncludeAll()
+                          .ToList();
+      }
+      return results.OrderBy(x => x.Player.LastName)
+               .ThenBy(x => x.Player.FirstName)
+               .ToList();
+    }
 
-    //public List<PlayerStatGame> GetPlayerStatsGameByPlayerIdSeasonId(int playerId, int seasonId)
-    //{
-    //  var results = _repo.GetPlayerStatsGameByPlayerIdSeasonId(playerId, seasonId);
-    //  return results;
-    //}
+    public List<PlayerStatGame> GetPlayerStatsGameByPlayerId(int playerId)
+    {
+      var results = new List<PlayerStatGame>();
+
+      using (var context = new LO30Context())
+      {
+        results = context.PlayerStatGames
+                          .Where(x => x.PlayerId == playerId)
+                          .IncludeAll()
+                          .ToList();
+      }
+      return results.OrderBy(x => x.Player.LastName)
+               .ThenBy(x => x.Player.FirstName)
+               .ToList();
+    }
+
+    public List<PlayerStatGame> GetPlayerStatsGameByPlayerIdSeasonId(int playerId, int seasonId)
+    {
+      var results = new List<PlayerStatGame>();
+
+      using (var context = new LO30Context())
+      {
+        results = context.PlayerStatGames
+                          .Where(x => x.PlayerId == playerId && x.SeasonId == seasonId)
+                          .IncludeAll()
+                          .ToList();
+      }
+      return results.OrderBy(x => x.Player.LastName)
+               .ThenBy(x => x.Player.FirstName)
+               .ToList();
+    }
   }
 }

@@ -19,6 +19,14 @@ namespace LO30
 
       var constApisUrl = "api/v3";
 
+      #region scoringByPeriod routes
+      config.Routes.MapHttpRoute(
+          name: "ApiForScoringByPeriod",
+          routeTemplate: constApisUrl + "/scoringByPeriod/{gameId}",
+          defaults: new { controller = "ScoringByPeriod" }
+      );
+      #endregion
+
       #region forWebGoalieStats routes
       config.Routes.MapHttpRoute(
           name: "ApiForWebGoalieStats",

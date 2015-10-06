@@ -12,8 +12,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr ng-repeat="item in data.gameResults | orderBy:homeTeam">
-          <td>{{item.teamShortName}}</td>
+        <tr ng-repeat="item in data.scoringByPeriod | orderBy:homeTeam">
+          <td>{{item.teamNameShort}}</td>
           <td>{{item.period1}}</td>
           <td>{{item.period2}}</td>
           <td>{{item.period3}}</td>

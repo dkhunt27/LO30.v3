@@ -59,6 +59,18 @@
     <Compile Include="Contexts\LO30ContextSeed.cs" />
     <Compile Include="Contexts\LO30ContextSeedInitializer.cs" />
     <Compile Include="Contexts\LO30MigrationsConfiguration.cs" />
+    <Compile Include="Extensions\ExtensionIncludeAll .PlayerStatCareer.cs" />
+    <Compile Include="Extensions\ExtensionIncludeAll .GoalieStatCareer.cs" />
+    <Compile Include="Extensions\ExtensionIncludeAll .PlayerStatGame.cs" />
+    <Compile Include="Extensions\ExtensionIncludeAll .PlayerStatSeason.cs" />
+    <Compile Include="Extensions\ExtensionIncludeAll .GoalieStatSeason.cs" />
+    <Compile Include="Extensions\ExtensionIncludeAll .GoalieStatGame.cs" />
+    <Compile Include="Extensions\ExtensionIncludeAll .Player.cs" />
+    <Compile Include="Extensions\ExtensionIncludeAll .PlayerStatus.cs" />
+    <Compile Include="Extensions\ExtensionIncludeAll .PlayerStatTeam.cs" />
+    <Compile Include="Extensions\ExtensionIncludeAll .GoalieStatTeam.cs" />
+    <Compile Include="Extensions\ExtensionIncludeAll .Games.cs" />
+    <Compile Include="Extensions\ExtensionIncludeAll .GameScores.cs" />
     <Compile Include="Extensions\ExtensionIncludeAll .GameOutcomes.cs" />
     <Compile Include="Extensions\ExtensionIncludeAll .GameTeams.cs" />
     <Compile Include="Extensions\ExtensionIncludeAll .Teams.cs" />
@@ -71,6 +83,7 @@
     <Compile Include="Models\ForWebPlayerStat.cs" />
     <Compile Include="Models\ForWebTeamStanding.cs" />
     <Compile Include="Models\Game.cs" />
+    <Compile Include="Objects\ScoringByPeriod.cs" />
     <Compile Include="Models\GameOutcome.cs" />
     <Compile Include="Models\GameRoster.cs" />
     <Compile Include="Models\GameScore.cs" />

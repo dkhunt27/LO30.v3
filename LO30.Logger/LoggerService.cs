@@ -7,7 +7,7 @@ namespace LO30.Data.Services
 {
     public class LogService
     {
-        private LogWriter _logger;
+       /* private LogWriter _logger;
 
         public LogService()
         {
@@ -44,6 +44,6 @@ namespace LO30.Data.Services
         public void Write(object message)
         {
            _logger.Write(message);
-        }
+        }*/
     }
 }
