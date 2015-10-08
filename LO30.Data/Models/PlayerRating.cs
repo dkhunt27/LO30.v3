@@ -35,9 +35,6 @@ namespace LO30.Data.Models
     [Required]
     public int RatingSecondary { get; set; }
 
-    [Required]
-    public int Line { get; set; }
-
     // virtual, foreign keys
     [ForeignKey("SeasonId")]
     public virtual Season Season { get; set; }
@@ -49,12 +46,12 @@ namespace LO30.Data.Models
     {
     }
 
-    public PlayerRating(int sid, int pid, int symd, int eymd, int rp, int rs, int line)
-      : this(sid, pid, symd, eymd, _posDefault, rp, rs, line)
+    public PlayerRating(int sid, int pid, int symd, int eymd, int rp, int rs)
+      : this(sid, pid, symd, eymd, _posDefault, rp, rs)
     {
     }
 
-    public PlayerRating(int sid, int pid, int symd, int eymd, string pos, int rp, int rs, int line)
+    public PlayerRating(int sid, int pid, int symd, int eymd, string pos, int rp, int rs)
     {
       this.SeasonId = sid;
       this.PlayerId = pid;
@@ -64,7 +61,6 @@ namespace LO30.Data.Models
 
       this.RatingPrimary = rp;
       this.RatingSecondary = rs;
-      this.Line = line;
 
       Validate();
     }
@@ -81,11 +77,6 @@ namespace LO30.Data.Models
       if (this.Position != "G" && this.Position != "D" && this.Position != "F" && this.Position != "X")
       {
         throw new ArgumentException("Position('" + this.Position + "') must be 'X', 'G', 'D', or 'F' for:" + locationKey, "Position");
-      }
-
-      if (this.Line < 0 || this.Line > 3)
-      {
-        throw new ArgumentException("Line(" + this.Line + ") must be between 0 and 3:" + locationKey, "Line");
       }
 
       if (this.RatingPrimary < 0 || this.RatingPrimary > 9)

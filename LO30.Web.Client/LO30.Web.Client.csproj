@@ -282,6 +282,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Scripts\Services\DataServiceResponseHandler.js" />
+    <Content Include="App_Scripts\Services\DataServiceTeamGameRosters.js" />
     <Content Include="App_Scripts\Services\DataServiceScoringByPeriod.js" />
     <Content Include="Content\iCals\2015-16\BillBrown.ics" />
     <Content Include="Content\iCals\2015-16\DAndG.ics" />
@@ -330,10 +332,10 @@
     <Content Include="App_Scripts\Directives\ScoringDetail\ScoringDetailController.js" />
     <Content Include="App_Scripts\Directives\PlayerSearchSub\PlayerSubSearch.js" />
     <Content Include="App_Scripts\Directives\PlayerSearchSub\PlayerSubSearchController.js" />
-    <Content Include="App_Scripts\Directives\GameRosterPlayer\GameRosterPlayer.js" />
-    <Content Include="App_Scripts\Directives\GameRosterPlayer\GameRosterPlayerController.js" />
-    <Content Include="App_Scripts\Directives\GameRoster\GameRosterController.js" />
-    <Content Include="App_Scripts\Directives\GameRoster\GameRoster.js" />
+    <Content Include="App_Scripts\Directives\TeamGameRosterPlayer\TeamGameRosterPlayer.js" />
+    <Content Include="App_Scripts\Directives\TeamGameRosterPlayer\TeamGameRosterPlayerController.js" />
+    <Content Include="App_Scripts\Directives\TeamGameRoster\TeamGameRosterController.js" />
+    <Content Include="App_Scripts\Directives\TeamGameRoster\TeamGameRoster.js" />
     <Content Include="App_Scripts\Filters\FilterizeFilter.js" />
     <Content Include="App_Scripts\Filters\PercentageFilter.js" />
     <Content Include="App_Scripts\Lo30App.js" />
@@ -387,6 +389,7 @@
     <Compile Include="Controllers\WebApi\Data\Games\GameOutcomeController.cs" />
     <Compile Include="Controllers\WebApi\Data\Games\GameOutcomesByTeamController.cs" />
     <Compile Include="Controllers\WebApi\Data\Games\GameTeamController.cs" />
+    <Compile Include="Controllers\WebApi\Data\TeamGameRoster\TeamGameRosterController.cs" />
     <Compile Include="Controllers\WebApi\Data\ScoreSheetEntry\ScoreSheetEntryProcessedPenaltiesController.cs" />
     <Compile Include="Controllers\WebApi\Data\ScoreSheetEntry\ScoreSheetEntryProcessedScoringController.cs" />
     <Compile Include="Controllers\WebApi\Data\Players\PlayerController.cs" />
@@ -421,7 +424,6 @@
     <Compile Include="Controllers\WebApi\Data\Games\GamesController.cs" />
     <Compile Include="Controllers\WebApi\Data\ForWebs\ForWebGoalieStatsController.cs" />
     <Compile Include="Controllers\WebApi\Data\ForWebs\ForWebPlayerStatsController.cs" />
-    <Compile Include="Controllers\WebApi\TeamStandingsController.cs" />
     <Compile Include="Controllers\WebApi\ArticlesController.cs" />
     <Compile Include="Controllers\ScheduleController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -2278,10 +2280,10 @@
     <Content Include="Templates\Directives\PlayerStatsSeason.html" />
     <Content Include="Templates\Directives\PlayerStatsGame.html" />
     <Content Include="Templates\Directives\ScoringDetail.html" />
-    <Content Include="Templates\Directives\GameRosterDivs.html" />
-    <Content Include="Templates\Directives\GameRosterPlayer.html" />
-    <Content Include="Templates\Directives\GameRosterTable.html" />
-    <Content Include="Templates\Directives\GameRoster.html" />
+    <Content Include="Templates\Directives\TeamGameRosterDivs.html" />
+    <Content Include="Templates\Directives\TeamGameRosterPlayer.html" />
+    <Content Include="Templates\Directives\TeamGameRosterTable.html" />
+    <Content Include="Templates\Directives\TeamGameRoster.html" />
     <Content Include="Templates\Directives\PlayersSubSearch.html" />
     <Content Include="Templates\Games\Results.html" />
     <Content Include="Templates\Players\Goalie.html" />

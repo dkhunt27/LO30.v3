@@ -26,8 +26,8 @@ namespace LO30.Controllers.Data.ScoreSheetEntry
         results = context.ScoreSheetEntryProcessedPenalties.IncludeAll().ToList();
       }
       return results.OrderBy(x => x.GameId)
-                    .OrderBy(x => x.Period)
-                    .OrderByDescending(x => x.TimeRemaining)
+                    .ThenBy(x => x.Period)
+                    .ThenByDescending(x => x.TimeRemaining)
                     .ToList();
     }
 
@@ -40,8 +40,8 @@ namespace LO30.Controllers.Data.ScoreSheetEntry
         results = context.ScoreSheetEntryProcessedPenalties.Where(x => x.GameId == gameId).IncludeAll().ToList();
       }
       return results.OrderBy(x => x.GameId)
-                    .OrderBy(x => x.Period)
-                    .OrderByDescending(x => x.TimeRemaining)
+                    .ThenBy(x => x.Period)
+                    .ThenByDescending(x => x.TimeRemaining)
                     .ToList();
     }
   }

@@ -19,13 +19,13 @@
         <accordion-heading>
           Home Team Roster: <b>{{data.homeTeamName}}</b>
         </accordion-heading>
-        <lo30-game-roster team-roster="data.teamRosterHome" game-roster="data.gameRosterHome" home-team=true locked=true />
+        <lo30-team-game-roster team-game-roster-items="data.teamGameRosterHome" home-team=true locked=true />
       </accordion-group>
       <accordion-group ng-show="events.gameRosterAwayLoaded">
         <accordion-heading>
           Away Team Roster: <b>{{data.awayTeamName}}</b>
         </accordion-heading>
-        <lo30-game-roster team-roster="data.teamRosterAway" game-roster="data.gameRosterAway" home-team=false locked=true />
+        <lo30-team-game-roster team-game-roster-items="data.teamGameRosterAway" home-team=false locked=true />
       </accordion-group>
       <accordion-group>
         <accordion-heading>

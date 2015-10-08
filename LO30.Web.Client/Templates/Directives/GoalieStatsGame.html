@@ -12,7 +12,7 @@
         <tr>
           <td class="pointer" ng-class="{'td-sorted-by':sortOn === 'gameId'}" ng-click="sortAscOnly('gameId')">Game</td>
           <td class="pointer" ng-class="{'td-sorted-by':sortOn === 'game.gameDate'}" ng-click="sortAscOnly('game.gameDate')">Date</td>
-          <td class="pointer" ng-class="{'td-sorted-by':sortOn === 'seasonTeam.team.teamShortName'}" ng-click="sortAscOnly('seasonTeam.team.teamShortName')">Team</td>
+          <td class="pointer" ng-class="{'td-sorted-by':sortOn === 'team.teamNameShort'}" ng-click="sortAscOnly('team.teamNameShort')">Team</td>
           <td class="pointer" ng-class="{'td-sorted-by':sortOn === 'playoffs'}" ng-click="sortAscOnly('playoffs')">Playoffs</td>
           <td class="pointer text-right" ng-class="{'td-sorted-by':sortOn === 'goalsAgainst'}" ng-click="sortAscOnly('goalsAgainst')">GA</td>
           <td class="pointer text-right" ng-class="{'td-sorted-by':sortOn === 'wins'}" ng-click="sortDescOnly('wins')">W</td>
@@ -23,7 +23,7 @@
         <tr ng-repeat="item in data.goalieStatsGame | orderBy:sortOn:sortDirection | limitTo:data.limitTo">
           <td ng-class="{'td-sorted-by':sortOn === 'gameId' }"><a ng-href="/Ng/#/Games/BoxScores/{{item.gameId}}">{{item.gameId}}</a></td>
           <td ng-class="{'td-sorted-by':sortOn === 'game.gameDate' }">{{item.game.gameDate  | amDateFormat:'MMM Do YYYY'}}</td>
-          <td ng-class="{'td-sorted-by':sortOn === 'seasonTeam.team.teamShortName' }">{{item.seasonTeam.team.teamShortName}}{{item.sub == true ? "*" : ""}}</td>
+          <td ng-class="{'td-sorted-by':sortOn === 'team.teamNameShort' }">{{item.team.teamNameShort}}{{item.sub == true ? "*" : ""}}</td>
           <td ng-class="{'td-sorted-by':sortOn === 'playoffs'}">{{item.playoffs}}</td>
           <td class="text-right" ng-class="{'td-sorted-by':sortOn === 'goalsAgainst'}">{{item.goalsAgainst}}</td>
           <td class="text-right" ng-class="{'td-sorted-by':sortOn === 'wins' }">{{item.wins}}</td>

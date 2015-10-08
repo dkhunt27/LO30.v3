@@ -1,7 +1,7 @@
 ﻿'use strict';
 
 /* jshint -W117 */ //(remove the undefined warning)
-lo30NgApp.controller('lo30GameRosterPlayerController',
+lo30NgApp.controller('lo30TeamGameRosterPlayerController',
   [
     '$scope',
     'externalLibService',
@@ -10,7 +10,7 @@ lo30NgApp.controller('lo30GameRosterPlayerController',
 
       $scope.initializeScopeVariables = function () {
         // from directive binding
-        // teamGameRoster: {}
+        // teamGameRosterItem: {}
 
         $scope.data = {
         };
@@ -27,8 +27,8 @@ lo30NgApp.controller('lo30GameRosterPlayerController',
         };
       };
 
-      $scope.toggleRosteredSubbedFor = function (teamGameRoster) {
-        if (teamGameRoster.rosteredSubbedFor === true) {
+      $scope.toggleRosteredWasSubbedFor = function (teamGameRosterItem) {
+        if (teamGameRosterItem.rosteredSubbedFor === true) {
           $scope.user.clickedAddSub = true;
         } else {
           $scope.user.clickedAddSub = false;

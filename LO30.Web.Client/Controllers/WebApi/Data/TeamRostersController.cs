@@ -4,6 +4,7 @@ using LO30.Data.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using LO30.Data.Extensions;
 
 namespace LO30.Controllers.Data
 {
@@ -21,7 +22,7 @@ namespace LO30.Controllers.Data
 
       using (var context = new LO30Context())
       {
-        results = context.TeamRosters.ToList();
+        results = context.TeamRosters.IncludeAll().ToList();
       }
       return results.OrderByDescending(x => x.SeasonId)
                     .ThenByDescending(x=> x.TeamId)
@@ -37,7 +38,7 @@ namespace LO30.Controllers.Data
 
       using (var context = new LO30Context())
       {
-        results = context.TeamRosters.Where(x=>x.TeamId == teamId && x.StartYYYYMMDD <= yyyymmdd && x.EndYYYYMMDD >= yyyymmdd).ToList();
+        results = context.TeamRosters.Where(x => x.TeamId == teamId && x.StartYYYYMMDD <= yyyymmdd && x.EndYYYYMMDD >= yyyymmdd).IncludeAll().ToList();
       }
       return results.OrderByDescending(x => x.SeasonId)
                     .ThenByDescending(x => x.TeamId)
@@ -56,7 +57,7 @@ namespace LO30.Controllers.Data
         results = context.TeamRosters.Where(x => x.TeamId == teamId && 
           x.StartYYYYMMDD <= yyyymmdd && 
           x.EndYYYYMMDD >= yyyymmdd &&
-          x.PlayerId == playerId).FirstOrDefault();
+          x.PlayerId == playerId).IncludeAll().FirstOrDefault();
       }
       return results;
     }

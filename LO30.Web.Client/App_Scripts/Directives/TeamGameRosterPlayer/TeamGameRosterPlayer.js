@@ -1,17 +1,17 @@
 ﻿'use strict';
 
 /* jshint -W117 */ //(remove the undefined warning)
-lo30NgApp.directive('lo30GameRosterPlayer',
+lo30NgApp.directive('lo30TeamGameRosterPlayer',
   [
     function () {
       return {
         restrict: 'E',
-        templateUrl: "/Templates/Directives/GameRosterPlayer.html",
+        templateUrl: "/Templates/Directives/TeamGameRosterPlayer.html",
         scope: {
-          "teamGameRoster": "=",
+          "teamGameRosterItem": "=",
           "locked": "="
         },
-        controller: "lo30GameRosterPlayerController",
+        controller: "lo30TeamGameRosterPlayerController",
         link: function (scope, element, attrs, controller) {
         }
       };

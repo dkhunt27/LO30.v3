@@ -2,6 +2,7 @@
 using LO30.Data.Contexts;
 using LO30.Data.Models;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Http;
 
 namespace LO30.Controllers.Data
@@ -12,16 +13,16 @@ namespace LO30.Controllers.Data
     {
     }
 
-    //public List<Setting> GetSettings()
-    //{
-    //  var results = new List<Setting>();
+    public List<Setting> GetSettings()
+    {
+      var results = new List<Setting>();
 
-    //  using (var context = new LO30Context())
-    //  {
-    //    results = context.Settings.ToList();
-    //  }
-    //  return results;
-    //}
+      using (var context = new LO30Context())
+      {
+        results = context.Settings.ToList();
+      }
+      return results;
+    }
 
   }
 }

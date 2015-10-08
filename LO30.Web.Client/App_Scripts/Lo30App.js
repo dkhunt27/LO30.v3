@@ -60,6 +60,10 @@ lo30NgApp.config(
         controller: "playersGoalieController",
         templateUrl: "/Templates/Players/Goalie.html"
       });
+      $routeProvider.when("/Players/Goalie/:playerId/:seasonId", {
+        controller: "playersGoalieController",
+        templateUrl: "/Templates/Players/Goalie.html"
+      });
 
       // ScoreSheets
       $routeProvider.when("/Games/BoxScores", {
@@ -68,7 +72,39 @@ lo30NgApp.config(
       });
       $routeProvider.when("/ScoreSheets/Entry/:gameId", {
         controller: "scoreSheetsEntryController",
-        templateUrl: "/Templates/ScoreSheets/Entry.html"
+        templateUrl: "/Templates/ScoreSheets/Entry.html",
+        resolve: {
+          teamGameRosterHomeResolved: [
+              '$location',
+              '$route',
+              'dataServiceResponseHandler',
+              'dataServiceTeamGameRosters',
+              function ($location, $route, dataServiceResponseHandler, dataServiceTeamGameRosters) {
+                return dataServiceTeamGameRosters.listTeamGameRosterByGameIdAndHomeTeam($route.current.params.gameId, true).then(function (result) {
+                  return dataServiceResponseHandler.reponseListMustBePopulated(result);
+                }).then(function (fulfilled) {
+                  return fulfilled;
+                }, function (rejected) {
+                  $location.path('/error');
+                });
+              }
+          ],
+          teamGameRosterAwayResolved: [
+              '$location',
+              '$route',
+              'dataServiceResponseHandler',
+              'dataServiceTeamGameRosters',
+              function ($location, $route, dataServiceResponseHandler, dataServiceTeamGameRosters) {
+                return dataServiceTeamGameRosters.listTeamGameRosterByGameIdAndHomeTeam($route.current.params.gameId, false).then(function (result) {
+                  return dataServiceResponseHandler.reponseListMustBePopulated(result);
+                }).then(function (fulfilled) {
+                  return fulfilled;
+                }, function (rejected) {
+                  $location.path('/error');
+                });
+              }
+          ]
+        }
       });
 
       // Standings

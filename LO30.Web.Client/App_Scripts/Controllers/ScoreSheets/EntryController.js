@@ -10,8 +10,11 @@ lo30NgApp.controller('scoreSheetsEntryController',
     'dataServiceGameTeams',
     'dataServiceGameRosters',
     'dataServiceTeamRosters',
+    'dataServiceTeamGameRosters',
     'dataServiceScoreSheetEntryProcessedPenalties',
-    function ($scope, $routeParams, alertService, dataServiceGames, dataServiceGameTeams, dataServiceGameRosters, dataServiceTeamRosters, dataServiceScoreSheetEntryProcessedPenalties) {
+    'teamGameRosterHomeResolved',
+    'teamGameRosterAwayResolved',
+    function ($scope, $routeParams, alertService, dataServiceGames, dataServiceGameTeams, dataServiceGameRosters, dataServiceTeamRosters, dataServiceTeamGameRosters, dataServiceScoreSheetEntryProcessedPenalties, teamGameRosterHomeResolved, teamGameRosterAwayResolved) {
 
       $scope.initializeScopeVariables = function () {
         $scope.data = {
@@ -30,6 +33,8 @@ lo30NgApp.controller('scoreSheetsEntryController',
           gameRosterAway: [],
           teamRosterHome: [],
           teamRosterAway: [],
+          teamGameRosterHome: [],
+          teamGameRosterAway: [],
           scoreSheetEntryScoring: [],
           scoreSheetEntryPenalties: []
         };
@@ -43,6 +48,8 @@ lo30NgApp.controller('scoreSheetsEntryController',
           gameRosterAwayLoaded: false,
           teamRosterHomeLoaded: false,
           teamRosterAwayLoaded: false,
+          teamGameRosterHomeLoaded: false,
+          teamGameRosterAwayLoaded: false,
           scoreSheetEntryScoringLoaded: false,
           scoreSheetEntryPenaltiesLoaded: false
         };
@@ -76,7 +83,7 @@ lo30NgApp.controller('scoreSheetsEntryController',
             // service call on success
             if (result) {
               $scope.data[gameTeam] = result;
-              $scope.data[teamName] = result.seasonTeam.team.teamShortName;
+              $scope.data[teamName] = result.team.teamNameShort;
               $scope.events[gameTeamLoaded] = true;
 
               alertService.successRetrieval(retrievedType, 1);
@@ -86,6 +93,43 @@ lo30NgApp.controller('scoreSheetsEntryController',
             }
           }
         );
+      };
+
+      $scope.getTeamGameRosters = function (gameId, homeTeam) {
+        var retrievedType, teamGameRostersLoaded, teamGameRosters;
+
+        if (homeTeam) {
+          teamGameRostersLoaded = 'teamGameRosterHomeLoaded';
+          teamGameRosters = 'teamGameRosterHome';
+          retrievedType = "Home TeamGameRoster";
+        } else {
+          teamGameRostersLoaded = 'teamGameRosterAwayLoaded';
+          teamGameRosters = 'teamGameRosterAway';
+          retrievedType = "Away TeamGameRoster";
+        }
+
+        $scope.events[teamGameRostersLoaded] = false;
+        $scope.data[teamGameRosters] = [];
+
+        dataServiceTeamGameRosters.listTeamGameRosterByGameIdAndHomeTeam(gameId, homeTeam).$promise.then(
+          function (result) {
+            // service call on success
+            if (result && result.length && result.length > 0) {
+
+              angular.forEach(result, function (item, index) {
+                $scope.data[teamGameRosters].push(item);
+              });
+
+              $scope.events[teamGameRostersLoaded] = true;
+
+              alertService.successRetrieval(retrievedType, $scope.data[teamGameRosters].length);
+            } else {
+              // results not successful
+              alertService.errorRetrieval(retrievedType, result.reason);
+            }
+          }
+        );
+
       };
 
       $scope.getTeamRosters = function (teamId, homeTeam) {
@@ -246,14 +290,11 @@ lo30NgApp.controller('scoreSheetsEntryController',
         $scope.initializeScopeVariables();
         $scope.setWatches();
 
-        //TODO make this a user selection
-        if ($routeParams.gameId === null) {
-          $scope.data.gameIdSelected = 3200;
-          $scope.user.selectedGameId = true;
-        } else {
-          $scope.data.gameIdSelected = $routeParams.gameId;
-          $scope.user.selectedGameId = true;
-        }
+        $scope.data.gameIdSelected = $routeParams.gameId;
+        $scope.user.selectedGameId = true;
+
+        $scope.data.teamGameRosterHome = teamGameRosterHomeResolved;
+        $scope.data.teamGameRosterAway = teamGameRosterAwayResolved;
 
         $scope.getGames();
       };

@@ -4,7 +4,7 @@
       <thead>
         <tr>
           <td class="pointer" ng-class="{'td-sorted-by':sortOn === 'season.seasonName'}" ng-click="sortAscOnly('season.seasonName')">Season</td>
-          <td class="pointer" ng-class="{'td-sorted-by':sortOn === 'seasonTeam.team.teamShortName'}" ng-click="sortAscOnly('seasonTeam.team.teamShortName')">Team</td>
+          <td class="pointer" ng-class="{'td-sorted-by':sortOn === 'team.teamNameShort'}" ng-click="sortAscOnly('team.teamNameShort')">Team</td>
           <td class="pointer" ng-class="{'td-sorted-by':sortOn === 'playoffs'}" ng-click="sortAscOnly('playoffs')">Playoffs</td>
           <td class="pointer" ng-class="{'td-sorted-by':sortOn === 'line'}" ng-click="sortAscOnly('line')">Line</td>
           <td class="pointer" ng-class="{'td-sorted-by':sortOn === 'position'}" ng-click="sortAscOnly('position')">Pos.</td>
@@ -20,7 +20,7 @@
       <tbody>
         <tr ng-repeat="item in data.playerStatsTeam | orderBy:sortOn:sortDirection">
           <td ng-class="{'td-sorted-by':sortOn === 'season.seasonName' }">{{item.season.seasonName}}</td>
-          <td ng-class="{'td-sorted-by':sortOn === 'seasonTeam.team.teamShortName' }">{{item.seasonTeam.team.teamShortName}}{{item.sub == true ? "*" : ""}}</td>
+          <td ng-class="{'td-sorted-by':sortOn === 'team.teamNameShort' }">{{item.team.teamNameShort}}{{item.sub == true ? "*" : ""}}</td>
           <td ng-class="{'td-sorted-by':sortOn === 'playoffs' }">{{item.playoffs}}</td>
           <td ng-class="{'td-sorted-by':sortOn === 'line' }">{{item.line}}</td>
           <td ng-class="{'td-sorted-by':sortOn === 'position' }">{{item.position}}</td>

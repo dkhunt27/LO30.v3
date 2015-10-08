@@ -19,6 +19,14 @@ namespace LO30
 
       var constApisUrl = "api/v3";
 
+      #region scoreSheetEntry routes
+      config.Routes.MapHttpRoute(
+          name: "ApiForScoreSheetEntryRoster",
+          routeTemplate: constApisUrl + "/teamGameRoster/{gameId}/{homeTeam}",
+          defaults: new { controller = "TeamGameRoster" }
+      );
+      #endregion
+
       #region scoringByPeriod routes
       config.Routes.MapHttpRoute(
           name: "ApiForScoringByPeriod",

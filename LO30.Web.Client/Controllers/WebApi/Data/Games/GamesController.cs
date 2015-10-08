@@ -4,6 +4,7 @@ using LO30.Data.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using LO30.Data.Extensions;
 
 namespace LO30.Controllers.Data.Games
 {
@@ -20,7 +21,9 @@ namespace LO30.Controllers.Data.Games
 
       using (var context = new LO30Context())
       {
-        results = context.Games.ToList();
+        results = context.Games
+                            .IncludeAll()
+                            .ToList();
       }
       return results.OrderByDescending(x => x.GameId)
                     .ToList();
@@ -32,7 +35,10 @@ namespace LO30.Controllers.Data.Games
 
       using (var context = new LO30Context())
       {
-        results = context.Games.Where(x => x.GameId == gameId).FirstOrDefault();
+        results = context.Games
+                          .Where(x => x.GameId == gameId)
+                          .IncludeAll()
+                          .FirstOrDefault();
       }
       return results;
     }
