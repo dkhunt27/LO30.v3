@@ -96,6 +96,8 @@
     <Compile Include="Models\ForWebPlayerStat.cs" />
     <Compile Include="Models\ForWebTeamStanding.cs" />
     <Compile Include="Models\Game.cs" />
+    <Compile Include="Models\ScoreSheetEntryProcessedGame.cs" />
+    <Compile Include="Models\ScoreSheetEntryProcessedPlusMinus.cs" />
     <Compile Include="Objects\TeamGameRoster.cs" />
     <Compile Include="Objects\ScoreSheetEntryRoster.cs" />
     <Compile Include="Objects\ScoringByPeriod.cs" />
@@ -136,6 +138,7 @@
     <Compile Include="Services\JsonFileService.cs" />
     <Compile Include="Services\ScoreSheetEntryProcessor.cs" />
     <Compile Include="Services\TimeService.cs" />
+    <Compile Include="Views\PlayerActiveSub.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

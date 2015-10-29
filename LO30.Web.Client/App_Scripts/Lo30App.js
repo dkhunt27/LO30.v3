@@ -1,4 +1,4 @@
-﻿var lo30NgApp = angular.module("lo30NgApp", ['ngRoute', 'ngResource', 'ngAnimate', 'ui.bootstrap', 'toaster', 'angularMoment']);
+﻿var lo30NgApp = angular.module("lo30NgApp", ['ngRoute', 'ngResource', 'ngAnimate', 'ui.bootstrap', 'toaster', 'angularMoment', 'isteven-multi-select']);
 
 lo30NgApp.constant("constApisUrl", "/api/v3");
 lo30NgApp.constant("constCurrentSeasonId", 56);
@@ -7,6 +7,20 @@ lo30NgApp.config(
   [
     "$routeProvider",
     function ($routeProvider) {
+      // Admin Directive Work
+      $routeProvider.when("/Admin/Test/DirectiveIamTesting", {
+        controller: "testDirectiveIamTestingController",
+        templateUrl: "/Templates/Admin/Test/DirectiveIamTesting.html"
+      });
+      $routeProvider.when("/Admin/Test/PlayerSubSearch", {
+        controller: "testPlayerSubSearchController",
+        templateUrl: "/Templates/Admin/Test/PlayerSubSearch.html"
+      });
+      $routeProvider.when("/Admin/Test/BoxScore", {
+        controller: "testBoxScoreController",
+        templateUrl: "/Templates/Admin/Test/BoxScore.html"
+      });
+
       // Admin
       $routeProvider.when("/Admin/DataProcessing", {
         controller: "adminDataProcessingController",
@@ -15,14 +29,6 @@ lo30NgApp.config(
       $routeProvider.when("/Admin/Settings", {
         controller: "adminSettingsController",
         templateUrl: "/Templates/Admin/Settings.html"
-      });
-      $routeProvider.when("/Admin/Test/BoxScore", {
-        controller: "testBoxScoreController",
-        templateUrl: "/Templates/Admin/Test/BoxScore.html"
-      });
-      $routeProvider.when("/Admin/Test/PlayerSubSearch", {
-        controller: "testPlayerSubSearchController",
-        templateUrl: "/Templates/Admin/Test/PlayerSubSearch.html"
       });
 
       // Directives

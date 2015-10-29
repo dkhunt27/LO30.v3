@@ -1,4 +1,5 @@
 ﻿using LO30.Data.Models;
+using LO30.Data.Views;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -66,12 +67,14 @@ namespace LO30.Data.Contexts
     public DbSet<PlayerStatus> PlayerStatuses { get; set; }
     public DbSet<PlayerStatusType> PlayerStatusTypes { get; set; }
 
+    public DbSet<ScoreSheetEntryProcessedGame> ScoreSheetEntryProcessedGames { get; set; }
     public DbSet<ScoreSheetEntryGoal> ScoreSheetEntryGoals { get; set; }
     public DbSet<ScoreSheetEntryProcessedGoal> ScoreSheetEntryProcessedGoals { get; set; }
     public DbSet<ScoreSheetEntryPenalty> ScoreSheetEntryPenalties { get; set; }
     public DbSet<ScoreSheetEntryProcessedPenalty> ScoreSheetEntryProcessedPenalties { get; set; }
     public DbSet<ScoreSheetEntrySub> ScoreSheetEntrySubs { get; set; }
     public DbSet<ScoreSheetEntryProcessedSub> ScoreSheetEntryProcessedSubs { get; set; }
+    public DbSet<ScoreSheetEntryProcessedPlusMinus> ScoreSheetEntryProcessedPlusMinuses { get; set; }
 
     public DbSet<Season> Seasons { get; set; }
 
@@ -81,5 +84,7 @@ namespace LO30.Data.Contexts
     public DbSet<TeamRoster> TeamRosters { get; set; }
     public DbSet<TeamStanding> TeamStandings { get; set; }
 
+
+    public DbSet<PlayerActiveSub> PlayersActiveSubs { get; set; }
   }
 }

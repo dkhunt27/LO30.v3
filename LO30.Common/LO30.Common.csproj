@@ -80,6 +80,7 @@
     <Content Include="SqlAssets\StoredProcedures\DeriveScoreSheetEntryProcessedPenalties.sql" />
     <Content Include="SqlAssets\StoredProcedures\DeriveScoreSheetEntryProcessedSubs.sql" />
     <Content Include="SqlAssets\StoredProcedures\DeriveTeamStandings.sql" />
+    <Content Include="SqlAssets\Views\PlayersActiveSubs.sql" />
     <Content Include="SqlAssets\Views\BoxScoresDetailView.sql" />
     <Content Include="SqlAssets\Views\BoxScoresSummaryView.sql" />
     <Content Include="SqlAssets\Views\GameRostersView.sql" />

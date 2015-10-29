@@ -9,7 +9,7 @@ namespace LO30.Data.Models
     [Key, Column(Order = 1), DatabaseGenerated(DatabaseGeneratedOption.None)]
     public int ScoreSheetEntryGoalId { get; set; }
 
-    [Required, ForeignKey("Game")]
+    [Required]
     public int GameId { get; set; }
 
     [Required]
@@ -37,6 +37,7 @@ namespace LO30.Data.Models
     public DateTime UpdatedOn { get; set; }
 
     // virtual, foreign keys
+    [ForeignKey("GameId")]
     public virtual Game Game { get; set; }
   }
 }

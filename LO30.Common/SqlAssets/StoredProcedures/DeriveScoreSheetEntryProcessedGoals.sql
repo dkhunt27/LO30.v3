@@ -95,10 +95,10 @@ BEGIN TRY
 		gt.GameId,
 		sseg.Period,
 		sseg.HomeTeam,
-		grg.PlayerId,
-		gra1.PlayerId,
-		gra2.PlayerId,
-		gra3.PlayerId,
+		case when grg.PlayerId is null then 0 else grg.PlayerId end,  -- if goal scorer is unknown, set to unknown player
+		case when sseg.Assist1 is not null and gra1.PlayerId is null then 0 else gra1.PlayerId end,  -- if there is an assist and the assister is unknown, set to unknown player
+		case when sseg.Assist2 is not null and gra2.PlayerId is null then 0 else gra2.PlayerId end,  -- if there is an assist and the assister is unknown, set to unknown player
+		case when sseg.Assist3 is not null and gra3.PlayerId is null then 0 else gra3.PlayerId end,  -- if there is an assist and the assister is unknown, set to unknown player
 		sseg.TimeRemaining,
 		null as TimeElapsed,
 		case when sseg.ShortHandedPowerPlay = 'SH' then 1 else 0 end as ShortHandedGoal,
@@ -107,7 +107,7 @@ BEGIN TRY
 		null as BCS
 	FROM
 		ScoreSheetEntryGoals sseg inner join
-		GameTeams gt on (sseg.GameId = gt.GameId AND sseg.HomeTeam = gt.HomeTeam) inner join
+		GameTeams gt on (sseg.GameId = gt.GameId AND sseg.HomeTeam = gt.HomeTeam) left join
 		GameRosters grg ON (sseg.GameId = grg.GameId AND gt.TeamId = grg.TeamId AND sseg.Goal = grg.PlayerNumber) left join
 		GameRosters gra1 ON (sseg.GameId = gra1.GameId AND gt.TeamId = gra1.TeamId AND sseg.Assist1 = gra1.PlayerNumber) left join
 		GameRosters gra2 ON (sseg.GameId = gra2.GameId AND gt.TeamId = gra2.TeamId AND sseg.Assist2 = gra2.PlayerNumber) left join

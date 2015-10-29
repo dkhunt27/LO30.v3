@@ -9,7 +9,7 @@ namespace LO30.Data.Models
 {
   public class GoalieStatCareer
   {
-    [Required, Key, Column(Order = 1), ForeignKey("Player")]
+    [Required, Key, Column(Order = 1)]
     public int PlayerId { get; set; }
 
     [Required, Key, Column(Order = 2)]
@@ -40,6 +40,7 @@ namespace LO30.Data.Models
     public DateTime UpdatedOn { get; set; }
 
     // virtual, foreign keys
+    [ForeignKey("PlayerId")]
     public virtual Player Player { get; set; }
 
     public GoalieStatCareer()

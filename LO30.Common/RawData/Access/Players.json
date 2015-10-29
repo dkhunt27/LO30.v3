@@ -3785,8 +3785,8 @@
   },
   {
     "PLAYER_ID": 506,
-    "PLAYER_FIRST_NAME": null,
-    "PLAYER_LAST_NAME": null,
+    "PLAYER_FIRST_NAME": "Nathan",
+    "PLAYER_LAST_NAME": "Jakubowski",
     "PLAYER_SUFFIX": null,
     "PLAYER_POSITION": "Defense",
     "SHOOTS": "L"
@@ -5561,16 +5561,16 @@
   },
   {
     "PLAYER_ID": 732,
-    "PLAYER_FIRST_NAME": null,
-    "PLAYER_LAST_NAME": null,
+    "PLAYER_FIRST_NAME": "Nathan",
+    "PLAYER_LAST_NAME": "Jakubowski",
     "PLAYER_SUFFIX": null,
     "PLAYER_POSITION": null,
     "SHOOTS": "L"
   },
   {
     "PLAYER_ID": 733,
-    "PLAYER_FIRST_NAME": null,
-    "PLAYER_LAST_NAME": null,
+    "PLAYER_FIRST_NAME": "Nathan",
+    "PLAYER_LAST_NAME": "Jakubowski",
     "PLAYER_SUFFIX": null,
     "PLAYER_POSITION": "Defense",
     "SHOOTS": "L"
@@ -6051,6 +6051,38 @@
     "PLAYER_ID": 794,
     "PLAYER_FIRST_NAME": "John",
     "PLAYER_LAST_NAME": "Brodun",
+    "PLAYER_SUFFIX": null,
+    "PLAYER_POSITION": null,
+    "SHOOTS": null
+  },
+  {
+    "PLAYER_ID": 795,
+    "PLAYER_FIRST_NAME": "Jim",
+    "PLAYER_LAST_NAME": "Geary",
+    "PLAYER_SUFFIX": null,
+    "PLAYER_POSITION": null,
+    "SHOOTS": null
+  },
+  {
+    "PLAYER_ID": 796,
+    "PLAYER_FIRST_NAME": "Bill",
+    "PLAYER_LAST_NAME": "Peters",
+    "PLAYER_SUFFIX": null,
+    "PLAYER_POSITION": null,
+    "SHOOTS": null
+  },
+  {
+    "PLAYER_ID": 797,
+    "PLAYER_FIRST_NAME": "Phil",
+    "PLAYER_LAST_NAME": "Valleau",
+    "PLAYER_SUFFIX": null,
+    "PLAYER_POSITION": null,
+    "SHOOTS": null
+  },
+  {
+    "PLAYER_ID": 798,
+    "PLAYER_FIRST_NAME": "Mike",
+    "PLAYER_LAST_NAME": "Michalski",
     "PLAYER_SUFFIX": null,
     "PLAYER_POSITION": null,
     "SHOOTS": null

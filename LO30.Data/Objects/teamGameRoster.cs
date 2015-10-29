@@ -10,6 +10,8 @@ namespace LO30.Data.Objects
 {
   public class TeamGameRoster
   {
+    public bool GameProcessed { get; set; }
+
     public bool RosteredPlayed { get; set; }
 
     public bool RosteredWasSubbedFor { get; set; }
@@ -20,6 +22,7 @@ namespace LO30.Data.Objects
 
     public TeamGameRoster()
     {
+      this.GameProcessed = false;
       this.RosteredPlayed = true;
       this.RosteredWasSubbedFor = false;
     }

@@ -14,10 +14,10 @@ namespace LO30.Data.Models
     private const int _rsDefault = 0;
     private const int _lineDefault = 0;
 
-    [Required, Key, Column(Order = 1), ForeignKey("Season")]
+    [Required, Key, Column(Order = 1)]
     public int SeasonId { get; set; }
 
-    [Required, Key, Column(Order = 2), ForeignKey("Player")]
+    [Required, Key, Column(Order = 2)]
     public int PlayerId { get; set; }
 
     [Required, Key, Column(Order = 3)]

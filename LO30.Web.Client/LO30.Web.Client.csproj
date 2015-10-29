@@ -282,6 +282,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Scripts\Controllers\Admin\Test\DirectiveIamTestingController.js" />
     <Content Include="App_Scripts\Services\DataServiceResponseHandler.js" />
     <Content Include="App_Scripts\Services\DataServiceTeamGameRosters.js" />
     <Content Include="App_Scripts\Services\DataServiceScoringByPeriod.js" />
@@ -514,6 +515,7 @@
     <Content Include="Content\Images\Logo\Lo30LogoTransparentNoRed.gif" />
     <Content Include="Content\Images\Profile\facebook-no-image1.gif" />
     <Content Include="Content\Images\Profile\no-profile-man-medium.jpg" />
+    <Content Include="Content\isteven-multi-select.css" />
     <Content Include="Content\toaster.css" />
     <Content Include="Content\Images\1971_daly.jpg" />
     <Content Include="Content\Images\1971_daly_300px.jpg" />
@@ -1332,6 +1334,7 @@
     <Content Include="Scripts\i18n\angular-locale_zh.js" />
     <Content Include="Scripts\i18n\angular-locale_zu-za.js" />
     <Content Include="Scripts\i18n\angular-locale_zu.js" />
+    <Content Include="Scripts\isteven-multi-select.js" />
     <Content Include="Scripts\moment-with-locales.js" />
     <Content Include="Scripts\moment-with-locales.min.js" />
     <Content Include="Scripts\moment.js" />
@@ -2270,6 +2273,7 @@
     </Content>
     <Content Include="Templates\Admin\Settings.html" />
     <Content Include="Templates\Admin\Test\BoxScore.html" />
+    <Content Include="Templates\Admin\Test\DirectiveIamTesting.html" />
     <Content Include="Templates\Admin\Test\PlayerSubSearch.html" />
     <Content Include="Templates\Directives\ScoringByPeriod.html" />
     <Content Include="Templates\Directives\PlayerStatsCareer.html" />
@@ -2324,7 +2328,6 @@
     <Content Include="Views\Home\IndexNg.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Shared\_Layout-v2-noNg.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Scripts\scripts.min.js.map">
       <DependentUpon>scripts.min.js</DependentUpon>
@@ -2332,7 +2335,6 @@
     <Content Include="Scripts\slider_revolution.min.js.map">
       <DependentUpon>slider_revolution.min.js</DependentUpon>
     </Content>
-    <Content Include="Views\Shared\_Layout-Orig.cshtml" />
     <Content Include="Views\AboutUs\ContactUs.cshtml" />
     <Content Include="Views\AboutUs\Index.cshtml" />
     <Content Include="Views\AboutUs\Rules.cshtml" />
@@ -2363,7 +2365,6 @@
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Views\Shared\_Layout-v2.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

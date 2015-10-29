@@ -9,6 +9,7 @@ lo30NgApp.directive('lo30TeamGameRosterPlayer',
         templateUrl: "/Templates/Directives/TeamGameRosterPlayer.html",
         scope: {
           "teamGameRosterItem": "=",
+          "subs": "=",
           "locked": "="
         },
         controller: "lo30TeamGameRosterPlayerController",

@@ -21,7 +21,7 @@ namespace LO30.Data.Models
     [Required]
     public int StartYYYYMMDD { get; set; }
 
-    [Required]
+    [Key, Column(Order = 3)]
     public int EndYYYYMMDD { get; set; }
 
     [Required, MaxLength(1)]

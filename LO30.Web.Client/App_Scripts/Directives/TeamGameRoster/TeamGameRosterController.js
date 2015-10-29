@@ -21,6 +21,7 @@ lo30NgApp.controller('lo30TeamGameRosterController',
         };
 
         $scope.events = {
+          teamGameRosterItemsLoaded : false
         };
 
         $scope.user = {
@@ -48,16 +49,24 @@ lo30NgApp.controller('lo30TeamGameRosterController',
       };
 
       $scope.setWatches = function () {
+        $scope.$watch('teamGameRosterItems', function (newVal, oldVal) {
+          if (newVal && newVal.length && newVal.length > 0) {
+            if (!$scope.events.teamGameRosterItemsLoaded) {
+
+              $scope.getGoalies();
+              $scope.getLine1();
+              $scope.getLine2();
+              $scope.getLine3();
+
+              $scope.events.teamGameRosterItemsLoaded = true;
+            }
+          }
+        }, true);
       };
 
       $scope.activate = function () {
         $scope.initializeScopeVariables();
         $scope.setWatches();
-
-        $scope.getGoalies();
-        $scope.getLine1();
-        $scope.getLine2();
-        $scope.getLine3();
       };
 
       $scope.activate();

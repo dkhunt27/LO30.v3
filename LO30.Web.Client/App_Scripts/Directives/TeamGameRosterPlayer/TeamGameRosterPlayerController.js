@@ -13,6 +13,7 @@ lo30NgApp.controller('lo30TeamGameRosterPlayerController',
         // teamGameRosterItem: {}
 
         $scope.data = {
+          selectedSub: {}
         };
 
         $scope.events = {
@@ -28,7 +29,7 @@ lo30NgApp.controller('lo30TeamGameRosterPlayerController',
       };
 
       $scope.toggleRosteredWasSubbedFor = function (teamGameRosterItem) {
-        if (teamGameRosterItem.rosteredSubbedFor === true) {
+        if (teamGameRosterItem.rosteredWasSubbedFor === true) {
           $scope.user.clickedAddSub = true;
         } else {
           $scope.user.clickedAddSub = false;
@@ -36,11 +37,11 @@ lo30NgApp.controller('lo30TeamGameRosterPlayerController',
       }
 
       $scope.setWatches = function () {
-        $scope.$watch('user.clickedAddSub', function (newVal, oldVal) {
-          if (newVal && newVal.length && newVal.length > 0) {
+        /*$scope.$watch('user.clickedAddSub', function (newVal, oldVal) {
+          if (newVal) {
             $scope.events.teamRosterLoaded = true;
           }
-        }, true);
+        });*/
       };
 
       $scope.activate = function () {

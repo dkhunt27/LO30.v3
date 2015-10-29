@@ -9,13 +9,13 @@ namespace LO30.Data.Models
     [Key, Column(Order = 1), DatabaseGenerated(DatabaseGeneratedOption.None)]
     public int ScoreSheetEntryGoalId { get; set; }
 
-    [Required, ForeignKey("Season")]
+    [Required]
     public int SeasonId { get; set; }
 
-    [Required, ForeignKey("Team")]
+    [Required]
     public int TeamId { get; set; }
 
-    [Required, ForeignKey("Game")]
+    [Required]
     public int GameId { get; set; }
 
     [Required]
@@ -24,16 +24,13 @@ namespace LO30.Data.Models
     [Required]
     public bool HomeTeam { get; set; }
 
-    [Required, ForeignKey("GoalPlayer")]
+    [Required]
     public int GoalPlayerId { get; set; }
 
-    [ForeignKey("Assist1Player")]
     public int? Assist1PlayerId { get; set; }
 
-    [ForeignKey("Assist2Player")]
     public int? Assist2PlayerId { get; set; }
 
-    [ForeignKey("Assist3Player")]
     public int? Assist3PlayerId { get; set; }
 
     [Required, MaxLength(5)]
@@ -54,12 +51,25 @@ namespace LO30.Data.Models
     public DateTime UpdatedOn { get; set; }
 
     // virtual, foreign keys
+    [ForeignKey("SeasonId")]
     public virtual Season Season { get; set; }
+
+    [ForeignKey("TeamId")]
     public virtual Team Team { get; set; }
+
+    [ForeignKey("GameId")]
     public virtual Game Game { get; set; }
+
+    [ForeignKey("GoalPlayerId")]
     public virtual Player GoalPlayer { get; set; }
+
+    [ForeignKey("Assist1PlayerId")]
     public virtual Player Assist1Player { get; set; }
+
+    [ForeignKey("Assist2PlayerId")]
     public virtual Player Assist2Player { get; set; }
+
+    [ForeignKey("Assist3PlayerId")]
     public virtual Player Assist3Player { get; set; }
 
     public ScoreSheetEntryProcessedGoal()

@@ -9,13 +9,13 @@ namespace LO30.Data.Models
     [Key, Column(Order = 1), DatabaseGenerated(DatabaseGeneratedOption.None)]
     public int ScoreSheetEntryPenaltyId { get; set; }
 
-    [Required, ForeignKey("Season")]
+    [Required]
     public int SeasonId { get; set; }
 
-    [Required, ForeignKey("Team")]
+    [Required]
     public int TeamId { get; set; }
 
-    [Required, ForeignKey("Game")]
+    [Required]
     public int GameId { get; set; }
 
     [Required]
@@ -24,10 +24,10 @@ namespace LO30.Data.Models
     [Required]
     public bool HomeTeam { get; set; }
 
-    [Required, ForeignKey("Player")]
+    [Required]
     public int PlayerId { get; set; }
 
-    [Required, ForeignKey("Penalty")]
+    [Required]
     public int PenaltyId { get; set; }
 
     [Required, MaxLength(5)]
@@ -42,10 +42,19 @@ namespace LO30.Data.Models
     public DateTime UpdatedOn { get; set; }
 
     // virtual, foreign keys
+    [ForeignKey("SeasonId")]
     public virtual Season Season { get; set; }
+
+    [ForeignKey("TeamId")]
     public virtual Team Team { get; set; }
+
+    [ForeignKey("GameId")]
     public virtual Game Game { get; set; }
+
+    [ForeignKey("PlayerId")]
     public virtual Player Player { get; set; }
+
+    [ForeignKey("PenaltyId")]
     public virtual Penalty Penalty { get; set; }
 
     public ScoreSheetEntryProcessedPenalty()

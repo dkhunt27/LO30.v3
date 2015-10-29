@@ -10,7 +10,7 @@ namespace LO30.Data.Models
 {
   public class ProcessingResultGame
   {
-    [Required, Key, ]
+    [Required, Key]
     public int GameId { get; set; }
 
     [Required]

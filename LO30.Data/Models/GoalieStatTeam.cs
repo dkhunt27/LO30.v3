@@ -9,10 +9,10 @@ namespace LO30.Data.Models
 {
   public class GoalieStatTeam
   {
-    [Required, Key, Column(Order = 1), ForeignKey("Player")]
+    [Required, Key, Column(Order = 1)]
     public int PlayerId { get; set; }
 
-    [Required, Key, Column(Order = 2), ForeignKey("Team")]
+    [Required, Key, Column(Order = 2)]
     public int TeamId { get; set; }
 
     [Required, Key, Column(Order = 3)]
@@ -21,7 +21,7 @@ namespace LO30.Data.Models
     [Required, Key, Column(Order = 4)]
     public bool Sub { get; set; }
 
-    [Required, ForeignKey("Season")]
+    [Required]
     public int SeasonId { get; set; }
 
     [Required]
@@ -49,8 +49,13 @@ namespace LO30.Data.Models
     public DateTime UpdatedOn { get; set; }
 
     // virtual, foreign keys
+    [ForeignKey("SeasonId")]
     public virtual Season Season { get; set; }
+
+    [ForeignKey("TeamId")]
     public virtual Team Team { get; set; }
+    
+    [ForeignKey("PlayerId")]
     public virtual Player Player { get; set; }
 
     public GoalieStatTeam()

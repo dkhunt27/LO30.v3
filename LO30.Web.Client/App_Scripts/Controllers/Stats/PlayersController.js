@@ -8,8 +8,9 @@ lo30NgApp.controller('statsPlayersController',
     '$routeParams',
     'alertService',
     'dataServiceForWebPlayerStats',
+    'dataServiceSettings',
     'constCurrentSeasonId',
-    function ($scope, $timeout, $routeParams, alertService, dataServiceForWebPlayerStats, constCurrentSeasonId) {
+    function ($scope, $timeout, $routeParams, alertService, dataServiceForWebPlayerStats, dataServiceSettings, constCurrentSeasonId) {
 
       var alertTitleDataRetrievalSuccessful = "Data Retrieval Successful";
       var alertTitleDataRetrievalUnsuccessful = "Data Retrieval Unsuccessful";
@@ -279,6 +280,23 @@ lo30NgApp.controller('statsPlayersController',
             if (result && result.length && result.length > 0) {
 
               angular.forEach(result, function (item) {
+
+                if ($scope.data.chrisNiemiecNameUpdate && item.player === "Chris Niemiec") {
+                  item.player = $scope.data.chrisNiemiecNewName
+                }
+                if ($scope.data.nickNiemiecNameUpdate && item.player === "Nick Niemiec") {
+                  item.player = "Nick Lexingtonford Steele Niemiec"
+                }
+                if ($scope.data.carlGerhardPointUpdate && item.player === "Carl Gerhard") {
+                  item.g = item.g * -1;
+                  item.a = item.a * -1;
+                  item.p = item.p * -1;
+                  item.player = "Carl Gerhard**"
+                }
+                if ($scope.data.mikeDavisPenaltyUpdate && item.player === "Mike Davis") {
+                  item.pim = item.pim * 100;
+                  item.player = "Mike Davis***"
+                }
                 $scope.data.playerStats.push(item);
               });
 
@@ -311,12 +329,70 @@ lo30NgApp.controller('statsPlayersController',
         );
       };
 
+      $scope.getSettings = function () {
+        var retrievedType = "Settings";
+
+        dataServiceSettings.listSettings().$promise.then(
+          function (result) {
+            // service call on success
+            if (result && result.length > -1) {
+              // there can be no settings, so no length > 0
+
+              angular.forEach(result, function (item) {
+                if (item.settingName === "chrisNiemiecNameUpdate") {
+                  if (item.settingValue === "1" || item.settingValue === 1) {
+                    $scope.data.chrisNiemiecNameUpdate = true;
+                  } else {
+                    $scope.data.chrisNiemiecNameUpdate = false;
+                  }
+                }
+
+                if (item.settingName === "chrisNiemiecNewName") {
+                  $scope.data.chrisNiemiecNewName = item.settingValue;
+                }
+
+                if (item.settingName === "nickNiemiecNameUpdate") {
+                  if (item.settingValue === "1" || item.settingValue === 1) {
+                    $scope.data.nickNiemiecNameUpdate = true;
+                  } else {
+                    $scope.data.nickNiemiecNameUpdate = false;
+                  }
+                }
+
+                if (item.settingName === "carlGerhardPointUpdate") {
+                  if (item.settingValue === "1" || item.settingValue === 1) {
+                    $scope.data.carlGerhardPointUpdate = true;
+                  } else {
+                    $scope.data.carlGerhardPointUpdate = false;
+                  }
+                }
+
+                if (item.settingName === "mikeDavisPenaltyUpdate") {
+                  if (item.settingValue === "1" || item.settingValue === 1) {
+                    $scope.data.mikeDavisPenaltyUpdate = true;
+                  } else {
+                    $scope.data.mikeDavisPenaltyUpdate = false;
+                  }
+                }
+              });
+
+              alertService.successRetrieval(retrievedType, 1);
+
+            } else {
+              // results not successful
+              alertService.errorRetrieval(retrievedType, result.reason);
+            }
+          }
+        );
+      };
+
       $scope.setWatches = function () {
       };
 
       $scope.activate = function () {
         $scope.initializeScopeVariables();
         $scope.setWatches();
+        $scope.getSettings();
 
         //TODO make this a user selection
         if ($routeParams.seasonId === null) {

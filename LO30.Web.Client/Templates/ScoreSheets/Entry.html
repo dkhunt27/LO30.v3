@@ -11,21 +11,21 @@
   </h3>
   <div>
     <accordion close-others="true">
-      <accordion-group ng-hide="events.gameRosterHomeLoaded" heading="Select a game to load the Home Team Roster">
+      <accordion-group ng-hide="events.teamGameRosterHomeLoaded" heading="Select a game to load the Home Team Roster">
       </accordion-group>
-      <accordion-group ng-hide="events.gameRosterAwayLoaded" heading="Select a game to load the Away Team Roster">
+      <accordion-group ng-hide="events.teamGameRosterAwayLoaded" heading="Select a game to load the Away Team Roster">
       </accordion-group>
-      <accordion-group ng-show="events.gameRosterHomeLoaded">
+      <accordion-group ng-show="events.teamGameRosterHomeLoaded">
         <accordion-heading>
           Home Team Roster: <b>{{data.homeTeamName}}</b>
         </accordion-heading>
-        <lo30-team-game-roster team-game-roster-items="data.teamGameRosterHome" home-team=true locked=true />
+        <lo30-team-game-roster team-game-roster-items="data.teamGameRosterHome" home-team=true locked="isTeamGameRosterLocked()" />
       </accordion-group>
-      <accordion-group ng-show="events.gameRosterAwayLoaded">
+      <accordion-group ng-show="events.teamGameRosterAwayLoaded">
         <accordion-heading>
           Away Team Roster: <b>{{data.awayTeamName}}</b>
         </accordion-heading>
-        <lo30-team-game-roster team-game-roster-items="data.teamGameRosterAway" home-team=false locked=true />
+        <lo30-team-game-roster team-game-roster-items="data.teamGameRosterAway" home-team=false locked="isTeamGameRosterLocked()" />
       </accordion-group>
       <accordion-group>
         <accordion-heading>
@@ -38,7 +38,7 @@
           Penalty Detail: <b>{{data.homeTeamName}}:{{data.homeTeamPims}} mins</b> <b>{{data.awayTeamName}}:{{data.awayTeamPims}} mins</b>
         </accordion-heading>
       </accordion-group>
-      </accordian>
+      </accordion>
   </div>
   <pre>
     <table>
@@ -56,34 +56,14 @@
         <td>{{data.games.length}}</td>
         </tr>
         <tr>
-        <td>gameTeamHome</td>
-        <td>{{events.gameTeamHomeLoaded}}</td>
-        <td>{{data.gameTeamHome.length}}</td>
+        <td>teamGameRosterHome</td>
+        <td>{{events.teamGameRosterHomeLoaded}}</td>
+        <td>{{data.teamGameRosterHome.length}}</td>
         </tr>
         <tr>
-        <td>gameTeamAway</td>
-        <td>{{events.gameTeamAwayLoaded}}</td>
-        <td>{{data.gameTeamAway.length}}</td>
-        </tr>
-        <tr>
-        <td>gameRosterHome</td>
-        <td>{{events.gameRosterHomeLoaded}}</td>
-        <td>{{data.gameRosterHome.length}}</td>
-        </tr>
-        <tr>
-        <td>gameRosterAway</td>
-        <td>{{events.gameRosterAwayLoaded}}</td>
-        <td>{{data.gameRosterAway.length}}</td>
-        </tr>
-        <tr>
-        <td>teamRosterHome</td>
-        <td>{{events.teamRosterHomeLoaded}}</td>
-        <td>{{data.teamRosterHome.length}}</td>
-        </tr>
-        <tr>
-        <td>teamRosterAway</td>
-        <td>{{events.teamRosterAwayLoaded}}</td>
-        <td>{{data.teamRosterAway.length}}</td>
+        <td>teamGameRosterAway</td>
+        <td>{{events.teamGameRosterAwayLoaded}}</td>
+        <td>{{data.teamGameRosterAway.length}}</td>
         </tr>
 
       </tbody>

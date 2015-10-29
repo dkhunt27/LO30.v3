@@ -184,7 +184,11 @@ BEGIN TRY
 		a.RatingPrimary,
 		a.RatingSecondary
 
-	IF (@@ROWCOUNT > 0) THROW 51000, 'Duplicate Jersey Numbers', 1;
+	IF (@@ROWCOUNT > 0) 
+	BEGIN
+		SELECT * FROM #gameRostersCopy
+		IF (@@ROWCOUNT > 0) THROW 51000, 'Duplicate Jersey Numbers', 1;
+	END
 
 	INSERT INTO #gameRostersCopy
 	SELECT 

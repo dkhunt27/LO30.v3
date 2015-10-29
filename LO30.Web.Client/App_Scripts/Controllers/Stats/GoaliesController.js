@@ -364,6 +364,7 @@ lo30NgApp.controller('statsGoaliesController',
       $scope.activate = function () {
         $scope.initializeScopeVariables();
         $scope.setWatches();
+        $scope.getSettings();
 
         //TODO make this a user selection
         if ($routeParams.seasonId === null) {
@@ -388,7 +389,6 @@ lo30NgApp.controller('statsGoaliesController',
         }
 
         $scope.getForWebGoalieStats($scope.data.selectedSeasonId, $scope.data.selectedPlayoffs);
-        $scope.getSettings();
         $timeout(function () {
           $scope.sortAscOnly('gaa');
           $scope.filterBySub("Without");
