@@ -3,6 +3,8 @@
 lo30NgApp.constant("constApisUrl", "/api/v3");
 lo30NgApp.constant("constCurrentSeasonId", 56);
 
+lo30NgApp.value("valSelectedSeason", null);
+
 lo30NgApp.config(
   [
     "$routeProvider",

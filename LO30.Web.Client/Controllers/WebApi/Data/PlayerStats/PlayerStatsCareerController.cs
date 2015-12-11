@@ -14,7 +14,7 @@ namespace LO30.Controllers.Data.PlayerStats
     {
     }
 
-    public List<PlayerStatCareer> GetPlayerStatsCareer()
+    public List<PlayerStatCareer> ListPlayerStatsCareer()
     {
       var results = new List<PlayerStatCareer>();
 
@@ -29,20 +29,18 @@ namespace LO30.Controllers.Data.PlayerStats
                .ToList();
     }
 
-    public List<PlayerStatCareer> GetPlayerStatsCareerByPlayerId(int playerId)
+    public PlayerStatCareer GetPlayerStatCareerByPlayerId(int playerId)
     {
-      var results = new List<PlayerStatCareer>();
+      var results = new PlayerStatCareer();
 
       using (var context = new LO30Context())
       {
         results = context.PlayerStatCareers
                           .Where(x => x.PlayerId == playerId)
                           .IncludeAll()
-                          .ToList();
+                          .SingleOrDefault();
       }
-      return results.OrderBy(x => x.Player.LastName)
-               .ThenBy(x => x.Player.FirstName)
-               .ToList();
+      return results;
     }
   }
 }

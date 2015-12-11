@@ -11,7 +11,7 @@ lo30NgApp.factory("dataServicePlayerStatsSeason",
       var resourceQuery = $resource(constApisUrl + '/playerStatsSeason/:playerId/:seasonId', { playerId: '@playerId', seasonId: '@seasonId' });
 
       // return single item
-      var resourceGet = $resource(constApisUrl + '/playerStatSeason/:playerId/:seasonId/:sub', { playerId: '@playerId', seasonId: '@seasonId', sub: '@sub' });
+      var resourceGet = $resource(constApisUrl + '/playerStatSeason/:playerId/:seasonId/:playoffs', { playerId: '@playerId', seasonId: '@seasonId', playoffs: '@playoffs' });
 
       var listAll = function () {
         return resourceQuery.query();
@@ -25,15 +25,15 @@ lo30NgApp.factory("dataServicePlayerStatsSeason",
         return resourceQuery.query({ playerId: playerId, seasonId: seasonId });
       };
       
-      var getByPlayerIdSeasonIdSub = function (playerId, seasonId, sub) {
-        return resourceGet.get({ playerId: playerId, seasonId: seasonId, sub: sub });
+      var getByPlayerIdSeasonIdPlayoffs = function (playerId, seasonId, playoffs) {
+        return resourceGet.get({ playerId: playerId, seasonId: seasonId, playoffs: playoffs });
       };
 
       return {
         listAll: listAll,
         listByPlayerId: listByPlayerId,
         listByPlayerIdSeasonId: listByPlayerIdSeasonId,
-        getByPlayerIdSeasonIdSub: getByPlayerIdSeasonIdSub
+        getByPlayerIdSeasonIdPlayoffs: getByPlayerIdSeasonIdPlayoffs
       };
     }
   ]

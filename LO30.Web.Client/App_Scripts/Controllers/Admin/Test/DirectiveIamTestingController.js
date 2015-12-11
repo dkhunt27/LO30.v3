@@ -7,6 +7,7 @@ lo30NgApp.controller('testDirectiveIamTestingController',
     'alertService',
     'dataServiceTeamGameRosters',
     'dataServicePlayers',
+    'dataServicePlayers',
     function ($scope, alertService, dataServiceTeamGameRosters, dataServicePlayers) {
 
       $scope.initializeScopeVariables = function () {
@@ -103,6 +104,33 @@ lo30NgApp.controller('testDirectiveIamTestingController',
         );
       };
 
+      $scope.getPlayerComposites = function () {
+        var retrievedType = "PlayerComposites";
+        $scope.events.playersLoaded = false;
+
+        var yyyymmdd = 20151129;
+        var active = true;
+
+        dataServicePlayers.listPlayerComposites(yyyymmdd, active).$promise.then(
+          function (result) {
+            // service call on success
+            if (result && result.length && result.length > 0) {
+
+              angular.forEach(result, function (item) {
+                $scope.data.players.push(item);
+              });
+              $scope.events.playersLoaded = true;
+
+              alertService.successRetrieval(retrievedType, $scope.data.players.length);
+
+            } else {
+              // results not successful
+              alertService.errorRetrieval(retrievedType, result.reason);
+            }
+          }
+        );
+      };
+
       $scope.setWatches = function () {
       };
 
@@ -113,7 +141,8 @@ lo30NgApp.controller('testDirectiveIamTestingController',
         $scope.data.gameIdSelected = 3402;
         $scope.getTeamGameRosters($scope.data.gameIdSelected, true);
         $scope.getTeamGameRosters($scope.data.gameIdSelected, false);
-        $scope.getPlayers();
+        //$scope.getPlayers();
+        $scope.getPlayerComposites();
 
       };
 

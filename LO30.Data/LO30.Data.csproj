@@ -96,8 +96,11 @@
     <Compile Include="Models\ForWebPlayerStat.cs" />
     <Compile Include="Models\ForWebTeamStanding.cs" />
     <Compile Include="Models\Game.cs" />
+    <Compile Include="Models\GameOutcomeOverride.cs" />
     <Compile Include="Models\ScoreSheetEntryProcessedGame.cs" />
     <Compile Include="Models\ScoreSheetEntryProcessedPlusMinus.cs" />
+    <Compile Include="Objects\PlayerComposite.cs" />
+    <Compile Include="Objects\PlayerStatSeasonForWeb.cs" />
     <Compile Include="Objects\TeamGameRoster.cs" />
     <Compile Include="Objects\ScoreSheetEntryRoster.cs" />
     <Compile Include="Objects\ScoringByPeriod.cs" />

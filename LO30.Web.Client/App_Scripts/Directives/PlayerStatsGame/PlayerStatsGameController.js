@@ -3,12 +3,13 @@
 /* jshint -W117 */ //(remove the undefined warning)
 lo30NgApp.controller('lo30PlayerStatsGameController',
   [
+    '$log',
     '$scope',
     '$timeout',
     'alertService',
     'externalLibService',
     'dataServicePlayerStatsGame',
-    function ($scope, $timeout, alertService, externalLibService, dataServicePlayerStatsGame) {
+    function ($log, $scope, $timeout, alertService, externalLibService, dataServicePlayerStatsGame) {
       var _ = externalLibService._;
 
       $scope.sortAscFirst = function (column) {
@@ -83,11 +84,11 @@ lo30NgApp.controller('lo30PlayerStatsGameController',
         $scope.data.playerStatsGame = [];
 
         dataServicePlayerStatsGame.listByPlayerIdSeasonId(playerId, seasonId).$promise.then(
-          function (result) {
+          function (fulfilled) {
             // service call on success
-            if (result && result.length && result.length > 0) {
+            if (fulfilled && fulfilled.length && fulfilled.length > 0) {
 
-              angular.forEach(result, function (item, index) {
+              angular.forEach(fulfilled, function (item, index) {
                 item.game.gameDate = moment(item.game.gameYYYYMMDD, "YYYYMMDD");
                 $scope.data.playerStatsGame.push(item);
               });
@@ -96,9 +97,11 @@ lo30NgApp.controller('lo30PlayerStatsGameController',
               $scope.events.playerStatsGameProcessed = true;
 
               alertService.successRetrieval(retrievedType, $scope.data.playerStatsGame.length);
+
+              $log.debug(retrievedType, fulfilled);
             } else {
               // results not successful
-              alertService.errorRetrieval(retrievedType, result.reason);
+              alertService.errorRetrieval(retrievedType, fulfilled.reason);
             }
           }
         );
@@ -118,7 +121,7 @@ lo30NgApp.controller('lo30PlayerStatsGameController',
         $scope.getPlayerStatsGame($scope.playerId, $scope.seasonId);
 
         $timeout(function () {
-          $scope.sortDescFirst('game.gameYYYYMMDD');
+          $scope.sortDescFirst('game.gameDate');
         }, 0);  // using timeout so it fires when done rendering
       };
 

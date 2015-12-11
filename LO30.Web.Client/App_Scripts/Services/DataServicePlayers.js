@@ -13,6 +13,9 @@ lo30NgApp.factory("dataServicePlayers",
       // return single item
       var resourceByPlayerId = $resource(constApisUrl + '/player/:playerId', { playerId: '@playerId' });
 
+      // return multiple items
+      var resourceComposites = $resource(constApisUrl + '/playerComposites/:yyyymmdd/:active', { yyyymmdd: '@yyyymmdd', active: '@active' });
+
       var listAll = function () {
         return resource.query();
       };
@@ -22,9 +25,14 @@ lo30NgApp.factory("dataServicePlayers",
         return resourceByPlayerId.get({ playerId: playerId });
       };
 
+      var listPlayerComposites = function (yyyymmdd, active) {
+        return resourceComposites.query({ yyyymmdd: yyyymmdd, active: active });
+      };
+
       return {
         listAll: listAll,
-        getByPlayerId: getByPlayerId
+        getByPlayerId: getByPlayerId,
+        listPlayerComposites: listPlayerComposites
       };
     }
   ]

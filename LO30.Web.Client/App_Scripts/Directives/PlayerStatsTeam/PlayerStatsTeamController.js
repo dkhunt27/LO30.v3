@@ -3,11 +3,12 @@
 /* jshint -W117 */ //(remove the undefined warning)
 lo30NgApp.controller('lo30PlayerStatsTeamController',
   [
+    '$log',
     '$scope',
     'alertService',
     'externalLibService',
     'dataServicePlayerStatsTeam',
-    function ($scope, alertService, externalLibService, dataServicePlayerStatsTeam) {
+    function ($log, $scope, alertService, externalLibService, dataServicePlayerStatsTeam) {
       var _ = externalLibService._;
 
       $scope.sortAscFirst = function (column) {
@@ -53,31 +54,29 @@ lo30NgApp.controller('lo30PlayerStatsTeamController',
         };
       };
 
-      $scope.getPlayerStatsTeam = function (playerId, playoffs) {
+      $scope.getPlayerStatsTeam = function (playerId, seasonId) {
         var retrievedType = "PlayerStatsTeam";
 
         $scope.events.playerStatsTeamProcessing = true;
         $scope.events.playerStatsTeamProcessed = false;
         $scope.data.playerStatsTeam = [];
 
-        dataServicePlayerStatsTeam.listByPlayerId(playerId).$promise.then(
-          function (result) {
+        dataServicePlayerStatsTeam.listByPlayerIdSeasonId(playerId, seasonId).$promise.then(
+          function (fulfilled) {
             // service call on success
-            if (result && result.length && result.length > 0) {
+            if (fulfilled && fulfilled.length && fulfilled.length > 0) {
 
-              angular.forEach(result, function (item, index) {
-                if (item.playoffs === playoffs) {
-                  $scope.data.playerStatsTeam.push(item);
-                }
-              });
+              $scope.data.playerStatsTeam = fulfilled;
 
               $scope.events.playerStatsTeamProcessing = false;
               $scope.events.playerStatsTeamProcessed = true;
 
               alertService.successRetrieval(retrievedType, $scope.data.playerStatsTeam.length);
+
+              $log.debug(retrievedType, fulfilled);
             } else {
               // results not successful
-              alertService.errorRetrieval(retrievedType, result.reason);
+              alertService.errorRetrieval(retrievedType, fulfilled.reason);
             }
           }
         );
@@ -89,7 +88,7 @@ lo30NgApp.controller('lo30PlayerStatsTeamController',
       $scope.activate = function () {
         $scope.initializeScopeVariables();
         $scope.setWatches();
-        $scope.getPlayerStatsTeam($scope.playerId, $scope.playoffs);
+        $scope.getPlayerStatsTeam($scope.playerId, $scope.seasonId);
       };
 
       $scope.activate();

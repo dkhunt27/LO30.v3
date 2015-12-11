@@ -3,6 +3,7 @@
 /* jshint -W117 */ //(remove the undefined warning)
 lo30NgApp.controller('gamesResultsController',
   [
+    '$log',
     '$scope',
     '$timeout',
     '$routeParams',
@@ -10,7 +11,7 @@ lo30NgApp.controller('gamesResultsController',
     'dataServiceGameOutcomes',
     'dataServiceForWebTeamStandings',
     'constCurrentSeasonId',
-    function ($scope, $timeout, $routeParams, alertService, dataServiceGameOutcomes, dataServiceForWebTeamStandings, constCurrentSeasonId) {
+    function ($log, $scope, $timeout, $routeParams, alertService, dataServiceGameOutcomes, dataServiceForWebTeamStandings, constCurrentSeasonId) {
 
       $scope.sortAscFirst = function (column) {
         if ($scope.sortOn === column) {
@@ -66,10 +67,10 @@ lo30NgApp.controller('gamesResultsController',
 
         var fullDetail = true;
         dataServiceGameOutcomes.listGameOutcomesByTeamId(seasonId, playoffs, teamId).$promise.then(
-          function (result) {
-            if (result && result.length && result.length > 0) {
+          function (fulfilled) {
+            if (fulfilled && fulfilled.length && fulfilled.length > 0) {
 
-              angular.forEach(result, function (item) {
+              angular.forEach(fulfilled, function (item) {
                 item.game.gameDate = moment(item.game.gameYYYYMMDD, "YYYYMMDD");
                 $scope.data.gameOutcomes.push(item);
               });
@@ -77,6 +78,9 @@ lo30NgApp.controller('gamesResultsController',
               $scope.requests.gameOutcomesLoaded = true;
 
               alertService.successRetrieval(retrievedType, $scope.data.gameOutcomes.length);
+
+
+              $log.debug(retrievedType, fulfilled);
 
             } else {
               alertService.warningRetrieval(retrievedType, "No results returned");
@@ -158,7 +162,7 @@ lo30NgApp.controller('gamesResultsController',
         $scope.getForWebTeamStandingsGoodThru($scope.data.selectedSeasonId);
 
         $timeout(function () {
-          $scope.sortDescFirst('gameTeam.gameId')
+          $scope.sortDescFirst('gameId')
         }, 0);  // using timeout so it fires when done rendering
       };
 

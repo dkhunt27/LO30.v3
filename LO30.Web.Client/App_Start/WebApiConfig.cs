@@ -19,6 +19,16 @@ namespace LO30
 
       var constApisUrl = "api/v3";
 
+
+      #region seasons routes
+      config.Routes.MapHttpRoute(
+          name: "ApiForSeasons",
+          routeTemplate: constApisUrl + "/seasons",
+          defaults: new { controller = "Seasons" }
+      );
+      #endregion
+
+
       #region scoreSheetEntry routes
       config.Routes.MapHttpRoute(
           name: "ApiForScoreSheetEntryRoster",
@@ -245,17 +255,20 @@ namespace LO30
       );
       #endregion
 
+      #region playerComposite(s) routes
+      config.Routes.MapHttpRoute(
+          name: "ApiPlayerCompsites",
+          routeTemplate: constApisUrl + "/playerComposites/{yyyymmdd}/{active}",
+          defaults: new { controller = "PlayerComposites", active = RouteParameter.Optional }
+      );
+
+      #endregion
+
       #region playerStat(s)Career routes
       config.Routes.MapHttpRoute(
           name: "ApiPlayerStatsCareer",
           routeTemplate: constApisUrl + "/playerStatsCareer/{playerId}",
           defaults: new { controller = "PlayerStatsCareer", playerId = RouteParameter.Optional }
-      );
-
-      config.Routes.MapHttpRoute(
-          name: "ApiPlayerStatCareer",
-          routeTemplate: constApisUrl + "/playerStatCareer/{playerId}/{playoffs}",
-          defaults: new { controller = "PlayerStatCareer" }
       );
       #endregion
 
@@ -268,7 +281,7 @@ namespace LO30
 
       config.Routes.MapHttpRoute(
           name: "ApiPlayerStatSeason",
-          routeTemplate: constApisUrl + "/playerStatSeason/{playerId}/{seasonId}/{sub}",
+          routeTemplate: constApisUrl + "/playerStatSeason/{playerId}/{seasonId}/{playoffs}",
           defaults: new { controller = "PlayerStatSeason" }
       );
       #endregion

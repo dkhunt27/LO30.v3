@@ -53,12 +53,17 @@
         <div class="col-xs-1"><span class="glyphicon glyphicon-plus"></span></div>
         <div class="col-xs-1"></div>
         <div class="col-xs-1"></div>
-        <div class="col-xs-5" isteven-multi-select
+        <div class="col-xs-5"
+             isteven-multi-select
+             selection-mode="single"
              input-model="subs"
              output-model="data.selectedSub"
              button-label="firstName lastName"
-             item-label="firstName lastName suffix"
-             tick-property="ticked">
+             item-label="playerId firstName lastName suffix"
+             tick-property="ticked"
+             max-height="250px"
+             min-search-length="2"
+             search-property="playerId firstName lastName suffix">
         </div>
         <div class="col-xs-1"></div>
         <div class="col-xs-1"></div>

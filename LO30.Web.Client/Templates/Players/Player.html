@@ -43,11 +43,23 @@
         </div>
       </div>
     </div>
+    <!--<div class="row">
+      <div class="col-md-1">
+      </div>
+      <div class="col-md-6">
+        <div class="row">
+          <h3>
+            {{data.player.firstName}} {{data.player.lastName}} {{data.player.suffix}}
+          </h3>
+        </div>
+      </div>
+    </div>-->
+    
   </header>
   <br />
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
-      <lo30-player-stats-season player-id="data.selectedPlayerId" season-id="data.selectedSeasonId" />
+      <lo30-player-stats-team player-id="data.selectedPlayerId" season-id="data.selectedSeasonId" />
     </div>
   </div>
   <div class="row">
@@ -57,24 +69,15 @@
   </div>
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
-      <h4>
-        Career Regular Season Statistics
-        <small>(other years still to be added)</small>
-      </h4>
-      <lo30-player-stats-team player-id="data.selectedPlayerId" playoffs=false />
-      <!--lo30-player-stats-career player-id="data.selectedPlayerId" playoffs=false /-->
+      <lo30-player-stats-season player-id="data.selectedPlayerId" />
     </div>
   </div>
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
-      <h4>
-        Career Playoff Statistics
-        <small>(other years still to be added)</small>
-      </h4>
-      <lo30-player-stats-team player-id="data.selectedPlayerId" playoffs=true />
-      <!--lo30-player-stats-career player-id="data.selectedPlayerId" playoffs=true /-->
+      <lo30-player-stats-career player-id="data.selectedPlayerId" />
     </div>
   </div>
+  <br />
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
       <h6>

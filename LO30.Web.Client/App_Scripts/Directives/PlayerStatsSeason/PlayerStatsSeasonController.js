@@ -3,11 +3,13 @@
 /* jshint -W117 */ //(remove the undefined warning)
 lo30NgApp.controller('lo30PlayerStatsSeasonController',
   [
+    '$log',
     '$scope',
+    '$timeout',
     'alertService',
     'externalLibService',
     'dataServicePlayerStatsSeason',
-    function ($scope, alertService, externalLibService, dataServicePlayerStatsSeason) {
+    function ($log, $scope, $timeout, alertService, externalLibService, dataServicePlayerStatsSeason) {
       var _ = externalLibService._;
 
       $scope.sortAscFirst = function (column) {
@@ -61,23 +63,26 @@ lo30NgApp.controller('lo30PlayerStatsSeasonController',
         $scope.data.playerStatsSeason = [];
 
         dataServicePlayerStatsSeason.listByPlayerIdSeasonId(playerId, seasonId).$promise.then(
-          function (result) {
+          function (fulfilled) {
             // service call on success
-            if (result && result.length && result.length > 0) {
+            if (fulfilled && fulfilled.length && fulfilled.length > 0) {
 
-              angular.forEach(result, function (item, index) {
-                var name;
+              angular.forEach(fulfilled, function (item, index) {
+                var type;
                 if (item.playoffs === true) {
-                  name = "Playoffs"
+                  type = "Playoffs"
                 } else {
-                  name = "Regular Season"
+                  type = "Regular Season"
                 }
+
+                var name = item.season.seasonName + " " + type;
 
                 if (item.sub === true) {
                   name = name + "*";
                 } 
 
                 item.name = name;
+                item.type = type;
 
                 $scope.data.playerStatsSeason.push(item);
               });
@@ -86,9 +91,11 @@ lo30NgApp.controller('lo30PlayerStatsSeasonController',
               $scope.events.playerStatsSeasonProcessed = true;
 
               alertService.successRetrieval(retrievedType, $scope.data.playerStatsSeason.length);
+
+              $log.debug(retrievedType, fulfilled);
             } else {
               // results not successful
-              alertService.errorRetrieval(retrievedType, result.reason);
+              alertService.errorRetrieval(retrievedType, fulfilled.reason);
             }
           }
         );
@@ -101,6 +108,10 @@ lo30NgApp.controller('lo30PlayerStatsSeasonController',
         $scope.initializeScopeVariables();
         $scope.setWatches();
         $scope.getPlayerStatsSeason($scope.playerId, $scope.seasonId);
+
+        $timeout(function () {
+          $scope.sortDescFirst('name');
+        }, 0);  // using timeout so it fires when done rendering
       };
 
       $scope.activate();

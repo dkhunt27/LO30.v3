@@ -58,8 +58,8 @@
             <tr ng-repeat="item in data.gameOutcomes | orderBy:sortOn:sortDirection">
               <td ng-class="{'td-sorted-by':sortOn === 'gameId' }"><a ng-href="/Ng/#/Games/BoxScores/{{item.gameId}}">{{item.gameId}}</a></td>
               <td ng-class="{'td-sorted-by':sortOn === 'game.gameDate' }">{{ item.game.gameDate | amDateFormat:'MMM Do YYYY' }}</td>
-              <td ng-class="{'td-sorted-by':sortOn === 'opponentTeam.teamNameShort' }">{{item.opponentTeam.teamNameShort}}{{itemPSG.sub == true ? "*" : ""}}</td>
-              <td class="text-right" ng-class="{'td-sorted-by':sortOn === 'outcome'}">{{item.outcome}}</td>
+              <td ng-class="{'td-sorted-by':sortOn === 'opponentTeam.teamNameShort' }">{{item.opponentTeam.teamNameShort}}</td>
+              <td class="text-right" ng-class="{'td-sorted-by':sortOn === 'outcome'}">{{item.outcome}}{{item.overriden == true ? "*" : ""}}</td>
               <td class="text-right" ng-class="{'td-sorted-by':sortOn === 'goalsFor'}">{{item.goalsFor}}</td>
               <td class="text-right" ng-class="{'td-sorted-by':sortOn === 'goalsAgainst'}">{{item.goalsAgainst}}</td>
               <td class="text-right" ng-class="{'td-sorted-by':sortOn === 'penaltyMinutes' }">{{item.penaltyMinutes}}</td>
@@ -71,5 +71,11 @@
     </div>
   </div>
   <br />
-
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <h6>
+        * Outcome overriden by board
+      </h6>
+    </div>
+  </div>
 </div>

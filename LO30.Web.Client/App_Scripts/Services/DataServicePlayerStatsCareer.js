@@ -8,27 +8,22 @@ lo30NgApp.factory("dataServicePlayerStatsCareer",
     function (constApisUrl, $resource) {
 
       // return multiple items
-      var resourceQuery = $resource(constApisUrl + '/playerStatsCareer/:playerId');
+      var resourceQuery = $resource(constApisUrl + '/playerStatsCareer');
 
       // return single item
-      var resourceGet = $resource(constApisUrl + '/playerStatCareer/:playerId/:playoffs', { playerId: '@playerId', playoffs: '@playoffs' });
+      var resourceGet = $resource(constApisUrl + '/playerStatsCareer/:playerId', { playerId: '@playerId' });
 
       var listAll = function () {
-        return resourceQuery.query();
+        return resourceQuery.query().$promise;
       };
 
-      var listByPlayerId = function (playerId) {
-        return resourceQuery.query({ playerId: playerId });
-      };
-
-      var getByPlayerIdPlayoffs = function (playerId, playoffs) {
-        return resourceGet.get({ playerId: playerId, playoffs: playoffs });
+      var getByPlayerId = function (playerId) {
+        return resourceGet.get({ playerId: playerId }).$promise;
       };
 
       return {
         listAll: listAll,
-        listByPlayerId: listByPlayerId,
-        getByPlayerIdPlayoffs: getByPlayerIdPlayoffs
+        getByPlayerId: getByPlayerId
       };
     }
   ]

@@ -18,11 +18,19 @@ lo30NgApp.factory(
       var alertMessage;
 
       var errorRetrieval = function (retrievedType, retrievedError) {
+        if (typeof retrievedError === "object") {
+          retrievedError = JSON.stringify(retrievedError, null, 2);
+        }
+
         alertMessage = _.template(alertMessageTemplateRetrievalUnsuccessful)({ retrievedType: retrievedType, retrievedError: retrievedError });
         error(alertMessage, alertTitleDataRetrievalUnsuccessful)
       };
 
       var error = function (body, title) {
+        if (typeof body === "object") {
+          body = JSON.stringify(body, null, 2);
+        }
+
         toaster.pop("error", title, body, 5000);
         console.error(title + ":" + body);
       };
@@ -43,6 +51,10 @@ lo30NgApp.factory(
       };
 
       var warningRetrieval = function (retrievedType, retrievedWarning) {
+        if (typeof retrievedWarning === "object") {
+          retrievedWarning = JSON.stringify(retrievedWarning, null, 2);
+        }
+
         alertMessage = _.template(alertMessageTemplateRetrievalUnsuccessfulWarning)({ retrievedType: retrievedType, retrievedWarning: retrievedWarning });
         warning(alertMessage, alertTitleDataRetrievalUnsuccessful)
       };

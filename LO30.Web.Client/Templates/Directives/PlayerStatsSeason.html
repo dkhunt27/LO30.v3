@@ -1,14 +1,13 @@
 ﻿<div>
-  <div>
-    <h4>
-      {{data.playerStatsSeason[0].season.seasonName}} Season Statistics
-    </h4>
-  </div>
+  <h4>
+    Season Statistics
+    <small>(other years still to be added)</small>
+  </h4>
   <div class="table-responsive">
     <table class="table table-condensed table-bordered table-striped table-dk-blue">
       <thead>
         <tr>
-          <td class="pointer" ng-class="{'td-sorted-by':sortOn === 'season.seasonName'}" ng-click="sortDescOnly('name')">Type</td>
+          <td class="pointer" ng-class="{'td-sorted-by':sortOn === 'name'}" ng-click="sortDescOnly('name')">Season</td>
           <td class="pointer text-right" ng-class="{'td-sorted-by':sortOn === 'games'}" ng-click="sortDescOnly('games')">GP</td>
           <td class="pointer text-right" ng-class="{'td-sorted-by':sortOn === 'goals'}" ng-click="sortDescOnly('goals')">G</td>
           <td class="pointer text-right" ng-class="{'td-sorted-by':sortOn === 'assists'}" ng-click="sortDescOnly('assists')">A</td>

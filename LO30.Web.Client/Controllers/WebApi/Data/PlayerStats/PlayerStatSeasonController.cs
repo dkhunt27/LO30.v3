@@ -14,14 +14,14 @@ namespace LO30.Controllers.Data.PlayerStats
     {
     }
 
-    public PlayerStatSeason GetPlayerStatSeasonByPlayerIdSeasonIdSub(int playerId, int seasonId, bool playoffs, bool sub)
+    public PlayerStatSeason GetPlayerStatSeasonByPlayerIdSeasonIdPlayoffs(int playerId, int seasonId, bool playoffs)
     {
       var results = new PlayerStatSeason();
 
       using (var context = new LO30Context())
       {
         results = context.PlayerStatSeasons
-                          .Where(x => x.PlayerId == playerId && x.SeasonId == seasonId && x.Playoffs == playoffs && x.Sub == sub)
+                          .Where(x => x.PlayerId == playerId && x.SeasonId == seasonId && x.Playoffs == playoffs)
                           .IncludeAll()
                           .SingleOrDefault();
       }

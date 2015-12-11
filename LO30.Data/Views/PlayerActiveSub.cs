@@ -5,13 +5,13 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 using LO30.Data.Extensions;
+using System.Data.Entity.ModelConfiguration;
 
 namespace LO30.Data.Views
 {
-  [Table("dbo.PlayersActiveSubs")]
   public class PlayerActiveSub
   {
-    [Key, Column(Order = 1), DatabaseGenerated(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.None)]
+    [Key]
     public int PlayerId { get; set; }
 
     [Required, MaxLength(35)]
@@ -26,7 +26,25 @@ namespace LO30.Data.Views
     [Required, MaxLength(1)]
     public string PreferredPosition { get; set; }
 
-    [Required, MaxLength(35)]
+    [MaxLength(35)]
     public string TeamNameShort { get; set; }
+  }
+
+  internal partial class PlayerActiveSubConfiguration : EntityTypeConfiguration<PlayerActiveSub>
+  {
+    public PlayerActiveSubConfiguration(string schema = "dbo")
+    {
+      ToTable(schema + ".PlayersActiveSubs");
+      HasKey(x => x.PlayerId);
+
+      Property(x => x.FirstName).HasColumnName("FirstName").IsRequired().IsUnicode(false).HasMaxLength(35);
+      Property(x => x.LastName).HasColumnName("LastName").IsRequired().IsUnicode(false).HasMaxLength(35);
+      Property(x => x.Suffix).HasColumnName("Suffix").IsOptional().IsUnicode(false).HasMaxLength(5);
+      Property(x => x.PreferredPosition).HasColumnName("PreferredPosition").IsRequired().IsUnicode(false).HasMaxLength(1);
+      Property(x => x.TeamNameShort).HasColumnName("TeamNameShort").IsOptional().IsUnicode(false).HasMaxLength(15);
+
+      InitializePartial();
+    }
+    partial void InitializePartial();
   }
 }
