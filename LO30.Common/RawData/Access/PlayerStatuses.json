@@ -1,20 +1,26 @@
 [
   {
     "PLAYER_ID": 1,
-    "STATUS_ID": 1,
-    "EVENT_DATE": "1970-01-01T00:00:00",
-    "CURRENT_STATUS_IND": false
-  },
-  {
-    "PLAYER_ID": 1,
     "STATUS_ID": 10,
     "EVENT_DATE": "2014-08-19T00:00:00",
     "CURRENT_STATUS_IND": true
   },
   {
     "PLAYER_ID": 1,
+    "STATUS_ID": 1,
+    "EVENT_DATE": "1970-01-01T00:00:00",
+    "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 1,
     "STATUS_ID": 5,
     "EVENT_DATE": "2013-07-01T00:00:00",
+    "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 2,
+    "STATUS_ID": 5,
+    "EVENT_DATE": "2003-08-03T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -25,14 +31,14 @@
   },
   {
     "PLAYER_ID": 2,
-    "STATUS_ID": 5,
-    "EVENT_DATE": "2003-08-03T00:00:00",
+    "STATUS_ID": 1,
+    "EVENT_DATE": "1970-01-01T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
-    "PLAYER_ID": 2,
-    "STATUS_ID": 1,
-    "EVENT_DATE": "1970-01-01T00:00:00",
+    "PLAYER_ID": 3,
+    "STATUS_ID": 6,
+    "EVENT_DATE": "2003-08-03T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -40,12 +46,6 @@
     "STATUS_ID": 1,
     "EVENT_DATE": "2007-08-03T00:00:00",
     "CURRENT_STATUS_IND": true
-  },
-  {
-    "PLAYER_ID": 3,
-    "STATUS_ID": 6,
-    "EVENT_DATE": "2003-08-03T00:00:00",
-    "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 3,
@@ -61,14 +61,14 @@
   },
   {
     "PLAYER_ID": 5,
-    "STATUS_ID": 3,
-    "EVENT_DATE": "2007-08-03T00:00:00",
+    "STATUS_ID": 10,
+    "EVENT_DATE": "2005-06-17T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 5,
-    "STATUS_ID": 1,
-    "EVENT_DATE": "1970-01-01T00:00:00",
+    "STATUS_ID": 3,
+    "EVENT_DATE": "2007-08-03T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -79,8 +79,8 @@
   },
   {
     "PLAYER_ID": 5,
-    "STATUS_ID": 10,
-    "EVENT_DATE": "2005-06-17T00:00:00",
+    "STATUS_ID": 1,
+    "EVENT_DATE": "1970-01-01T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -97,15 +97,15 @@
   },
   {
     "PLAYER_ID": 8,
-    "STATUS_ID": 9,
-    "EVENT_DATE": "2003-10-06T00:00:00",
-    "CURRENT_STATUS_IND": true
-  },
-  {
-    "PLAYER_ID": 8,
     "STATUS_ID": 1,
     "EVENT_DATE": "2003-08-02T00:00:00",
     "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 8,
+    "STATUS_ID": 9,
+    "EVENT_DATE": "2003-10-06T00:00:00",
+    "CURRENT_STATUS_IND": true
   },
   {
     "PLAYER_ID": 9,
@@ -127,18 +127,6 @@
   },
   {
     "PLAYER_ID": 10,
-    "STATUS_ID": 1,
-    "EVENT_DATE": "1970-01-01T00:00:00",
-    "CURRENT_STATUS_IND": false
-  },
-  {
-    "PLAYER_ID": 10,
-    "STATUS_ID": 5,
-    "EVENT_DATE": "2009-07-28T00:00:00",
-    "CURRENT_STATUS_IND": false
-  },
-  {
-    "PLAYER_ID": 10,
     "STATUS_ID": 10,
     "EVENT_DATE": "2011-06-01T00:00:00",
     "CURRENT_STATUS_IND": true
@@ -150,16 +138,22 @@
     "CURRENT_STATUS_IND": false
   },
   {
+    "PLAYER_ID": 10,
+    "STATUS_ID": 1,
+    "EVENT_DATE": "1970-01-01T00:00:00",
+    "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 10,
+    "STATUS_ID": 5,
+    "EVENT_DATE": "2009-07-28T00:00:00",
+    "CURRENT_STATUS_IND": false
+  },
+  {
     "PLAYER_ID": 11,
     "STATUS_ID": 1,
     "EVENT_DATE": "1970-01-01T00:00:00",
     "CURRENT_STATUS_IND": true
-  },
-  {
-    "PLAYER_ID": 12,
-    "STATUS_ID": 5,
-    "EVENT_DATE": "2003-08-03T00:00:00",
-    "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 12,
@@ -174,16 +168,10 @@
     "CURRENT_STATUS_IND": false
   },
   {
-    "PLAYER_ID": 13,
-    "STATUS_ID": 1,
-    "EVENT_DATE": "2004-10-27T00:00:00",
+    "PLAYER_ID": 12,
+    "STATUS_ID": 5,
+    "EVENT_DATE": "2003-08-03T00:00:00",
     "CURRENT_STATUS_IND": false
-  },
-  {
-    "PLAYER_ID": 13,
-    "STATUS_ID": 10,
-    "EVENT_DATE": "2006-06-15T00:00:00",
-    "CURRENT_STATUS_IND": true
   },
   {
     "PLAYER_ID": 13,
@@ -199,8 +187,20 @@
   },
   {
     "PLAYER_ID": 13,
+    "STATUS_ID": 10,
+    "EVENT_DATE": "2006-06-15T00:00:00",
+    "CURRENT_STATUS_IND": true
+  },
+  {
+    "PLAYER_ID": 13,
     "STATUS_ID": 3,
     "EVENT_DATE": "2002-08-02T00:00:00",
+    "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 13,
+    "STATUS_ID": 1,
+    "EVENT_DATE": "2004-10-27T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -211,27 +211,27 @@
   },
   {
     "PLAYER_ID": 14,
+    "STATUS_ID": 10,
+    "EVENT_DATE": "2004-09-15T00:00:00",
+    "CURRENT_STATUS_IND": true
+  },
+  {
+    "PLAYER_ID": 14,
     "STATUS_ID": 1,
     "EVENT_DATE": "1970-01-01T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
-    "PLAYER_ID": 14,
-    "STATUS_ID": 10,
-    "EVENT_DATE": "2004-09-15T00:00:00",
-    "CURRENT_STATUS_IND": true
+    "PLAYER_ID": 15,
+    "STATUS_ID": 1,
+    "EVENT_DATE": "1970-01-01T00:00:00",
+    "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 15,
     "STATUS_ID": 10,
     "EVENT_DATE": "2015-09-09T00:00:00",
     "CURRENT_STATUS_IND": true
-  },
-  {
-    "PLAYER_ID": 15,
-    "STATUS_ID": 1,
-    "EVENT_DATE": "1970-01-01T00:00:00",
-    "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 16,
@@ -259,25 +259,13 @@
   },
   {
     "PLAYER_ID": 18,
-    "STATUS_ID": 1,
-    "EVENT_DATE": "1970-01-01T00:00:00",
-    "CURRENT_STATUS_IND": false
-  },
-  {
-    "PLAYER_ID": 18,
     "STATUS_ID": 10,
     "EVENT_DATE": "2010-09-01T00:00:00",
     "CURRENT_STATUS_IND": true
   },
   {
-    "PLAYER_ID": 19,
-    "STATUS_ID": 3,
-    "EVENT_DATE": "2003-08-03T00:00:00",
-    "CURRENT_STATUS_IND": false
-  },
-  {
-    "PLAYER_ID": 19,
-    "STATUS_ID": 3,
+    "PLAYER_ID": 18,
+    "STATUS_ID": 1,
     "EVENT_DATE": "1970-01-01T00:00:00",
     "CURRENT_STATUS_IND": false
   },
@@ -286,6 +274,18 @@
     "STATUS_ID": 1,
     "EVENT_DATE": "2004-10-27T00:00:00",
     "CURRENT_STATUS_IND": true
+  },
+  {
+    "PLAYER_ID": 19,
+    "STATUS_ID": 3,
+    "EVENT_DATE": "1970-01-01T00:00:00",
+    "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 19,
+    "STATUS_ID": 3,
+    "EVENT_DATE": "2003-08-03T00:00:00",
+    "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 20,
@@ -319,15 +319,15 @@
   },
   {
     "PLAYER_ID": 22,
-    "STATUS_ID": 5,
-    "EVENT_DATE": "2003-08-03T00:00:00",
-    "CURRENT_STATUS_IND": false
-  },
-  {
-    "PLAYER_ID": 22,
     "STATUS_ID": 10,
     "EVENT_DATE": "2004-09-15T00:00:00",
     "CURRENT_STATUS_IND": true
+  },
+  {
+    "PLAYER_ID": 22,
+    "STATUS_ID": 5,
+    "EVENT_DATE": "2003-08-03T00:00:00",
+    "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 22,
@@ -349,8 +349,20 @@
   },
   {
     "PLAYER_ID": 24,
+    "STATUS_ID": 2,
+    "EVENT_DATE": "2006-02-27T00:00:00",
+    "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 24,
     "STATUS_ID": 3,
     "EVENT_DATE": "2002-08-02T00:00:00",
+    "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 24,
+    "STATUS_ID": 3,
+    "EVENT_DATE": "2005-08-04T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -366,16 +378,10 @@
     "CURRENT_STATUS_IND": true
   },
   {
-    "PLAYER_ID": 24,
-    "STATUS_ID": 3,
-    "EVENT_DATE": "2005-08-04T00:00:00",
-    "CURRENT_STATUS_IND": false
-  },
-  {
-    "PLAYER_ID": 24,
-    "STATUS_ID": 2,
-    "EVENT_DATE": "2006-02-27T00:00:00",
-    "CURRENT_STATUS_IND": false
+    "PLAYER_ID": 25,
+    "STATUS_ID": 10,
+    "EVENT_DATE": "2012-06-14T00:00:00",
+    "CURRENT_STATUS_IND": true
   },
   {
     "PLAYER_ID": 25,
@@ -388,12 +394,6 @@
     "STATUS_ID": 5,
     "EVENT_DATE": "2011-07-07T00:00:00",
     "CURRENT_STATUS_IND": false
-  },
-  {
-    "PLAYER_ID": 25,
-    "STATUS_ID": 10,
-    "EVENT_DATE": "2012-06-14T00:00:00",
-    "CURRENT_STATUS_IND": true
   },
   {
     "PLAYER_ID": 26,
@@ -409,6 +409,12 @@
   },
   {
     "PLAYER_ID": 27,
+    "STATUS_ID": 1,
+    "EVENT_DATE": "1970-01-01T00:00:00",
+    "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 27,
     "STATUS_ID": 10,
     "EVENT_DATE": "2007-07-25T00:00:00",
     "CURRENT_STATUS_IND": true
@@ -420,22 +426,16 @@
     "CURRENT_STATUS_IND": false
   },
   {
-    "PLAYER_ID": 27,
-    "STATUS_ID": 1,
-    "EVENT_DATE": "1970-01-01T00:00:00",
-    "CURRENT_STATUS_IND": false
-  },
-  {
-    "PLAYER_ID": 28,
-    "STATUS_ID": 1,
-    "EVENT_DATE": "1970-01-01T00:00:00",
-    "CURRENT_STATUS_IND": false
-  },
-  {
     "PLAYER_ID": 28,
     "STATUS_ID": 10,
     "EVENT_DATE": "2014-08-19T00:00:00",
     "CURRENT_STATUS_IND": true
+  },
+  {
+    "PLAYER_ID": 28,
+    "STATUS_ID": 1,
+    "EVENT_DATE": "1970-01-01T00:00:00",
+    "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 29,
@@ -445,9 +445,9 @@
   },
   {
     "PLAYER_ID": 30,
-    "STATUS_ID": 3,
-    "EVENT_DATE": "2010-06-01T00:00:00",
-    "CURRENT_STATUS_IND": false
+    "STATUS_ID": 10,
+    "EVENT_DATE": "2011-08-13T00:00:00",
+    "CURRENT_STATUS_IND": true
   },
   {
     "PLAYER_ID": 30,
@@ -463,21 +463,21 @@
   },
   {
     "PLAYER_ID": 30,
-    "STATUS_ID": 10,
-    "EVENT_DATE": "2011-08-13T00:00:00",
-    "CURRENT_STATUS_IND": true
-  },
-  {
-    "PLAYER_ID": 31,
-    "STATUS_ID": 10,
+    "STATUS_ID": 3,
     "EVENT_DATE": "2010-06-01T00:00:00",
-    "CURRENT_STATUS_IND": true
+    "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 31,
     "STATUS_ID": 1,
     "EVENT_DATE": "1970-01-01T00:00:00",
     "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 31,
+    "STATUS_ID": 10,
+    "EVENT_DATE": "2010-06-01T00:00:00",
+    "CURRENT_STATUS_IND": true
   },
   {
     "PLAYER_ID": 32,
@@ -499,15 +499,15 @@
   },
   {
     "PLAYER_ID": 34,
-    "STATUS_ID": 10,
-    "EVENT_DATE": "2004-07-24T00:00:00",
-    "CURRENT_STATUS_IND": true
-  },
-  {
-    "PLAYER_ID": 34,
     "STATUS_ID": 5,
     "EVENT_DATE": "2003-08-03T00:00:00",
     "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 34,
+    "STATUS_ID": 10,
+    "EVENT_DATE": "2004-07-24T00:00:00",
+    "CURRENT_STATUS_IND": true
   },
   {
     "PLAYER_ID": 35,
@@ -520,6 +520,12 @@
     "STATUS_ID": 1,
     "EVENT_DATE": "1970-01-01T00:00:00",
     "CURRENT_STATUS_IND": true
+  },
+  {
+    "PLAYER_ID": 37,
+    "STATUS_ID": 5,
+    "EVENT_DATE": "2009-07-28T00:00:00",
+    "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 37,
@@ -536,12 +542,6 @@
   {
     "PLAYER_ID": 37,
     "STATUS_ID": 5,
-    "EVENT_DATE": "2009-07-28T00:00:00",
-    "CURRENT_STATUS_IND": false
-  },
-  {
-    "PLAYER_ID": 37,
-    "STATUS_ID": 5,
     "EVENT_DATE": "2008-09-02T00:00:00",
     "CURRENT_STATUS_IND": false
   },
@@ -553,20 +553,8 @@
   },
   {
     "PLAYER_ID": 39,
-    "STATUS_ID": 1,
-    "EVENT_DATE": "2004-07-07T00:00:00",
-    "CURRENT_STATUS_IND": false
-  },
-  {
-    "PLAYER_ID": 39,
     "STATUS_ID": 5,
     "EVENT_DATE": "2003-08-03T00:00:00",
-    "CURRENT_STATUS_IND": false
-  },
-  {
-    "PLAYER_ID": 39,
-    "STATUS_ID": 10,
-    "EVENT_DATE": "2005-07-17T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -583,6 +571,18 @@
   },
   {
     "PLAYER_ID": 39,
+    "STATUS_ID": 10,
+    "EVENT_DATE": "2005-07-17T00:00:00",
+    "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 39,
+    "STATUS_ID": 1,
+    "EVENT_DATE": "2004-07-07T00:00:00",
+    "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 39,
     "STATUS_ID": 5,
     "EVENT_DATE": "2010-08-24T00:00:00",
     "CURRENT_STATUS_IND": false
@@ -592,12 +592,6 @@
     "STATUS_ID": 1,
     "EVENT_DATE": "1970-01-01T00:00:00",
     "CURRENT_STATUS_IND": true
-  },
-  {
-    "PLAYER_ID": 41,
-    "STATUS_ID": 1,
-    "EVENT_DATE": "2011-07-11T00:00:00",
-    "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 41,
@@ -612,9 +606,21 @@
     "CURRENT_STATUS_IND": true
   },
   {
+    "PLAYER_ID": 41,
+    "STATUS_ID": 1,
+    "EVENT_DATE": "2011-07-11T00:00:00",
+    "CURRENT_STATUS_IND": false
+  },
+  {
     "PLAYER_ID": 42,
     "STATUS_ID": 5,
     "EVENT_DATE": "2005-07-31T00:00:00",
+    "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 42,
+    "STATUS_ID": 5,
+    "EVENT_DATE": "2010-07-12T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -627,12 +633,6 @@
     "PLAYER_ID": 42,
     "STATUS_ID": 1,
     "EVENT_DATE": "2008-09-02T00:00:00",
-    "CURRENT_STATUS_IND": false
-  },
-  {
-    "PLAYER_ID": 42,
-    "STATUS_ID": 5,
-    "EVENT_DATE": "2010-07-12T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -655,9 +655,9 @@
   },
   {
     "PLAYER_ID": 44,
-    "STATUS_ID": 1,
-    "EVENT_DATE": "2004-10-27T00:00:00",
-    "CURRENT_STATUS_IND": true
+    "STATUS_ID": 3,
+    "EVENT_DATE": "2003-08-03T00:00:00",
+    "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 44,
@@ -667,9 +667,9 @@
   },
   {
     "PLAYER_ID": 44,
-    "STATUS_ID": 3,
-    "EVENT_DATE": "2003-08-03T00:00:00",
-    "CURRENT_STATUS_IND": false
+    "STATUS_ID": 1,
+    "EVENT_DATE": "2004-10-27T00:00:00",
+    "CURRENT_STATUS_IND": true
   },
   {
     "PLAYER_ID": 45,
@@ -679,8 +679,8 @@
   },
   {
     "PLAYER_ID": 46,
-    "STATUS_ID": 1,
-    "EVENT_DATE": "1970-01-01T00:00:00",
+    "STATUS_ID": 5,
+    "EVENT_DATE": "2006-07-15T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -691,8 +691,8 @@
   },
   {
     "PLAYER_ID": 46,
-    "STATUS_ID": 5,
-    "EVENT_DATE": "2006-07-15T00:00:00",
+    "STATUS_ID": 1,
+    "EVENT_DATE": "1970-01-01T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -709,26 +709,20 @@
   },
   {
     "PLAYER_ID": 48,
-    "STATUS_ID": 1,
-    "EVENT_DATE": "1970-01-01T00:00:00",
-    "CURRENT_STATUS_IND": false
-  },
-  {
-    "PLAYER_ID": 48,
     "STATUS_ID": 10,
     "EVENT_DATE": "2003-08-03T00:00:00",
     "CURRENT_STATUS_IND": true
   },
   {
+    "PLAYER_ID": 48,
+    "STATUS_ID": 1,
+    "EVENT_DATE": "1970-01-01T00:00:00",
+    "CURRENT_STATUS_IND": false
+  },
+  {
     "PLAYER_ID": 49,
     "STATUS_ID": 1,
     "EVENT_DATE": "1970-01-01T00:00:00",
-    "CURRENT_STATUS_IND": true
-  },
-  {
-    "PLAYER_ID": 50,
-    "STATUS_ID": 10,
-    "EVENT_DATE": "2006-07-17T00:00:00",
     "CURRENT_STATUS_IND": true
   },
   {
@@ -742,6 +736,12 @@
     "STATUS_ID": 1,
     "EVENT_DATE": "1970-01-01T00:00:00",
     "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 50,
+    "STATUS_ID": 10,
+    "EVENT_DATE": "2006-07-17T00:00:00",
+    "CURRENT_STATUS_IND": true
   },
   {
     "PLAYER_ID": 51,
@@ -763,12 +763,6 @@
   },
   {
     "PLAYER_ID": 52,
-    "STATUS_ID": 3,
-    "EVENT_DATE": "2002-08-02T00:00:00",
-    "CURRENT_STATUS_IND": false
-  },
-  {
-    "PLAYER_ID": 52,
     "STATUS_ID": 2,
     "EVENT_DATE": "2006-02-27T00:00:00",
     "CURRENT_STATUS_IND": false
@@ -786,9 +780,9 @@
     "CURRENT_STATUS_IND": true
   },
   {
-    "PLAYER_ID": 53,
-    "STATUS_ID": 5,
-    "EVENT_DATE": "2013-08-02T00:00:00",
+    "PLAYER_ID": 52,
+    "STATUS_ID": 3,
+    "EVENT_DATE": "2002-08-02T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -798,9 +792,9 @@
     "CURRENT_STATUS_IND": true
   },
   {
-    "PLAYER_ID": 54,
-    "STATUS_ID": 1,
-    "EVENT_DATE": "1970-01-01T00:00:00",
+    "PLAYER_ID": 53,
+    "STATUS_ID": 5,
+    "EVENT_DATE": "2013-08-02T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -813,6 +807,12 @@
     "PLAYER_ID": 54,
     "STATUS_ID": 5,
     "EVENT_DATE": "2009-08-24T00:00:00",
+    "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 54,
+    "STATUS_ID": 1,
+    "EVENT_DATE": "1970-01-01T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -859,14 +859,20 @@
   },
   {
     "PLAYER_ID": 58,
-    "STATUS_ID": 1,
-    "EVENT_DATE": "1970-01-01T00:00:00",
+    "STATUS_ID": 5,
+    "EVENT_DATE": "2004-07-08T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 58,
-    "STATUS_ID": 5,
-    "EVENT_DATE": "2004-07-08T00:00:00",
+    "STATUS_ID": 1,
+    "EVENT_DATE": "2005-07-12T00:00:00",
+    "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 58,
+    "STATUS_ID": 1,
+    "EVENT_DATE": "1970-01-01T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -876,15 +882,9 @@
     "CURRENT_STATUS_IND": true
   },
   {
-    "PLAYER_ID": 58,
-    "STATUS_ID": 1,
-    "EVENT_DATE": "2005-07-12T00:00:00",
-    "CURRENT_STATUS_IND": false
-  },
-  {
     "PLAYER_ID": 59,
-    "STATUS_ID": 1,
-    "EVENT_DATE": "1970-01-01T00:00:00",
+    "STATUS_ID": 10,
+    "EVENT_DATE": "2005-07-18T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -895,15 +895,15 @@
   },
   {
     "PLAYER_ID": 59,
-    "STATUS_ID": 10,
-    "EVENT_DATE": "2015-09-09T00:00:00",
-    "CURRENT_STATUS_IND": true
+    "STATUS_ID": 1,
+    "EVENT_DATE": "1970-01-01T00:00:00",
+    "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 59,
     "STATUS_ID": 10,
-    "EVENT_DATE": "2005-07-18T00:00:00",
-    "CURRENT_STATUS_IND": false
+    "EVENT_DATE": "2015-09-09T00:00:00",
+    "CURRENT_STATUS_IND": true
   },
   {
     "PLAYER_ID": 60,
@@ -931,15 +931,15 @@
   },
   {
     "PLAYER_ID": 63,
-    "STATUS_ID": 1,
-    "EVENT_DATE": "2014-07-01T00:00:00",
-    "CURRENT_STATUS_IND": true
-  },
-  {
-    "PLAYER_ID": 63,
     "STATUS_ID": 5,
     "EVENT_DATE": "2013-07-01T00:00:00",
     "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 63,
+    "STATUS_ID": 1,
+    "EVENT_DATE": "2014-07-01T00:00:00",
+    "CURRENT_STATUS_IND": true
   },
   {
     "PLAYER_ID": 64,
@@ -973,15 +973,15 @@
   },
   {
     "PLAYER_ID": 68,
-    "STATUS_ID": 1,
-    "EVENT_DATE": "1970-01-01T00:00:00",
-    "CURRENT_STATUS_IND": false
-  },
-  {
-    "PLAYER_ID": 68,
     "STATUS_ID": 10,
     "EVENT_DATE": "2005-07-19T00:00:00",
     "CURRENT_STATUS_IND": true
+  },
+  {
+    "PLAYER_ID": 68,
+    "STATUS_ID": 1,
+    "EVENT_DATE": "1970-01-01T00:00:00",
+    "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 69,
@@ -991,15 +991,15 @@
   },
   {
     "PLAYER_ID": 69,
-    "STATUS_ID": 10,
-    "EVENT_DATE": "2005-03-31T00:00:00",
-    "CURRENT_STATUS_IND": true
-  },
-  {
-    "PLAYER_ID": 69,
     "STATUS_ID": 2,
     "EVENT_DATE": "1970-01-01T00:00:00",
     "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 69,
+    "STATUS_ID": 10,
+    "EVENT_DATE": "2005-03-31T00:00:00",
+    "CURRENT_STATUS_IND": true
   },
   {
     "PLAYER_ID": 70,
@@ -1015,20 +1015,14 @@
   },
   {
     "PLAYER_ID": 72,
-    "STATUS_ID": 1,
-    "EVENT_DATE": "1970-01-01T00:00:00",
-    "CURRENT_STATUS_IND": false
-  },
-  {
-    "PLAYER_ID": 72,
     "STATUS_ID": 10,
     "EVENT_DATE": "2012-08-07T00:00:00",
     "CURRENT_STATUS_IND": true
   },
   {
-    "PLAYER_ID": 73,
+    "PLAYER_ID": 72,
     "STATUS_ID": 1,
-    "EVENT_DATE": "2004-10-27T00:00:00",
+    "EVENT_DATE": "1970-01-01T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -1039,6 +1033,12 @@
   },
   {
     "PLAYER_ID": 73,
+    "STATUS_ID": 1,
+    "EVENT_DATE": "2011-09-01T00:00:00",
+    "CURRENT_STATUS_IND": true
+  },
+  {
+    "PLAYER_ID": 73,
     "STATUS_ID": 3,
     "EVENT_DATE": "2002-08-02T00:00:00",
     "CURRENT_STATUS_IND": false
@@ -1046,8 +1046,8 @@
   {
     "PLAYER_ID": 73,
     "STATUS_ID": 1,
-    "EVENT_DATE": "2011-09-01T00:00:00",
-    "CURRENT_STATUS_IND": true
+    "EVENT_DATE": "2004-10-27T00:00:00",
+    "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 74,
@@ -1057,14 +1057,14 @@
   },
   {
     "PLAYER_ID": 75,
-    "STATUS_ID": 1,
-    "EVENT_DATE": "2004-10-27T00:00:00",
+    "STATUS_ID": 3,
+    "EVENT_DATE": "2003-08-03T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 75,
-    "STATUS_ID": 3,
-    "EVENT_DATE": "2003-08-03T00:00:00",
+    "STATUS_ID": 1,
+    "EVENT_DATE": "2004-10-27T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -1081,15 +1081,15 @@
   },
   {
     "PLAYER_ID": 76,
-    "STATUS_ID": 10,
-    "EVENT_DATE": "2011-08-13T00:00:00",
-    "CURRENT_STATUS_IND": true
-  },
-  {
-    "PLAYER_ID": 76,
     "STATUS_ID": 1,
     "EVENT_DATE": "1970-01-01T00:00:00",
     "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 76,
+    "STATUS_ID": 10,
+    "EVENT_DATE": "2011-08-13T00:00:00",
+    "CURRENT_STATUS_IND": true
   },
   {
     "PLAYER_ID": 77,
@@ -1153,6 +1153,12 @@
   },
   {
     "PLAYER_ID": 82,
+    "STATUS_ID": 1,
+    "EVENT_DATE": "2003-08-03T00:00:00",
+    "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 82,
     "STATUS_ID": 2,
     "EVENT_DATE": "1970-01-01T00:00:00",
     "CURRENT_STATUS_IND": false
@@ -1164,9 +1170,9 @@
     "CURRENT_STATUS_IND": true
   },
   {
-    "PLAYER_ID": 82,
-    "STATUS_ID": 1,
-    "EVENT_DATE": "2003-08-03T00:00:00",
+    "PLAYER_ID": 83,
+    "STATUS_ID": 5,
+    "EVENT_DATE": "2008-07-11T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -1176,9 +1182,9 @@
     "CURRENT_STATUS_IND": true
   },
   {
-    "PLAYER_ID": 83,
-    "STATUS_ID": 5,
-    "EVENT_DATE": "2008-07-11T00:00:00",
+    "PLAYER_ID": 84,
+    "STATUS_ID": 1,
+    "EVENT_DATE": "1970-01-01T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -1186,12 +1192,6 @@
     "STATUS_ID": 5,
     "EVENT_DATE": "2014-08-19T00:00:00",
     "CURRENT_STATUS_IND": true
-  },
-  {
-    "PLAYER_ID": 84,
-    "STATUS_ID": 1,
-    "EVENT_DATE": "1970-01-01T00:00:00",
-    "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 85,
@@ -1201,21 +1201,15 @@
   },
   {
     "PLAYER_ID": 86,
-    "STATUS_ID": 10,
-    "EVENT_DATE": "2014-08-19T00:00:00",
-    "CURRENT_STATUS_IND": true
-  },
-  {
-    "PLAYER_ID": 86,
     "STATUS_ID": 1,
     "EVENT_DATE": "1970-01-01T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
-    "PLAYER_ID": 87,
-    "STATUS_ID": 2,
-    "EVENT_DATE": "1970-01-01T00:00:00",
-    "CURRENT_STATUS_IND": false
+    "PLAYER_ID": 86,
+    "STATUS_ID": 10,
+    "EVENT_DATE": "2014-08-19T00:00:00",
+    "CURRENT_STATUS_IND": true
   },
   {
     "PLAYER_ID": 87,
@@ -1224,8 +1218,8 @@
     "CURRENT_STATUS_IND": true
   },
   {
-    "PLAYER_ID": 88,
-    "STATUS_ID": 1,
+    "PLAYER_ID": 87,
+    "STATUS_ID": 2,
     "EVENT_DATE": "1970-01-01T00:00:00",
     "CURRENT_STATUS_IND": false
   },
@@ -1237,8 +1231,20 @@
   },
   {
     "PLAYER_ID": 88,
+    "STATUS_ID": 1,
+    "EVENT_DATE": "1970-01-01T00:00:00",
+    "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 88,
     "STATUS_ID": 5,
     "EVENT_DATE": "2011-08-13T00:00:00",
+    "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 89,
+    "STATUS_ID": 5,
+    "EVENT_DATE": "2008-07-24T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -1254,22 +1260,16 @@
     "CURRENT_STATUS_IND": false
   },
   {
-    "PLAYER_ID": 89,
-    "STATUS_ID": 5,
-    "EVENT_DATE": "2008-07-24T00:00:00",
-    "CURRENT_STATUS_IND": false
+    "PLAYER_ID": 90,
+    "STATUS_ID": 10,
+    "EVENT_DATE": "2005-07-15T00:00:00",
+    "CURRENT_STATUS_IND": true
   },
   {
     "PLAYER_ID": 90,
     "STATUS_ID": 1,
     "EVENT_DATE": "1970-01-01T00:00:00",
     "CURRENT_STATUS_IND": false
-  },
-  {
-    "PLAYER_ID": 90,
-    "STATUS_ID": 10,
-    "EVENT_DATE": "2005-07-15T00:00:00",
-    "CURRENT_STATUS_IND": true
   },
   {
     "PLAYER_ID": 91,
@@ -1285,14 +1285,14 @@
   },
   {
     "PLAYER_ID": 91,
-    "STATUS_ID": 1,
-    "EVENT_DATE": "1970-01-01T00:00:00",
+    "STATUS_ID": 5,
+    "EVENT_DATE": "2007-08-28T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 91,
-    "STATUS_ID": 5,
-    "EVENT_DATE": "2007-08-28T00:00:00",
+    "STATUS_ID": 1,
+    "EVENT_DATE": "1970-01-01T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -1309,15 +1309,21 @@
   },
   {
     "PLAYER_ID": 93,
+    "STATUS_ID": 10,
+    "EVENT_DATE": "2004-07-18T00:00:00",
+    "CURRENT_STATUS_IND": true
+  },
+  {
+    "PLAYER_ID": 93,
     "STATUS_ID": 1,
     "EVENT_DATE": "1970-01-01T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
-    "PLAYER_ID": 93,
-    "STATUS_ID": 10,
-    "EVENT_DATE": "2004-07-18T00:00:00",
-    "CURRENT_STATUS_IND": true
+    "PLAYER_ID": 94,
+    "STATUS_ID": 5,
+    "EVENT_DATE": "2003-08-03T00:00:00",
+    "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 94,
@@ -1333,14 +1339,14 @@
   },
   {
     "PLAYER_ID": 94,
-    "STATUS_ID": 5,
-    "EVENT_DATE": "2003-08-03T00:00:00",
-    "CURRENT_STATUS_IND": false
-  },
-  {
-    "PLAYER_ID": 94,
     "STATUS_ID": 10,
     "EVENT_DATE": "2014-08-19T00:00:00",
+    "CURRENT_STATUS_IND": true
+  },
+  {
+    "PLAYER_ID": 95,
+    "STATUS_ID": 10,
+    "EVENT_DATE": "2011-07-18T00:00:00",
     "CURRENT_STATUS_IND": true
   },
   {
@@ -1356,10 +1362,10 @@
     "CURRENT_STATUS_IND": false
   },
   {
-    "PLAYER_ID": 95,
-    "STATUS_ID": 10,
-    "EVENT_DATE": "2011-07-18T00:00:00",
-    "CURRENT_STATUS_IND": true
+    "PLAYER_ID": 96,
+    "STATUS_ID": 3,
+    "EVENT_DATE": "2003-08-03T00:00:00",
+    "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 96,
@@ -1374,18 +1380,6 @@
     "CURRENT_STATUS_IND": true
   },
   {
-    "PLAYER_ID": 96,
-    "STATUS_ID": 3,
-    "EVENT_DATE": "2003-08-03T00:00:00",
-    "CURRENT_STATUS_IND": false
-  },
-  {
-    "PLAYER_ID": 97,
-    "STATUS_ID": 5,
-    "EVENT_DATE": "2003-08-03T00:00:00",
-    "CURRENT_STATUS_IND": false
-  },
-  {
     "PLAYER_ID": 97,
     "STATUS_ID": 1,
     "EVENT_DATE": "1970-01-01T00:00:00",
@@ -1396,6 +1390,18 @@
     "STATUS_ID": 10,
     "EVENT_DATE": "2004-09-15T00:00:00",
     "CURRENT_STATUS_IND": true
+  },
+  {
+    "PLAYER_ID": 97,
+    "STATUS_ID": 5,
+    "EVENT_DATE": "2003-08-03T00:00:00",
+    "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 98,
+    "STATUS_ID": 5,
+    "EVENT_DATE": "2009-07-13T00:00:00",
+    "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 98,
@@ -1410,19 +1416,7 @@
     "CURRENT_STATUS_IND": true
   },
   {
-    "PLAYER_ID": 98,
-    "STATUS_ID": 5,
-    "EVENT_DATE": "2009-07-13T00:00:00",
-    "CURRENT_STATUS_IND": false
-  },
-  {
     "PLAYER_ID": 99,
-    "STATUS_ID": 1,
-    "EVENT_DATE": "1970-01-01T00:00:00",
-    "CURRENT_STATUS_IND": true
-  },
-  {
-    "PLAYER_ID": 100,
     "STATUS_ID": 1,
     "EVENT_DATE": "1970-01-01T00:00:00",
     "CURRENT_STATUS_IND": true
@@ -1434,16 +1428,10 @@
     "CURRENT_STATUS_IND": false
   },
   {
-    "PLAYER_ID": 101,
-    "STATUS_ID": 5,
-    "EVENT_DATE": "2006-08-06T00:00:00",
-    "CURRENT_STATUS_IND": false
-  },
-  {
-    "PLAYER_ID": 101,
-    "STATUS_ID": 2,
+    "PLAYER_ID": 100,
+    "STATUS_ID": 1,
     "EVENT_DATE": "1970-01-01T00:00:00",
-    "CURRENT_STATUS_IND": false
+    "CURRENT_STATUS_IND": true
   },
   {
     "PLAYER_ID": 101,
@@ -1453,8 +1441,26 @@
   },
   {
     "PLAYER_ID": 101,
+    "STATUS_ID": 2,
+    "EVENT_DATE": "1970-01-01T00:00:00",
+    "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 101,
+    "STATUS_ID": 5,
+    "EVENT_DATE": "2006-08-06T00:00:00",
+    "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 101,
     "STATUS_ID": 1,
     "EVENT_DATE": "2003-08-01T00:00:00",
+    "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 102,
+    "STATUS_ID": 3,
+    "EVENT_DATE": "2003-08-03T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -1465,8 +1471,8 @@
   },
   {
     "PLAYER_ID": 102,
-    "STATUS_ID": 1,
-    "EVENT_DATE": "2007-08-03T00:00:00",
+    "STATUS_ID": 3,
+    "EVENT_DATE": "1970-01-01T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -1477,20 +1483,14 @@
   },
   {
     "PLAYER_ID": 102,
-    "STATUS_ID": 3,
-    "EVENT_DATE": "1970-01-01T00:00:00",
+    "STATUS_ID": 1,
+    "EVENT_DATE": "2007-08-03T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 102,
     "STATUS_ID": 5,
     "EVENT_DATE": "2009-07-10T00:00:00",
-    "CURRENT_STATUS_IND": false
-  },
-  {
-    "PLAYER_ID": 102,
-    "STATUS_ID": 3,
-    "EVENT_DATE": "2003-08-03T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -1501,26 +1501,26 @@
   },
   {
     "PLAYER_ID": 103,
-    "STATUS_ID": 5,
-    "EVENT_DATE": "2003-08-02T00:00:00",
-    "CURRENT_STATUS_IND": false
-  },
-  {
-    "PLAYER_ID": 103,
     "STATUS_ID": 1,
     "EVENT_DATE": "2004-06-04T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
-    "PLAYER_ID": 104,
-    "STATUS_ID": 1,
-    "EVENT_DATE": "1970-01-01T00:00:00",
+    "PLAYER_ID": 103,
+    "STATUS_ID": 5,
+    "EVENT_DATE": "2003-08-02T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 104,
     "STATUS_ID": 3,
     "EVENT_DATE": "2007-08-03T00:00:00",
+    "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 104,
+    "STATUS_ID": 1,
+    "EVENT_DATE": "1970-01-01T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -1543,6 +1543,12 @@
   },
   {
     "PLAYER_ID": 107,
+    "STATUS_ID": 1,
+    "EVENT_DATE": "1970-01-01T00:00:00",
+    "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 107,
     "STATUS_ID": 10,
     "EVENT_DATE": "2009-07-21T00:00:00",
     "CURRENT_STATUS_IND": true
@@ -1554,22 +1560,10 @@
     "CURRENT_STATUS_IND": false
   },
   {
-    "PLAYER_ID": 107,
-    "STATUS_ID": 1,
-    "EVENT_DATE": "1970-01-01T00:00:00",
-    "CURRENT_STATUS_IND": false
-  },
-  {
     "PLAYER_ID": 108,
     "STATUS_ID": 1,
     "EVENT_DATE": "1970-01-01T00:00:00",
     "CURRENT_STATUS_IND": true
-  },
-  {
-    "PLAYER_ID": 109,
-    "STATUS_ID": 5,
-    "EVENT_DATE": "2006-08-24T00:00:00",
-    "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 109,
@@ -1579,15 +1573,21 @@
   },
   {
     "PLAYER_ID": 109,
+    "STATUS_ID": 10,
+    "EVENT_DATE": "2009-07-28T00:00:00",
+    "CURRENT_STATUS_IND": true
+  },
+  {
+    "PLAYER_ID": 109,
     "STATUS_ID": 1,
     "EVENT_DATE": "2003-08-03T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 109,
-    "STATUS_ID": 10,
-    "EVENT_DATE": "2009-07-28T00:00:00",
-    "CURRENT_STATUS_IND": true
+    "STATUS_ID": 5,
+    "EVENT_DATE": "2006-08-24T00:00:00",
+    "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 110,
@@ -1597,15 +1597,15 @@
   },
   {
     "PLAYER_ID": 110,
-    "STATUS_ID": 1,
-    "EVENT_DATE": "2004-07-02T00:00:00",
-    "CURRENT_STATUS_IND": true
-  },
-  {
-    "PLAYER_ID": 110,
     "STATUS_ID": 5,
     "EVENT_DATE": "2003-08-02T00:00:00",
     "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 110,
+    "STATUS_ID": 1,
+    "EVENT_DATE": "2004-07-02T00:00:00",
+    "CURRENT_STATUS_IND": true
   },
   {
     "PLAYER_ID": 111,
@@ -1616,19 +1616,13 @@
   {
     "PLAYER_ID": 113,
     "STATUS_ID": 1,
-    "EVENT_DATE": "1970-01-01T00:00:00",
+    "EVENT_DATE": "2008-09-02T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 113,
-    "STATUS_ID": 10,
-    "EVENT_DATE": "2012-07-27T00:00:00",
-    "CURRENT_STATUS_IND": true
-  },
-  {
-    "PLAYER_ID": 113,
     "STATUS_ID": 1,
-    "EVENT_DATE": "2008-09-02T00:00:00",
+    "EVENT_DATE": "1970-01-01T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -1638,16 +1632,16 @@
     "CURRENT_STATUS_IND": false
   },
   {
+    "PLAYER_ID": 113,
+    "STATUS_ID": 10,
+    "EVENT_DATE": "2012-07-27T00:00:00",
+    "CURRENT_STATUS_IND": true
+  },
+  {
     "PLAYER_ID": 114,
     "STATUS_ID": 1,
     "EVENT_DATE": "1970-01-01T00:00:00",
     "CURRENT_STATUS_IND": true
-  },
-  {
-    "PLAYER_ID": 115,
-    "STATUS_ID": 1,
-    "EVENT_DATE": "2007-08-03T00:00:00",
-    "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 115,
@@ -1657,8 +1651,8 @@
   },
   {
     "PLAYER_ID": 115,
-    "STATUS_ID": 3,
-    "EVENT_DATE": "1970-01-01T00:00:00",
+    "STATUS_ID": 5,
+    "EVENT_DATE": "2010-07-12T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -1669,8 +1663,8 @@
   },
   {
     "PLAYER_ID": 115,
-    "STATUS_ID": 5,
-    "EVENT_DATE": "2010-07-12T00:00:00",
+    "STATUS_ID": 1,
+    "EVENT_DATE": "2007-08-03T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -1686,16 +1680,16 @@
     "CURRENT_STATUS_IND": false
   },
   {
+    "PLAYER_ID": 115,
+    "STATUS_ID": 3,
+    "EVENT_DATE": "1970-01-01T00:00:00",
+    "CURRENT_STATUS_IND": false
+  },
+  {
     "PLAYER_ID": 116,
     "STATUS_ID": 1,
     "EVENT_DATE": "1970-01-01T00:00:00",
     "CURRENT_STATUS_IND": true
-  },
-  {
-    "PLAYER_ID": 117,
-    "STATUS_ID": 1,
-    "EVENT_DATE": "2004-10-27T00:00:00",
-    "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 117,
@@ -1705,8 +1699,14 @@
   },
   {
     "PLAYER_ID": 117,
-    "STATUS_ID": 5,
-    "EVENT_DATE": "2008-07-24T00:00:00",
+    "STATUS_ID": 3,
+    "EVENT_DATE": "2002-09-01T00:00:00",
+    "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 117,
+    "STATUS_ID": 1,
+    "EVENT_DATE": "2004-10-27T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -1717,8 +1717,8 @@
   },
   {
     "PLAYER_ID": 117,
-    "STATUS_ID": 3,
-    "EVENT_DATE": "2002-09-01T00:00:00",
+    "STATUS_ID": 5,
+    "EVENT_DATE": "2008-07-24T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -1741,15 +1741,15 @@
   },
   {
     "PLAYER_ID": 121,
-    "STATUS_ID": 3,
-    "EVENT_DATE": "1970-01-01T00:00:00",
-    "CURRENT_STATUS_IND": false
-  },
-  {
-    "PLAYER_ID": 121,
     "STATUS_ID": 6,
     "EVENT_DATE": "2003-08-03T00:00:00",
     "CURRENT_STATUS_IND": true
+  },
+  {
+    "PLAYER_ID": 121,
+    "STATUS_ID": 3,
+    "EVENT_DATE": "1970-01-01T00:00:00",
+    "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 122,
@@ -1777,15 +1777,15 @@
   },
   {
     "PLAYER_ID": 123,
-    "STATUS_ID": 5,
-    "EVENT_DATE": "2013-07-01T00:00:00",
-    "CURRENT_STATUS_IND": true
-  },
-  {
-    "PLAYER_ID": 123,
     "STATUS_ID": 3,
     "EVENT_DATE": "2003-08-03T00:00:00",
     "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 123,
+    "STATUS_ID": 5,
+    "EVENT_DATE": "2013-07-01T00:00:00",
+    "CURRENT_STATUS_IND": true
   },
   {
     "PLAYER_ID": 124,
@@ -1813,18 +1813,6 @@
   },
   {
     "PLAYER_ID": 125,
-    "STATUS_ID": 10,
-    "EVENT_DATE": "2007-06-02T00:00:00",
-    "CURRENT_STATUS_IND": true
-  },
-  {
-    "PLAYER_ID": 125,
-    "STATUS_ID": 5,
-    "EVENT_DATE": "2006-06-30T00:00:00",
-    "CURRENT_STATUS_IND": false
-  },
-  {
-    "PLAYER_ID": 125,
     "STATUS_ID": 3,
     "EVENT_DATE": "2003-08-03T00:00:00",
     "CURRENT_STATUS_IND": false
@@ -1836,16 +1824,34 @@
     "CURRENT_STATUS_IND": false
   },
   {
-    "PLAYER_ID": 126,
-    "STATUS_ID": 1,
-    "EVENT_DATE": "1970-01-01T00:00:00",
+    "PLAYER_ID": 125,
+    "STATUS_ID": 5,
+    "EVENT_DATE": "2006-06-30T00:00:00",
     "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 125,
+    "STATUS_ID": 10,
+    "EVENT_DATE": "2007-06-02T00:00:00",
+    "CURRENT_STATUS_IND": true
   },
   {
     "PLAYER_ID": 126,
     "STATUS_ID": 10,
     "EVENT_DATE": "2005-07-28T00:00:00",
     "CURRENT_STATUS_IND": true
+  },
+  {
+    "PLAYER_ID": 126,
+    "STATUS_ID": 1,
+    "EVENT_DATE": "1970-01-01T00:00:00",
+    "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 127,
+    "STATUS_ID": 1,
+    "EVENT_DATE": "1970-01-01T00:00:00",
+    "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 127,
@@ -1860,15 +1866,15 @@
     "CURRENT_STATUS_IND": false
   },
   {
-    "PLAYER_ID": 127,
+    "PLAYER_ID": 128,
     "STATUS_ID": 1,
-    "EVENT_DATE": "1970-01-01T00:00:00",
+    "EVENT_DATE": "2006-07-18T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 128,
-    "STATUS_ID": 1,
-    "EVENT_DATE": "2006-07-18T00:00:00",
+    "STATUS_ID": 5,
+    "EVENT_DATE": "2005-06-08T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -1881,12 +1887,6 @@
     "PLAYER_ID": 128,
     "STATUS_ID": 1,
     "EVENT_DATE": "1970-01-01T00:00:00",
-    "CURRENT_STATUS_IND": false
-  },
-  {
-    "PLAYER_ID": 128,
-    "STATUS_ID": 5,
-    "EVENT_DATE": "2005-06-08T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -1915,6 +1915,12 @@
   },
   {
     "PLAYER_ID": 131,
+    "STATUS_ID": 5,
+    "EVENT_DATE": "2012-07-31T00:00:00",
+    "CURRENT_STATUS_IND": true
+  },
+  {
+    "PLAYER_ID": 131,
     "STATUS_ID": 1,
     "EVENT_DATE": "2007-08-03T00:00:00",
     "CURRENT_STATUS_IND": false
@@ -1927,20 +1933,8 @@
   },
   {
     "PLAYER_ID": 131,
-    "STATUS_ID": 5,
-    "EVENT_DATE": "2012-07-31T00:00:00",
-    "CURRENT_STATUS_IND": true
-  },
-  {
-    "PLAYER_ID": 131,
     "STATUS_ID": 3,
     "EVENT_DATE": "2002-08-02T00:00:00",
-    "CURRENT_STATUS_IND": false
-  },
-  {
-    "PLAYER_ID": 132,
-    "STATUS_ID": 6,
-    "EVENT_DATE": "1970-01-01T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -1951,14 +1945,32 @@
   },
   {
     "PLAYER_ID": 132,
+    "STATUS_ID": 6,
+    "EVENT_DATE": "1970-01-01T00:00:00",
+    "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 132,
     "STATUS_ID": 9,
     "EVENT_DATE": "2007-08-31T00:00:00",
     "CURRENT_STATUS_IND": true
   },
   {
     "PLAYER_ID": 133,
+    "STATUS_ID": 3,
+    "EVENT_DATE": "2002-08-02T00:00:00",
+    "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 133,
     "STATUS_ID": 5,
     "EVENT_DATE": "2007-07-18T00:00:00",
+    "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 133,
+    "STATUS_ID": 2,
+    "EVENT_DATE": "2006-02-27T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -1974,18 +1986,6 @@
     "CURRENT_STATUS_IND": false
   },
   {
-    "PLAYER_ID": 133,
-    "STATUS_ID": 3,
-    "EVENT_DATE": "2002-08-02T00:00:00",
-    "CURRENT_STATUS_IND": false
-  },
-  {
-    "PLAYER_ID": 133,
-    "STATUS_ID": 2,
-    "EVENT_DATE": "2006-02-27T00:00:00",
-    "CURRENT_STATUS_IND": false
-  },
-  {
     "PLAYER_ID": 153,
     "STATUS_ID": 6,
     "EVENT_DATE": "1970-01-01T00:00:00",
@@ -1994,7 +1994,7 @@
   {
     "PLAYER_ID": 154,
     "STATUS_ID": 5,
-    "EVENT_DATE": "2005-08-30T00:00:00",
+    "EVENT_DATE": "1970-01-01T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -2006,7 +2006,7 @@
   {
     "PLAYER_ID": 154,
     "STATUS_ID": 5,
-    "EVENT_DATE": "1970-01-01T00:00:00",
+    "EVENT_DATE": "2005-08-30T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -2041,15 +2041,15 @@
   },
   {
     "PLAYER_ID": 157,
-    "STATUS_ID": 10,
-    "EVENT_DATE": "2006-07-18T00:00:00",
-    "CURRENT_STATUS_IND": true
-  },
-  {
-    "PLAYER_ID": 157,
     "STATUS_ID": 1,
     "EVENT_DATE": "1970-01-01T00:00:00",
     "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 157,
+    "STATUS_ID": 10,
+    "EVENT_DATE": "2006-07-18T00:00:00",
+    "CURRENT_STATUS_IND": true
   },
   {
     "PLAYER_ID": 157,
@@ -2059,15 +2059,15 @@
   },
   {
     "PLAYER_ID": 158,
-    "STATUS_ID": 10,
-    "EVENT_DATE": "2003-08-03T00:00:00",
-    "CURRENT_STATUS_IND": true
+    "STATUS_ID": 5,
+    "EVENT_DATE": "1970-01-01T00:00:00",
+    "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 158,
-    "STATUS_ID": 5,
-    "EVENT_DATE": "1970-01-01T00:00:00",
-    "CURRENT_STATUS_IND": false
+    "STATUS_ID": 10,
+    "EVENT_DATE": "2003-08-03T00:00:00",
+    "CURRENT_STATUS_IND": true
   },
   {
     "PLAYER_ID": 159,
@@ -2092,6 +2092,12 @@
     "STATUS_ID": 5,
     "EVENT_DATE": "1970-01-01T00:00:00",
     "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 161,
+    "STATUS_ID": 10,
+    "EVENT_DATE": "2013-08-01T00:00:00",
+    "CURRENT_STATUS_IND": true
   },
   {
     "PLAYER_ID": 161,
@@ -2106,22 +2112,16 @@
     "CURRENT_STATUS_IND": false
   },
   {
-    "PLAYER_ID": 161,
+    "PLAYER_ID": 162,
     "STATUS_ID": 10,
-    "EVENT_DATE": "2013-08-01T00:00:00",
-    "CURRENT_STATUS_IND": true
+    "EVENT_DATE": "2008-07-24T00:00:00",
+    "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 162,
     "STATUS_ID": 1,
     "EVENT_DATE": "2008-07-31T00:00:00",
     "CURRENT_STATUS_IND": true
-  },
-  {
-    "PLAYER_ID": 162,
-    "STATUS_ID": 10,
-    "EVENT_DATE": "2008-07-24T00:00:00",
-    "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 162,
@@ -2149,12 +2149,6 @@
   },
   {
     "PLAYER_ID": 164,
-    "STATUS_ID": 5,
-    "EVENT_DATE": "1970-01-01T00:00:00",
-    "CURRENT_STATUS_IND": false
-  },
-  {
-    "PLAYER_ID": 164,
     "STATUS_ID": 1,
     "EVENT_DATE": "2004-08-08T00:00:00",
     "CURRENT_STATUS_IND": false
@@ -2168,7 +2162,7 @@
   {
     "PLAYER_ID": 164,
     "STATUS_ID": 5,
-    "EVENT_DATE": "2005-07-19T00:00:00",
+    "EVENT_DATE": "1970-01-01T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -2184,9 +2178,9 @@
     "CURRENT_STATUS_IND": false
   },
   {
-    "PLAYER_ID": 165,
-    "STATUS_ID": 1,
-    "EVENT_DATE": "1970-01-01T00:00:00",
+    "PLAYER_ID": 164,
+    "STATUS_ID": 5,
+    "EVENT_DATE": "2005-07-19T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -2199,6 +2193,12 @@
     "PLAYER_ID": 165,
     "STATUS_ID": 5,
     "EVENT_DATE": "2006-08-24T00:00:00",
+    "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 165,
+    "STATUS_ID": 1,
+    "EVENT_DATE": "1970-01-01T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -2227,8 +2227,8 @@
   },
   {
     "PLAYER_ID": 168,
-    "STATUS_ID": 1,
-    "EVENT_DATE": "2003-08-02T00:00:00",
+    "STATUS_ID": 5,
+    "EVENT_DATE": "1970-01-01T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -2239,8 +2239,8 @@
   },
   {
     "PLAYER_ID": 168,
-    "STATUS_ID": 5,
-    "EVENT_DATE": "1970-01-01T00:00:00",
+    "STATUS_ID": 1,
+    "EVENT_DATE": "2003-08-02T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -2263,14 +2263,20 @@
   },
   {
     "PLAYER_ID": 171,
+    "STATUS_ID": 6,
+    "EVENT_DATE": "2003-08-03T00:00:00",
+    "CURRENT_STATUS_IND": true
+  },
+  {
+    "PLAYER_ID": 171,
     "STATUS_ID": 3,
     "EVENT_DATE": "1970-01-01T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
-    "PLAYER_ID": 171,
-    "STATUS_ID": 6,
-    "EVENT_DATE": "2003-08-03T00:00:00",
+    "PLAYER_ID": 172,
+    "STATUS_ID": 9,
+    "EVENT_DATE": "2007-08-31T00:00:00",
     "CURRENT_STATUS_IND": true
   },
   {
@@ -2286,12 +2292,6 @@
     "CURRENT_STATUS_IND": false
   },
   {
-    "PLAYER_ID": 172,
-    "STATUS_ID": 9,
-    "EVENT_DATE": "2007-08-31T00:00:00",
-    "CURRENT_STATUS_IND": true
-  },
-  {
     "PLAYER_ID": 173,
     "STATUS_ID": 1,
     "EVENT_DATE": "2006-02-27T00:00:00",
@@ -2305,20 +2305,14 @@
   },
   {
     "PLAYER_ID": 174,
-    "STATUS_ID": 3,
-    "EVENT_DATE": "2003-08-02T00:00:00",
-    "CURRENT_STATUS_IND": false
-  },
-  {
-    "PLAYER_ID": 174,
     "STATUS_ID": 9,
     "EVENT_DATE": "2007-08-31T00:00:00",
     "CURRENT_STATUS_IND": true
   },
   {
-    "PLAYER_ID": 175,
+    "PLAYER_ID": 174,
     "STATUS_ID": 3,
-    "EVENT_DATE": "2003-08-03T00:00:00",
+    "EVENT_DATE": "2003-08-02T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -2328,6 +2322,12 @@
     "CURRENT_STATUS_IND": true
   },
   {
+    "PLAYER_ID": 175,
+    "STATUS_ID": 3,
+    "EVENT_DATE": "2003-08-03T00:00:00",
+    "CURRENT_STATUS_IND": false
+  },
+  {
     "PLAYER_ID": 176,
     "STATUS_ID": 11,
     "EVENT_DATE": "1970-01-01T00:00:00",
@@ -2335,15 +2335,15 @@
   },
   {
     "PLAYER_ID": 177,
-    "STATUS_ID": 11,
-    "EVENT_DATE": "1970-01-01T00:00:00",
-    "CURRENT_STATUS_IND": false
-  },
-  {
-    "PLAYER_ID": 177,
     "STATUS_ID": 3,
     "EVENT_DATE": "2005-07-20T00:00:00",
     "CURRENT_STATUS_IND": true
+  },
+  {
+    "PLAYER_ID": 177,
+    "STATUS_ID": 11,
+    "EVENT_DATE": "1970-01-01T00:00:00",
+    "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 178,
@@ -2365,26 +2365,8 @@
   },
   {
     "PLAYER_ID": 179,
-    "STATUS_ID": 3,
-    "EVENT_DATE": "2003-08-02T00:00:00",
-    "CURRENT_STATUS_IND": false
-  },
-  {
-    "PLAYER_ID": 179,
     "STATUS_ID": 5,
     "EVENT_DATE": "2008-07-24T00:00:00",
-    "CURRENT_STATUS_IND": false
-  },
-  {
-    "PLAYER_ID": 179,
-    "STATUS_ID": 1,
-    "EVENT_DATE": "2007-08-03T00:00:00",
-    "CURRENT_STATUS_IND": false
-  },
-  {
-    "PLAYER_ID": 179,
-    "STATUS_ID": 2,
-    "EVENT_DATE": "2006-07-01T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -2395,8 +2377,26 @@
   },
   {
     "PLAYER_ID": 179,
+    "STATUS_ID": 2,
+    "EVENT_DATE": "2006-07-01T00:00:00",
+    "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 179,
+    "STATUS_ID": 1,
+    "EVENT_DATE": "2007-08-03T00:00:00",
+    "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 179,
     "STATUS_ID": 5,
     "EVENT_DATE": "2011-07-18T00:00:00",
+    "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 179,
+    "STATUS_ID": 3,
+    "EVENT_DATE": "2003-08-02T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -2425,20 +2425,14 @@
   },
   {
     "PLAYER_ID": 182,
-    "STATUS_ID": 10,
-    "EVENT_DATE": "2014-08-19T00:00:00",
-    "CURRENT_STATUS_IND": true
+    "STATUS_ID": 1,
+    "EVENT_DATE": "2008-04-15T00:00:00",
+    "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 182,
     "STATUS_ID": 2,
     "EVENT_DATE": "2007-08-03T00:00:00",
-    "CURRENT_STATUS_IND": false
-  },
-  {
-    "PLAYER_ID": 182,
-    "STATUS_ID": 3,
-    "EVENT_DATE": "2003-08-02T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -2449,9 +2443,15 @@
   },
   {
     "PLAYER_ID": 182,
-    "STATUS_ID": 1,
-    "EVENT_DATE": "2008-04-15T00:00:00",
+    "STATUS_ID": 3,
+    "EVENT_DATE": "2003-08-02T00:00:00",
     "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 182,
+    "STATUS_ID": 10,
+    "EVENT_DATE": "2014-08-19T00:00:00",
+    "CURRENT_STATUS_IND": true
   },
   {
     "PLAYER_ID": 183,
@@ -2486,17 +2486,11 @@
   {
     "PLAYER_ID": 184,
     "STATUS_ID": 3,
-    "EVENT_DATE": "2003-08-02T00:00:00",
-    "CURRENT_STATUS_IND": false
-  },
-  {
-    "PLAYER_ID": 184,
-    "STATUS_ID": 3,
     "EVENT_DATE": "2007-08-03T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
-    "PLAYER_ID": 185,
+    "PLAYER_ID": 184,
     "STATUS_ID": 3,
     "EVENT_DATE": "2003-08-02T00:00:00",
     "CURRENT_STATUS_IND": false
@@ -2508,7 +2502,7 @@
     "CURRENT_STATUS_IND": true
   },
   {
-    "PLAYER_ID": 186,
+    "PLAYER_ID": 185,
     "STATUS_ID": 3,
     "EVENT_DATE": "2003-08-02T00:00:00",
     "CURRENT_STATUS_IND": false
@@ -2523,6 +2517,12 @@
     "PLAYER_ID": 186,
     "STATUS_ID": 1,
     "EVENT_DATE": "2004-10-27T00:00:00",
+    "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 186,
+    "STATUS_ID": 3,
+    "EVENT_DATE": "2003-08-02T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -2563,6 +2563,24 @@
   },
   {
     "PLAYER_ID": 193,
+    "STATUS_ID": 1,
+    "EVENT_DATE": "2007-08-02T00:00:00",
+    "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 193,
+    "STATUS_ID": 2,
+    "EVENT_DATE": "2006-08-06T00:00:00",
+    "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 193,
+    "STATUS_ID": 6,
+    "EVENT_DATE": "2003-08-02T00:00:00",
+    "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 193,
     "STATUS_ID": 10,
     "EVENT_DATE": "2013-08-20T00:00:00",
     "CURRENT_STATUS_IND": true
@@ -2575,26 +2593,8 @@
   },
   {
     "PLAYER_ID": 193,
-    "STATUS_ID": 1,
-    "EVENT_DATE": "2007-08-02T00:00:00",
-    "CURRENT_STATUS_IND": false
-  },
-  {
-    "PLAYER_ID": 193,
     "STATUS_ID": 5,
     "EVENT_DATE": "2011-08-13T00:00:00",
-    "CURRENT_STATUS_IND": false
-  },
-  {
-    "PLAYER_ID": 193,
-    "STATUS_ID": 6,
-    "EVENT_DATE": "2003-08-02T00:00:00",
-    "CURRENT_STATUS_IND": false
-  },
-  {
-    "PLAYER_ID": 193,
-    "STATUS_ID": 2,
-    "EVENT_DATE": "2006-08-06T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -2605,14 +2605,14 @@
   },
   {
     "PLAYER_ID": 194,
-    "STATUS_ID": 5,
-    "EVENT_DATE": "2006-07-09T00:00:00",
+    "STATUS_ID": 3,
+    "EVENT_DATE": "2003-08-02T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 194,
-    "STATUS_ID": 3,
-    "EVENT_DATE": "2003-08-02T00:00:00",
+    "STATUS_ID": 5,
+    "EVENT_DATE": "2006-07-09T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -2623,15 +2623,15 @@
   },
   {
     "PLAYER_ID": 195,
-    "STATUS_ID": 6,
-    "EVENT_DATE": "2003-08-02T00:00:00",
+    "STATUS_ID": 5,
+    "EVENT_DATE": "2011-08-13T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 195,
-    "STATUS_ID": 5,
-    "EVENT_DATE": "2011-08-13T00:00:00",
-    "CURRENT_STATUS_IND": false
+    "STATUS_ID": 10,
+    "EVENT_DATE": "2013-08-20T00:00:00",
+    "CURRENT_STATUS_IND": true
   },
   {
     "PLAYER_ID": 195,
@@ -2641,9 +2641,9 @@
   },
   {
     "PLAYER_ID": 195,
-    "STATUS_ID": 10,
-    "EVENT_DATE": "2013-08-20T00:00:00",
-    "CURRENT_STATUS_IND": true
+    "STATUS_ID": 6,
+    "EVENT_DATE": "2003-08-02T00:00:00",
+    "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 196,
@@ -2737,8 +2737,8 @@
   },
   {
     "PLAYER_ID": 206,
-    "STATUS_ID": 3,
-    "EVENT_DATE": "2007-08-07T00:00:00",
+    "STATUS_ID": 6,
+    "EVENT_DATE": "2003-08-02T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -2749,8 +2749,8 @@
   },
   {
     "PLAYER_ID": 206,
-    "STATUS_ID": 6,
-    "EVENT_DATE": "2003-08-02T00:00:00",
+    "STATUS_ID": 3,
+    "EVENT_DATE": "2007-08-07T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -2763,13 +2763,31 @@
     "PLAYER_ID": 207,
     "STATUS_ID": 6,
     "EVENT_DATE": "2003-08-02T00:00:00",
+    "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 207,
+    "STATUS_ID": 9,
+    "EVENT_DATE": "2015-11-29T00:00:00",
     "CURRENT_STATUS_IND": true
   },
   {
     "PLAYER_ID": 208,
     "STATUS_ID": 6,
     "EVENT_DATE": "2003-08-02T00:00:00",
+    "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 208,
+    "STATUS_ID": 9,
+    "EVENT_DATE": "2015-11-29T00:00:00",
     "CURRENT_STATUS_IND": true
+  },
+  {
+    "PLAYER_ID": 209,
+    "STATUS_ID": 6,
+    "EVENT_DATE": "1970-01-01T00:00:00",
+    "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 209,
@@ -2779,21 +2797,15 @@
   },
   {
     "PLAYER_ID": 209,
-    "STATUS_ID": 5,
-    "EVENT_DATE": "2011-08-13T00:00:00",
-    "CURRENT_STATUS_IND": true
-  },
-  {
-    "PLAYER_ID": 209,
     "STATUS_ID": 2,
     "EVENT_DATE": "2006-05-01T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 209,
-    "STATUS_ID": 6,
-    "EVENT_DATE": "1970-01-01T00:00:00",
-    "CURRENT_STATUS_IND": false
+    "STATUS_ID": 5,
+    "EVENT_DATE": "2011-08-13T00:00:00",
+    "CURRENT_STATUS_IND": true
   },
   {
     "PLAYER_ID": 210,
@@ -2875,20 +2887,14 @@
   },
   {
     "PLAYER_ID": 223,
-    "STATUS_ID": 3,
-    "EVENT_DATE": "2005-07-28T00:00:00",
-    "CURRENT_STATUS_IND": false
-  },
-  {
-    "PLAYER_ID": 223,
-    "STATUS_ID": 9,
-    "EVENT_DATE": "1970-01-01T00:00:00",
-    "CURRENT_STATUS_IND": false
-  },
-  {
-    "PLAYER_ID": 223,
     "STATUS_ID": 2,
     "EVENT_DATE": "2006-02-27T00:00:00",
+    "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 223,
+    "STATUS_ID": 3,
+    "EVENT_DATE": "2005-07-28T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -2898,9 +2904,21 @@
     "CURRENT_STATUS_IND": true
   },
   {
+    "PLAYER_ID": 223,
+    "STATUS_ID": 9,
+    "EVENT_DATE": "1970-01-01T00:00:00",
+    "CURRENT_STATUS_IND": false
+  },
+  {
     "PLAYER_ID": 224,
     "STATUS_ID": 6,
     "EVENT_DATE": "1970-01-01T00:00:00",
+    "CURRENT_STATUS_IND": true
+  },
+  {
+    "PLAYER_ID": 225,
+    "STATUS_ID": 9,
+    "EVENT_DATE": "2015-10-28T00:00:00",
     "CURRENT_STATUS_IND": true
   },
   {
@@ -2910,16 +2928,16 @@
     "CURRENT_STATUS_IND": false
   },
   {
-    "PLAYER_ID": 225,
-    "STATUS_ID": 9,
-    "EVENT_DATE": "2015-10-28T00:00:00",
-    "CURRENT_STATUS_IND": true
-  },
-  {
     "PLAYER_ID": 226,
     "STATUS_ID": 3,
     "EVENT_DATE": "2003-08-02T00:00:00",
     "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 226,
+    "STATUS_ID": 10,
+    "EVENT_DATE": "2011-08-13T00:00:00",
+    "CURRENT_STATUS_IND": true
   },
   {
     "PLAYER_ID": 226,
@@ -2934,22 +2952,16 @@
     "CURRENT_STATUS_IND": false
   },
   {
-    "PLAYER_ID": 226,
-    "STATUS_ID": 10,
-    "EVENT_DATE": "2011-08-13T00:00:00",
-    "CURRENT_STATUS_IND": true
+    "PLAYER_ID": 227,
+    "STATUS_ID": 3,
+    "EVENT_DATE": "2004-08-28T00:00:00",
+    "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 227,
     "STATUS_ID": 6,
     "EVENT_DATE": "2003-08-02T00:00:00",
     "CURRENT_STATUS_IND": true
-  },
-  {
-    "PLAYER_ID": 227,
-    "STATUS_ID": 3,
-    "EVENT_DATE": "2004-08-28T00:00:00",
-    "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 228,
@@ -2983,20 +2995,14 @@
   },
   {
     "PLAYER_ID": 232,
-    "STATUS_ID": 3,
-    "EVENT_DATE": "2004-08-18T00:00:00",
-    "CURRENT_STATUS_IND": false
-  },
-  {
-    "PLAYER_ID": 232,
     "STATUS_ID": 11,
     "EVENT_DATE": "1970-01-01T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
-    "PLAYER_ID": 233,
+    "PLAYER_ID": 232,
     "STATUS_ID": 3,
-    "EVENT_DATE": "2005-08-03T00:00:00",
+    "EVENT_DATE": "2004-08-18T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -3004,6 +3010,12 @@
     "STATUS_ID": 1,
     "EVENT_DATE": "2012-06-23T00:00:00",
     "CURRENT_STATUS_IND": true
+  },
+  {
+    "PLAYER_ID": 233,
+    "STATUS_ID": 3,
+    "EVENT_DATE": "2005-08-03T00:00:00",
+    "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 233,
@@ -3025,21 +3037,15 @@
   },
   {
     "PLAYER_ID": 235,
-    "STATUS_ID": 3,
-    "EVENT_DATE": "2007-08-03T00:00:00",
-    "CURRENT_STATUS_IND": false
-  },
-  {
-    "PLAYER_ID": 235,
     "STATUS_ID": 1,
     "EVENT_DATE": "2011-07-11T00:00:00",
     "CURRENT_STATUS_IND": true
   },
   {
-    "PLAYER_ID": 236,
-    "STATUS_ID": 9,
-    "EVENT_DATE": "2015-10-28T00:00:00",
-    "CURRENT_STATUS_IND": true
+    "PLAYER_ID": 235,
+    "STATUS_ID": 3,
+    "EVENT_DATE": "2007-08-03T00:00:00",
+    "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 236,
@@ -3048,16 +3054,22 @@
     "CURRENT_STATUS_IND": false
   },
   {
-    "PLAYER_ID": 237,
-    "STATUS_ID": 3,
-    "EVENT_DATE": "2007-02-01T00:00:00",
-    "CURRENT_STATUS_IND": false
+    "PLAYER_ID": 236,
+    "STATUS_ID": 9,
+    "EVENT_DATE": "2015-10-28T00:00:00",
+    "CURRENT_STATUS_IND": true
   },
   {
     "PLAYER_ID": 237,
     "STATUS_ID": 1,
     "EVENT_DATE": "2014-08-19T00:00:00",
     "CURRENT_STATUS_IND": true
+  },
+  {
+    "PLAYER_ID": 237,
+    "STATUS_ID": 3,
+    "EVENT_DATE": "2007-02-01T00:00:00",
+    "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 238,
@@ -4483,20 +4495,20 @@
   },
   {
     "PLAYER_ID": 475,
-    "STATUS_ID": 5,
-    "EVENT_DATE": "2008-07-11T00:00:00",
+    "STATUS_ID": 6,
+    "EVENT_DATE": "2004-11-28T00:00:00",
+    "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 475,
+    "STATUS_ID": 2,
+    "EVENT_DATE": "2005-03-15T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 475,
     "STATUS_ID": 1,
     "EVENT_DATE": "2009-07-07T00:00:00",
-    "CURRENT_STATUS_IND": false
-  },
-  {
-    "PLAYER_ID": 475,
-    "STATUS_ID": 6,
-    "EVENT_DATE": "2004-11-28T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -4513,8 +4525,8 @@
   },
   {
     "PLAYER_ID": 475,
-    "STATUS_ID": 2,
-    "EVENT_DATE": "2005-03-15T00:00:00",
+    "STATUS_ID": 5,
+    "EVENT_DATE": "2008-07-11T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -5125,14 +5137,14 @@
   },
   {
     "PLAYER_ID": 573,
-    "STATUS_ID": 2,
-    "EVENT_DATE": "2006-02-27T00:00:00",
+    "STATUS_ID": 3,
+    "EVENT_DATE": "2005-08-12T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 573,
-    "STATUS_ID": 3,
-    "EVENT_DATE": "2005-08-12T00:00:00",
+    "STATUS_ID": 2,
+    "EVENT_DATE": "2006-02-27T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -5155,8 +5167,8 @@
   },
   {
     "PLAYER_ID": 575,
-    "STATUS_ID": 3,
-    "EVENT_DATE": "2005-09-21T00:00:00",
+    "STATUS_ID": 2,
+    "EVENT_DATE": "2006-05-01T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -5167,14 +5179,8 @@
   },
   {
     "PLAYER_ID": 575,
-    "STATUS_ID": 2,
-    "EVENT_DATE": "2006-05-01T00:00:00",
-    "CURRENT_STATUS_IND": false
-  },
-  {
-    "PLAYER_ID": 576,
-    "STATUS_ID": 6,
-    "EVENT_DATE": "2005-09-01T00:00:00",
+    "STATUS_ID": 3,
+    "EVENT_DATE": "2005-09-21T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -5185,15 +5191,15 @@
   },
   {
     "PLAYER_ID": 576,
+    "STATUS_ID": 6,
+    "EVENT_DATE": "2005-09-01T00:00:00",
+    "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 576,
     "STATUS_ID": 1,
     "EVENT_DATE": "2007-08-03T00:00:00",
     "CURRENT_STATUS_IND": true
-  },
-  {
-    "PLAYER_ID": 577,
-    "STATUS_ID": 3,
-    "EVENT_DATE": "2005-09-01T00:00:00",
-    "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 577,
@@ -5208,15 +5214,9 @@
     "CURRENT_STATUS_IND": false
   },
   {
-    "PLAYER_ID": 578,
-    "STATUS_ID": 5,
-    "EVENT_DATE": "2014-08-19T00:00:00",
-    "CURRENT_STATUS_IND": true
-  },
-  {
-    "PLAYER_ID": 578,
-    "STATUS_ID": 1,
-    "EVENT_DATE": "2011-08-13T00:00:00",
+    "PLAYER_ID": 577,
+    "STATUS_ID": 3,
+    "EVENT_DATE": "2005-09-01T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -5227,9 +5227,21 @@
   },
   {
     "PLAYER_ID": 578,
+    "STATUS_ID": 1,
+    "EVENT_DATE": "2011-08-13T00:00:00",
+    "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 578,
     "STATUS_ID": 3,
     "EVENT_DATE": "2006-09-01T00:00:00",
     "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 578,
+    "STATUS_ID": 5,
+    "EVENT_DATE": "2014-08-19T00:00:00",
+    "CURRENT_STATUS_IND": true
   },
   {
     "PLAYER_ID": 579,
@@ -5251,12 +5263,6 @@
   },
   {
     "PLAYER_ID": 581,
-    "STATUS_ID": 5,
-    "EVENT_DATE": "2014-08-19T00:00:00",
-    "CURRENT_STATUS_IND": false
-  },
-  {
-    "PLAYER_ID": 581,
     "STATUS_ID": 1,
     "EVENT_DATE": "2007-08-03T00:00:00",
     "CURRENT_STATUS_IND": true
@@ -5268,6 +5274,12 @@
     "CURRENT_STATUS_IND": false
   },
   {
+    "PLAYER_ID": 581,
+    "STATUS_ID": 5,
+    "EVENT_DATE": "2014-08-19T00:00:00",
+    "CURRENT_STATUS_IND": false
+  },
+  {
     "PLAYER_ID": 582,
     "STATUS_ID": 11,
     "EVENT_DATE": "2015-09-09T00:00:00",
@@ -5275,14 +5287,14 @@
   },
   {
     "PLAYER_ID": 583,
-    "STATUS_ID": 3,
-    "EVENT_DATE": "2010-08-09T00:00:00",
+    "STATUS_ID": 6,
+    "EVENT_DATE": "2005-10-14T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 583,
-    "STATUS_ID": 6,
-    "EVENT_DATE": "2005-10-14T00:00:00",
+    "STATUS_ID": 3,
+    "EVENT_DATE": "2010-08-09T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -5299,15 +5311,21 @@
   },
   {
     "PLAYER_ID": 584,
+    "STATUS_ID": 1,
+    "EVENT_DATE": "2011-07-11T00:00:00",
+    "CURRENT_STATUS_IND": true
+  },
+  {
+    "PLAYER_ID": 584,
     "STATUS_ID": 6,
     "EVENT_DATE": "2005-10-14T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
-    "PLAYER_ID": 584,
-    "STATUS_ID": 1,
-    "EVENT_DATE": "2011-07-11T00:00:00",
-    "CURRENT_STATUS_IND": true
+    "PLAYER_ID": 585,
+    "STATUS_ID": 6,
+    "EVENT_DATE": "2005-10-20T00:00:00",
+    "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 585,
@@ -5320,12 +5338,6 @@
     "STATUS_ID": 1,
     "EVENT_DATE": "2011-07-18T00:00:00",
     "CURRENT_STATUS_IND": true
-  },
-  {
-    "PLAYER_ID": 585,
-    "STATUS_ID": 6,
-    "EVENT_DATE": "2005-10-20T00:00:00",
-    "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 586,
@@ -5341,15 +5353,15 @@
   },
   {
     "PLAYER_ID": 586,
-    "STATUS_ID": 10,
-    "EVENT_DATE": "2013-08-20T00:00:00",
-    "CURRENT_STATUS_IND": true
-  },
-  {
-    "PLAYER_ID": 586,
     "STATUS_ID": 1,
     "EVENT_DATE": "2011-08-13T00:00:00",
     "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 586,
+    "STATUS_ID": 10,
+    "EVENT_DATE": "2013-08-20T00:00:00",
+    "CURRENT_STATUS_IND": true
   },
   {
     "PLAYER_ID": 587,
@@ -5390,19 +5402,19 @@
   {
     "PLAYER_ID": 589,
     "STATUS_ID": 1,
-    "EVENT_DATE": "2013-07-01T00:00:00",
-    "CURRENT_STATUS_IND": true
-  },
-  {
-    "PLAYER_ID": 589,
-    "STATUS_ID": 1,
     "EVENT_DATE": "2011-08-04T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 589,
-    "STATUS_ID": 6,
-    "EVENT_DATE": "2005-10-31T00:00:00",
+    "STATUS_ID": 1,
+    "EVENT_DATE": "2013-07-01T00:00:00",
+    "CURRENT_STATUS_IND": true
+  },
+  {
+    "PLAYER_ID": 589,
+    "STATUS_ID": 3,
+    "EVENT_DATE": "2010-08-09T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -5413,14 +5425,8 @@
   },
   {
     "PLAYER_ID": 589,
-    "STATUS_ID": 3,
-    "EVENT_DATE": "2010-08-09T00:00:00",
-    "CURRENT_STATUS_IND": false
-  },
-  {
-    "PLAYER_ID": 590,
-    "STATUS_ID": 3,
-    "EVENT_DATE": "2005-11-11T00:00:00",
+    "STATUS_ID": 6,
+    "EVENT_DATE": "2005-10-31T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -5428,6 +5434,12 @@
     "STATUS_ID": 1,
     "EVENT_DATE": "2011-07-11T00:00:00",
     "CURRENT_STATUS_IND": true
+  },
+  {
+    "PLAYER_ID": 590,
+    "STATUS_ID": 3,
+    "EVENT_DATE": "2005-11-11T00:00:00",
+    "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 591,
@@ -5455,8 +5467,8 @@
   },
   {
     "PLAYER_ID": 593,
-    "STATUS_ID": 6,
-    "EVENT_DATE": "2005-12-05T00:00:00",
+    "STATUS_ID": 3,
+    "EVENT_DATE": "2007-08-03T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -5467,20 +5479,14 @@
   },
   {
     "PLAYER_ID": 593,
-    "STATUS_ID": 3,
-    "EVENT_DATE": "2007-08-03T00:00:00",
+    "STATUS_ID": 6,
+    "EVENT_DATE": "2005-12-05T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 593,
     "STATUS_ID": 1,
     "EVENT_DATE": "2011-08-13T00:00:00",
-    "CURRENT_STATUS_IND": true
-  },
-  {
-    "PLAYER_ID": 594,
-    "STATUS_ID": 1,
-    "EVENT_DATE": "2007-08-03T00:00:00",
     "CURRENT_STATUS_IND": true
   },
   {
@@ -5500,6 +5506,12 @@
     "STATUS_ID": 6,
     "EVENT_DATE": "2005-12-10T00:00:00",
     "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 594,
+    "STATUS_ID": 1,
+    "EVENT_DATE": "2007-08-03T00:00:00",
+    "CURRENT_STATUS_IND": true
   },
   {
     "PLAYER_ID": 595,
@@ -5557,15 +5569,15 @@
   },
   {
     "PLAYER_ID": 604,
-    "STATUS_ID": 1,
-    "EVENT_DATE": "2007-08-03T00:00:00",
-    "CURRENT_STATUS_IND": false
-  },
-  {
-    "PLAYER_ID": 604,
     "STATUS_ID": 5,
     "EVENT_DATE": "2014-08-19T00:00:00",
     "CURRENT_STATUS_IND": true
+  },
+  {
+    "PLAYER_ID": 604,
+    "STATUS_ID": 1,
+    "EVENT_DATE": "2007-08-03T00:00:00",
+    "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 604,
@@ -5575,27 +5587,27 @@
   },
   {
     "PLAYER_ID": 605,
-    "STATUS_ID": 3,
-    "EVENT_DATE": "2010-08-09T00:00:00",
-    "CURRENT_STATUS_IND": true
+    "STATUS_ID": 6,
+    "EVENT_DATE": "2006-10-02T00:00:00",
+    "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 605,
-    "STATUS_ID": 6,
-    "EVENT_DATE": "2006-10-02T00:00:00",
-    "CURRENT_STATUS_IND": false
-  },
-  {
-    "PLAYER_ID": 606,
-    "STATUS_ID": 6,
-    "EVENT_DATE": "2006-10-02T00:00:00",
-    "CURRENT_STATUS_IND": false
+    "STATUS_ID": 3,
+    "EVENT_DATE": "2010-08-09T00:00:00",
+    "CURRENT_STATUS_IND": true
   },
   {
     "PLAYER_ID": 606,
     "STATUS_ID": 9,
     "EVENT_DATE": "2015-10-28T00:00:00",
     "CURRENT_STATUS_IND": true
+  },
+  {
+    "PLAYER_ID": 606,
+    "STATUS_ID": 6,
+    "EVENT_DATE": "2006-10-02T00:00:00",
+    "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 606,
@@ -5612,6 +5624,24 @@
   {
     "PLAYER_ID": 608,
     "STATUS_ID": 3,
+    "EVENT_DATE": "2006-10-02T00:00:00",
+    "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 608,
+    "STATUS_ID": 5,
+    "EVENT_DATE": "2015-09-09T00:00:00",
+    "CURRENT_STATUS_IND": true
+  },
+  {
+    "PLAYER_ID": 608,
+    "STATUS_ID": 6,
+    "EVENT_DATE": "2012-08-07T00:00:00",
+    "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 608,
+    "STATUS_ID": 3,
     "EVENT_DATE": "2013-08-12T00:00:00",
     "CURRENT_STATUS_IND": false
   },
@@ -5623,27 +5653,9 @@
   },
   {
     "PLAYER_ID": 608,
-    "STATUS_ID": 6,
-    "EVENT_DATE": "2012-08-07T00:00:00",
-    "CURRENT_STATUS_IND": false
-  },
-  {
-    "PLAYER_ID": 608,
-    "STATUS_ID": 3,
-    "EVENT_DATE": "2006-10-02T00:00:00",
-    "CURRENT_STATUS_IND": false
-  },
-  {
-    "PLAYER_ID": 608,
     "STATUS_ID": 3,
     "EVENT_DATE": "2010-08-09T00:00:00",
     "CURRENT_STATUS_IND": false
-  },
-  {
-    "PLAYER_ID": 608,
-    "STATUS_ID": 5,
-    "EVENT_DATE": "2015-09-09T00:00:00",
-    "CURRENT_STATUS_IND": true
   },
   {
     "PLAYER_ID": 609,
@@ -5653,9 +5665,9 @@
   },
   {
     "PLAYER_ID": 609,
-    "STATUS_ID": 6,
-    "EVENT_DATE": "2006-10-02T00:00:00",
-    "CURRENT_STATUS_IND": false
+    "STATUS_ID": 1,
+    "EVENT_DATE": "2014-08-19T00:00:00",
+    "CURRENT_STATUS_IND": true
   },
   {
     "PLAYER_ID": 609,
@@ -5665,9 +5677,9 @@
   },
   {
     "PLAYER_ID": 609,
-    "STATUS_ID": 1,
-    "EVENT_DATE": "2014-08-19T00:00:00",
-    "CURRENT_STATUS_IND": true
+    "STATUS_ID": 6,
+    "EVENT_DATE": "2006-10-02T00:00:00",
+    "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 610,
@@ -5683,21 +5695,15 @@
   },
   {
     "PLAYER_ID": 612,
-    "STATUS_ID": 3,
-    "EVENT_DATE": "2008-08-21T00:00:00",
-    "CURRENT_STATUS_IND": true
-  },
-  {
-    "PLAYER_ID": 612,
     "STATUS_ID": 6,
     "EVENT_DATE": "2007-10-01T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
-    "PLAYER_ID": 613,
-    "STATUS_ID": 5,
-    "EVENT_DATE": "2009-07-21T00:00:00",
-    "CURRENT_STATUS_IND": false
+    "PLAYER_ID": 612,
+    "STATUS_ID": 3,
+    "EVENT_DATE": "2008-08-21T00:00:00",
+    "CURRENT_STATUS_IND": true
   },
   {
     "PLAYER_ID": 613,
@@ -5715,6 +5721,12 @@
     "PLAYER_ID": 613,
     "STATUS_ID": 1,
     "EVENT_DATE": "2008-04-15T00:00:00",
+    "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 613,
+    "STATUS_ID": 5,
+    "EVENT_DATE": "2009-07-21T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -5737,21 +5749,15 @@
   },
   {
     "PLAYER_ID": 616,
-    "STATUS_ID": 1,
-    "EVENT_DATE": "2011-07-18T00:00:00",
-    "CURRENT_STATUS_IND": true
-  },
-  {
-    "PLAYER_ID": 616,
-    "STATUS_ID": 5,
-    "EVENT_DATE": "2011-08-13T00:00:00",
-    "CURRENT_STATUS_IND": false
-  },
-  {
-    "PLAYER_ID": 616,
     "STATUS_ID": 3,
     "EVENT_DATE": "2009-07-28T00:00:00",
     "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 616,
+    "STATUS_ID": 1,
+    "EVENT_DATE": "2011-07-18T00:00:00",
+    "CURRENT_STATUS_IND": true
   },
   {
     "PLAYER_ID": 616,
@@ -5760,9 +5766,15 @@
     "CURRENT_STATUS_IND": false
   },
   {
+    "PLAYER_ID": 616,
+    "STATUS_ID": 5,
+    "EVENT_DATE": "2011-08-13T00:00:00",
+    "CURRENT_STATUS_IND": false
+  },
+  {
     "PLAYER_ID": 617,
-    "STATUS_ID": 6,
-    "EVENT_DATE": "2008-08-21T00:00:00",
+    "STATUS_ID": 3,
+    "EVENT_DATE": "2008-01-03T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -5773,15 +5785,9 @@
   },
   {
     "PLAYER_ID": 617,
-    "STATUS_ID": 3,
-    "EVENT_DATE": "2008-01-03T00:00:00",
+    "STATUS_ID": 6,
+    "EVENT_DATE": "2008-08-21T00:00:00",
     "CURRENT_STATUS_IND": false
-  },
-  {
-    "PLAYER_ID": 618,
-    "STATUS_ID": 3,
-    "EVENT_DATE": "2013-08-05T00:00:00",
-    "CURRENT_STATUS_IND": true
   },
   {
     "PLAYER_ID": 618,
@@ -5790,9 +5796,9 @@
     "CURRENT_STATUS_IND": false
   },
   {
-    "PLAYER_ID": 619,
-    "STATUS_ID": 1,
-    "EVENT_DATE": "2012-07-10T00:00:00",
+    "PLAYER_ID": 618,
+    "STATUS_ID": 3,
+    "EVENT_DATE": "2013-08-05T00:00:00",
     "CURRENT_STATUS_IND": true
   },
   {
@@ -5803,14 +5809,14 @@
   },
   {
     "PLAYER_ID": 619,
-    "STATUS_ID": 6,
-    "EVENT_DATE": "2008-01-28T00:00:00",
-    "CURRENT_STATUS_IND": false
+    "STATUS_ID": 1,
+    "EVENT_DATE": "2012-07-10T00:00:00",
+    "CURRENT_STATUS_IND": true
   },
   {
-    "PLAYER_ID": 620,
-    "STATUS_ID": 1,
-    "EVENT_DATE": "2009-04-23T00:00:00",
+    "PLAYER_ID": 619,
+    "STATUS_ID": 6,
+    "EVENT_DATE": "2008-01-28T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -5832,6 +5838,12 @@
     "CURRENT_STATUS_IND": true
   },
   {
+    "PLAYER_ID": 620,
+    "STATUS_ID": 1,
+    "EVENT_DATE": "2009-04-23T00:00:00",
+    "CURRENT_STATUS_IND": false
+  },
+  {
     "PLAYER_ID": 621,
     "STATUS_ID": 1,
     "EVENT_DATE": "2011-07-18T00:00:00",
@@ -5839,15 +5851,15 @@
   },
   {
     "PLAYER_ID": 621,
-    "STATUS_ID": 10,
-    "EVENT_DATE": "2015-09-09T00:00:00",
-    "CURRENT_STATUS_IND": true
-  },
-  {
-    "PLAYER_ID": 621,
     "STATUS_ID": 3,
     "EVENT_DATE": "2008-10-02T00:00:00",
     "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 621,
+    "STATUS_ID": 10,
+    "EVENT_DATE": "2015-09-09T00:00:00",
+    "CURRENT_STATUS_IND": true
   },
   {
     "PLAYER_ID": 622,
@@ -5863,8 +5875,8 @@
   },
   {
     "PLAYER_ID": 624,
-    "STATUS_ID": 3,
-    "EVENT_DATE": "2009-01-20T00:00:00",
+    "STATUS_ID": 6,
+    "EVENT_DATE": "2011-08-13T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -5875,8 +5887,14 @@
   },
   {
     "PLAYER_ID": 624,
+    "STATUS_ID": 3,
+    "EVENT_DATE": "2009-01-20T00:00:00",
+    "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 625,
     "STATUS_ID": 6,
-    "EVENT_DATE": "2011-08-13T00:00:00",
+    "EVENT_DATE": "2011-06-01T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -5884,12 +5902,6 @@
     "STATUS_ID": 3,
     "EVENT_DATE": "2009-01-20T00:00:00",
     "CURRENT_STATUS_IND": true
-  },
-  {
-    "PLAYER_ID": 625,
-    "STATUS_ID": 6,
-    "EVENT_DATE": "2011-06-01T00:00:00",
-    "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 626,
@@ -5905,15 +5917,15 @@
   },
   {
     "PLAYER_ID": 627,
-    "STATUS_ID": 3,
-    "EVENT_DATE": "2009-01-27T00:00:00",
-    "CURRENT_STATUS_IND": false
-  },
-  {
-    "PLAYER_ID": 627,
     "STATUS_ID": 9,
     "EVENT_DATE": "2015-10-28T00:00:00",
     "CURRENT_STATUS_IND": true
+  },
+  {
+    "PLAYER_ID": 627,
+    "STATUS_ID": 3,
+    "EVENT_DATE": "2009-01-27T00:00:00",
+    "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 628,
@@ -5923,15 +5935,15 @@
   },
   {
     "PLAYER_ID": 629,
-    "STATUS_ID": 3,
-    "EVENT_DATE": "2010-08-09T00:00:00",
-    "CURRENT_STATUS_IND": true
-  },
-  {
-    "PLAYER_ID": 629,
     "STATUS_ID": 6,
     "EVENT_DATE": "2009-02-19T00:00:00",
     "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 629,
+    "STATUS_ID": 3,
+    "EVENT_DATE": "2010-08-09T00:00:00",
+    "CURRENT_STATUS_IND": true
   },
   {
     "PLAYER_ID": 630,
@@ -5941,20 +5953,26 @@
   },
   {
     "PLAYER_ID": 631,
-    "STATUS_ID": 6,
-    "EVENT_DATE": "2008-10-01T00:00:00",
-    "CURRENT_STATUS_IND": false
-  },
-  {
-    "PLAYER_ID": 631,
     "STATUS_ID": 3,
     "EVENT_DATE": "2010-01-12T00:00:00",
     "CURRENT_STATUS_IND": true
   },
   {
+    "PLAYER_ID": 631,
+    "STATUS_ID": 6,
+    "EVENT_DATE": "2008-10-01T00:00:00",
+    "CURRENT_STATUS_IND": false
+  },
+  {
     "PLAYER_ID": 632,
     "STATUS_ID": 6,
     "EVENT_DATE": "2009-09-01T00:00:00",
+    "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 632,
+    "STATUS_ID": 3,
+    "EVENT_DATE": "2010-01-11T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -5968,12 +5986,6 @@
     "STATUS_ID": 5,
     "EVENT_DATE": "2013-07-01T00:00:00",
     "CURRENT_STATUS_IND": true
-  },
-  {
-    "PLAYER_ID": 632,
-    "STATUS_ID": 3,
-    "EVENT_DATE": "2010-01-11T00:00:00",
-    "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 633,
@@ -5995,15 +6007,21 @@
   },
   {
     "PLAYER_ID": 635,
+    "STATUS_ID": 1,
+    "EVENT_DATE": "2012-06-23T00:00:00",
+    "CURRENT_STATUS_IND": true
+  },
+  {
+    "PLAYER_ID": 635,
     "STATUS_ID": 3,
     "EVENT_DATE": "2010-08-24T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
-    "PLAYER_ID": 635,
+    "PLAYER_ID": 636,
     "STATUS_ID": 1,
-    "EVENT_DATE": "2012-06-23T00:00:00",
-    "CURRENT_STATUS_IND": true
+    "EVENT_DATE": "2011-07-01T00:00:00",
+    "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 636,
@@ -6016,12 +6034,6 @@
     "STATUS_ID": 5,
     "EVENT_DATE": "2015-09-09T00:00:00",
     "CURRENT_STATUS_IND": true
-  },
-  {
-    "PLAYER_ID": 636,
-    "STATUS_ID": 1,
-    "EVENT_DATE": "2011-07-01T00:00:00",
-    "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 637,
@@ -6103,15 +6115,15 @@
   },
   {
     "PLAYER_ID": 648,
-    "STATUS_ID": 6,
-    "EVENT_DATE": "1970-01-01T00:00:00",
-    "CURRENT_STATUS_IND": false
-  },
-  {
-    "PLAYER_ID": 648,
     "STATUS_ID": 9,
     "EVENT_DATE": "2015-10-28T00:00:00",
     "CURRENT_STATUS_IND": true
+  },
+  {
+    "PLAYER_ID": 648,
+    "STATUS_ID": 6,
+    "EVENT_DATE": "1970-01-01T00:00:00",
+    "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 649,
@@ -6139,20 +6151,14 @@
   },
   {
     "PLAYER_ID": 653,
-    "STATUS_ID": 6,
-    "EVENT_DATE": "1970-01-01T00:00:00",
-    "CURRENT_STATUS_IND": false
-  },
-  {
-    "PLAYER_ID": 653,
     "STATUS_ID": 3,
     "EVENT_DATE": "2011-08-13T00:00:00",
     "CURRENT_STATUS_IND": true
   },
   {
-    "PLAYER_ID": 654,
-    "STATUS_ID": 3,
-    "EVENT_DATE": "2011-08-04T00:00:00",
+    "PLAYER_ID": 653,
+    "STATUS_ID": 6,
+    "EVENT_DATE": "1970-01-01T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
@@ -6160,6 +6166,12 @@
     "STATUS_ID": 1,
     "EVENT_DATE": "2012-06-23T00:00:00",
     "CURRENT_STATUS_IND": true
+  },
+  {
+    "PLAYER_ID": 654,
+    "STATUS_ID": 3,
+    "EVENT_DATE": "2011-08-04T00:00:00",
+    "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 655,
@@ -6175,27 +6187,27 @@
   },
   {
     "PLAYER_ID": 657,
+    "STATUS_ID": 9,
+    "EVENT_DATE": "2015-10-28T00:00:00",
+    "CURRENT_STATUS_IND": true
+  },
+  {
+    "PLAYER_ID": 657,
     "STATUS_ID": 6,
     "EVENT_DATE": "1970-01-01T00:00:00",
     "CURRENT_STATUS_IND": false
   },
   {
-    "PLAYER_ID": 657,
-    "STATUS_ID": 9,
-    "EVENT_DATE": "2015-10-28T00:00:00",
-    "CURRENT_STATUS_IND": true
+    "PLAYER_ID": 658,
+    "STATUS_ID": 6,
+    "EVENT_DATE": "1970-01-01T00:00:00",
+    "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 658,
     "STATUS_ID": 3,
     "EVENT_DATE": "2013-08-02T00:00:00",
     "CURRENT_STATUS_IND": true
-  },
-  {
-    "PLAYER_ID": 658,
-    "STATUS_ID": 6,
-    "EVENT_DATE": "1970-01-01T00:00:00",
-    "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 659,
@@ -6223,15 +6235,15 @@
   },
   {
     "PLAYER_ID": 662,
-    "STATUS_ID": 6,
-    "EVENT_DATE": "1970-01-01T00:00:00",
-    "CURRENT_STATUS_IND": false
-  },
-  {
-    "PLAYER_ID": 662,
     "STATUS_ID": 3,
     "EVENT_DATE": "2011-08-13T00:00:00",
     "CURRENT_STATUS_IND": true
+  },
+  {
+    "PLAYER_ID": 662,
+    "STATUS_ID": 6,
+    "EVENT_DATE": "1970-01-01T00:00:00",
+    "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 663,
@@ -6277,15 +6289,15 @@
   },
   {
     "PLAYER_ID": 669,
-    "STATUS_ID": 6,
-    "EVENT_DATE": "1970-01-01T00:00:00",
-    "CURRENT_STATUS_IND": false
-  },
-  {
-    "PLAYER_ID": 669,
     "STATUS_ID": 9,
     "EVENT_DATE": "2015-10-28T00:00:00",
     "CURRENT_STATUS_IND": true
+  },
+  {
+    "PLAYER_ID": 669,
+    "STATUS_ID": 6,
+    "EVENT_DATE": "1970-01-01T00:00:00",
+    "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 670,
@@ -6337,15 +6349,15 @@
   },
   {
     "PLAYER_ID": 678,
-    "STATUS_ID": 1,
-    "EVENT_DATE": "2012-07-09T00:00:00",
-    "CURRENT_STATUS_IND": true
-  },
-  {
-    "PLAYER_ID": 678,
     "STATUS_ID": 3,
     "EVENT_DATE": "2011-08-04T00:00:00",
     "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 678,
+    "STATUS_ID": 1,
+    "EVENT_DATE": "2012-07-09T00:00:00",
+    "CURRENT_STATUS_IND": true
   },
   {
     "PLAYER_ID": 679,
@@ -6391,27 +6403,27 @@
   },
   {
     "PLAYER_ID": 685,
-    "STATUS_ID": 9,
-    "EVENT_DATE": "2015-10-28T00:00:00",
-    "CURRENT_STATUS_IND": true
+    "STATUS_ID": 6,
+    "EVENT_DATE": "1970-01-01T00:00:00",
+    "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 685,
-    "STATUS_ID": 6,
-    "EVENT_DATE": "1970-01-01T00:00:00",
-    "CURRENT_STATUS_IND": false
-  },
-  {
-    "PLAYER_ID": 686,
-    "STATUS_ID": 6,
-    "EVENT_DATE": "1970-01-01T00:00:00",
-    "CURRENT_STATUS_IND": false
+    "STATUS_ID": 9,
+    "EVENT_DATE": "2015-10-28T00:00:00",
+    "CURRENT_STATUS_IND": true
   },
   {
     "PLAYER_ID": 686,
     "STATUS_ID": 3,
     "EVENT_DATE": "2011-08-13T00:00:00",
     "CURRENT_STATUS_IND": true
+  },
+  {
+    "PLAYER_ID": 686,
+    "STATUS_ID": 6,
+    "EVENT_DATE": "1970-01-01T00:00:00",
+    "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 687,
@@ -6457,15 +6469,15 @@
   },
   {
     "PLAYER_ID": 695,
-    "STATUS_ID": 9,
-    "EVENT_DATE": "2015-10-28T00:00:00",
-    "CURRENT_STATUS_IND": true
-  },
-  {
-    "PLAYER_ID": 695,
     "STATUS_ID": 6,
     "EVENT_DATE": "1970-01-01T00:00:00",
     "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 695,
+    "STATUS_ID": 9,
+    "EVENT_DATE": "2015-10-28T00:00:00",
+    "CURRENT_STATUS_IND": true
   },
   {
     "PLAYER_ID": 696,
@@ -6529,15 +6541,15 @@
   },
   {
     "PLAYER_ID": 705,
-    "STATUS_ID": 6,
-    "EVENT_DATE": "1970-01-01T00:00:00",
-    "CURRENT_STATUS_IND": false
-  },
-  {
-    "PLAYER_ID": 705,
     "STATUS_ID": 9,
     "EVENT_DATE": "2015-10-28T00:00:00",
     "CURRENT_STATUS_IND": true
+  },
+  {
+    "PLAYER_ID": 705,
+    "STATUS_ID": 6,
+    "EVENT_DATE": "1970-01-01T00:00:00",
+    "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 706,
@@ -6577,15 +6589,15 @@
   },
   {
     "PLAYER_ID": 712,
-    "STATUS_ID": 9,
-    "EVENT_DATE": "2015-10-28T00:00:00",
-    "CURRENT_STATUS_IND": true
-  },
-  {
-    "PLAYER_ID": 712,
     "STATUS_ID": 6,
     "EVENT_DATE": "1970-01-01T00:00:00",
     "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 712,
+    "STATUS_ID": 9,
+    "EVENT_DATE": "2015-10-28T00:00:00",
+    "CURRENT_STATUS_IND": true
   },
   {
     "PLAYER_ID": 713,
@@ -6595,15 +6607,15 @@
   },
   {
     "PLAYER_ID": 714,
-    "STATUS_ID": 9,
-    "EVENT_DATE": "2015-10-28T00:00:00",
-    "CURRENT_STATUS_IND": true
-  },
-  {
-    "PLAYER_ID": 714,
     "STATUS_ID": 6,
     "EVENT_DATE": "1970-01-01T00:00:00",
     "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 714,
+    "STATUS_ID": 9,
+    "EVENT_DATE": "2015-10-28T00:00:00",
+    "CURRENT_STATUS_IND": true
   },
   {
     "PLAYER_ID": 715,
@@ -6649,15 +6661,15 @@
   },
   {
     "PLAYER_ID": 722,
-    "STATUS_ID": 6,
-    "EVENT_DATE": "1970-01-01T00:00:00",
-    "CURRENT_STATUS_IND": false
-  },
-  {
-    "PLAYER_ID": 722,
     "STATUS_ID": 9,
     "EVENT_DATE": "2015-10-28T00:00:00",
     "CURRENT_STATUS_IND": true
+  },
+  {
+    "PLAYER_ID": 722,
+    "STATUS_ID": 6,
+    "EVENT_DATE": "1970-01-01T00:00:00",
+    "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 723,
@@ -6667,27 +6679,27 @@
   },
   {
     "PLAYER_ID": 724,
-    "STATUS_ID": 6,
-    "EVENT_DATE": "1970-01-01T00:00:00",
-    "CURRENT_STATUS_IND": false
+    "STATUS_ID": 9,
+    "EVENT_DATE": "2015-10-28T00:00:00",
+    "CURRENT_STATUS_IND": true
   },
   {
     "PLAYER_ID": 724,
-    "STATUS_ID": 9,
-    "EVENT_DATE": "2015-10-28T00:00:00",
-    "CURRENT_STATUS_IND": true
-  },
-  {
-    "PLAYER_ID": 725,
-    "STATUS_ID": 9,
-    "EVENT_DATE": "2015-10-28T00:00:00",
-    "CURRENT_STATUS_IND": true
+    "STATUS_ID": 6,
+    "EVENT_DATE": "1970-01-01T00:00:00",
+    "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 725,
     "STATUS_ID": 6,
     "EVENT_DATE": "1970-01-01T00:00:00",
     "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 725,
+    "STATUS_ID": 9,
+    "EVENT_DATE": "2015-10-28T00:00:00",
+    "CURRENT_STATUS_IND": true
   },
   {
     "PLAYER_ID": 726,
@@ -6727,14 +6739,14 @@
   },
   {
     "PLAYER_ID": 731,
-    "STATUS_ID": 1,
-    "EVENT_DATE": "2015-09-09T00:00:00",
-    "CURRENT_STATUS_IND": true
+    "STATUS_ID": 2,
+    "EVENT_DATE": "2012-07-10T00:00:00",
+    "CURRENT_STATUS_IND": false
   },
   {
     "PLAYER_ID": 731,
-    "STATUS_ID": 2,
-    "EVENT_DATE": "2012-07-10T00:00:00",
+    "STATUS_ID": 1,
+    "EVENT_DATE": "2015-09-09T00:00:00",
     "CURRENT_STATUS_IND": true
   },
   {
@@ -6751,15 +6763,15 @@
   },
   {
     "PLAYER_ID": 734,
-    "STATUS_ID": 5,
-    "EVENT_DATE": "2015-09-09T00:00:00",
-    "CURRENT_STATUS_IND": true
-  },
-  {
-    "PLAYER_ID": 734,
     "STATUS_ID": 2,
     "EVENT_DATE": "2012-07-26T00:00:00",
     "CURRENT_STATUS_IND": false
+  },
+  {
+    "PLAYER_ID": 734,
+    "STATUS_ID": 5,
+    "EVENT_DATE": "2015-09-09T00:00:00",
+    "CURRENT_STATUS_IND": true
   },
   {
     "PLAYER_ID": 735,
@@ -7161,6 +7173,24 @@
     "PLAYER_ID": 798,
     "STATUS_ID": 6,
     "EVENT_DATE": "2015-09-09T00:00:00",
+    "CURRENT_STATUS_IND": true
+  },
+  {
+    "PLAYER_ID": 799,
+    "STATUS_ID": 6,
+    "EVENT_DATE": "2015-11-29T00:00:00",
+    "CURRENT_STATUS_IND": true
+  },
+  {
+    "PLAYER_ID": 800,
+    "STATUS_ID": 6,
+    "EVENT_DATE": "2015-11-29T00:00:00",
+    "CURRENT_STATUS_IND": true
+  },
+  {
+    "PLAYER_ID": 801,
+    "STATUS_ID": 6,
+    "EVENT_DATE": "2015-11-29T00:00:00",
     "CURRENT_STATUS_IND": true
   }
 ]

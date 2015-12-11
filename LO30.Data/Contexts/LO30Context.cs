@@ -26,6 +26,8 @@ namespace LO30.Data.Contexts
     {
       modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
 
+      modelBuilder.Configurations.Add(new PlayerActiveSubConfiguration());
+
       //modelBuilder.Entity<Post>().HasRequired(p => p.Blog);
 
      /* modelBuilder.Entity<TeamStanding>()
@@ -43,6 +45,7 @@ namespace LO30.Data.Contexts
 
     public DbSet<Game> Games { get; set; }
     public DbSet<GameOutcome> GameOutcomes { get; set; }
+    public DbSet<GameOutcomeOverride> GameOutcomeOverrides { get; set; }
     public DbSet<GameRoster> GameRosters { get; set; }
     public DbSet<GameScore> GameScores { get; set; }
 
@@ -85,6 +88,6 @@ namespace LO30.Data.Contexts
     public DbSet<TeamStanding> TeamStandings { get; set; }
 
 
-    public DbSet<PlayerActiveSub> PlayersActiveSubs { get; set; }
+    //public DbSet<PlayerActiveSub> PlayersActiveSubs { get; set; }
   }
 }

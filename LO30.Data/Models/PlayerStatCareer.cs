@@ -11,9 +11,9 @@ namespace LO30.Data.Models
   {
     [Required, Key, Column(Order = 1)]
     public int PlayerId { get; set; }
-
-    [Required, Key, Column(Order = 2)]
-    public bool Playoffs { get; set; }
+    
+    [Required]
+    public int Seasons { get; set; }
 
     [Required]
     public int Games { get; set; }
@@ -48,6 +48,7 @@ namespace LO30.Data.Models
 
     public PlayerStatCareer()
     {
+      this.Seasons = 0;
       this.Games = 0;
       this.Goals = 0;
       this.Assists = 0;
@@ -56,6 +57,39 @@ namespace LO30.Data.Models
       this.PowerPlayGoals = 0;
       this.ShortHandedGoals = 0;
       this.GameWinningGoals = 0;
+
+      Validate();
+    }
+
+    private void Validate()
+    {
+      var locationKey = string.Format("pid: {0}",
+                                  this.PlayerId);
+
+      if (this.Points != this.Goals + this.Assists)
+      {
+        throw new ArgumentException("Points must equal Goals + Assists for:" + locationKey, "Points");
+      }
+
+      if (this.PowerPlayGoals > this.Goals)
+      {
+        throw new ArgumentException("PowerPlayGoals must be less than or equal to Goals for:" + locationKey, "PowerPlayGoals");
+      }
+
+      if (this.ShortHandedGoals > this.Goals)
+      {
+        throw new ArgumentException("ShortHandedGoals must be less than or equal to Goals for:" + locationKey, "ShortHandedGoals");
+      }
+
+      if (this.GameWinningGoals > this.Goals)
+      {
+        throw new ArgumentException("GameWinningGoals must be less than or equal to Goals for:" + locationKey, "GameWinningGoals");
+      }
+
+      if (this.GameWinningGoals > this.Games)
+      {
+        throw new ArgumentException("GameWinningGoals must be less than or equal to Games for:" + locationKey, "GameWinningGoals");
+      }
     }
   }
 }

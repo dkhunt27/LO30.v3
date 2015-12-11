@@ -6086,5 +6086,53 @@
     "PLAYER_SUFFIX": null,
     "PLAYER_POSITION": null,
     "SHOOTS": null
+  },
+  {
+    "PLAYER_ID": 799,
+    "PLAYER_FIRST_NAME": "Ray",
+    "PLAYER_LAST_NAME": "Chartier",
+    "PLAYER_SUFFIX": null,
+    "PLAYER_POSITION": null,
+    "SHOOTS": null
+  },
+  {
+    "PLAYER_ID": 800,
+    "PLAYER_FIRST_NAME": "Mike",
+    "PLAYER_LAST_NAME": "Sell",
+    "PLAYER_SUFFIX": null,
+    "PLAYER_POSITION": null,
+    "SHOOTS": null
+  },
+  {
+    "PLAYER_ID": 801,
+    "PLAYER_FIRST_NAME": "Jerry",
+    "PLAYER_LAST_NAME": "Ahmet",
+    "PLAYER_SUFFIX": null,
+    "PLAYER_POSITION": null,
+    "SHOOTS": null
+  },
+  {
+    "PLAYER_ID": 802,
+    "PLAYER_FIRST_NAME": "Mike",
+    "PLAYER_LAST_NAME": "O'Brien",
+    "PLAYER_SUFFIX": null,
+    "PLAYER_POSITION": null,
+    "SHOOTS": null
+  },
+  {
+    "PLAYER_ID": 803,
+    "PLAYER_FIRST_NAME": "Bob",
+    "PLAYER_LAST_NAME": "Moody",
+    "PLAYER_SUFFIX": null,
+    "PLAYER_POSITION": null,
+    "SHOOTS": null
+  },
+  {
+    "PLAYER_ID": 804,
+    "PLAYER_FIRST_NAME": "Don",
+    "PLAYER_LAST_NAME": "Moody",
+    "PLAYER_SUFFIX": null,
+    "PLAYER_POSITION": null,
+    "SHOOTS": null
   }
 ]
