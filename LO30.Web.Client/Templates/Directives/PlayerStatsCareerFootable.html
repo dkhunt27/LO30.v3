@@ -1,0 +1,28 @@
+﻿<div>
+  <table class="table table-condensed table-bordered table-dk-blue lo30-footable" footable-data="data.playerStatsCareer" lo30-footable>
+    <thead>
+      <tr>
+        <th data-type="number">Games</th>
+        <th data-type="number">Goals</th>
+        <th data-type="number">Assists</th>
+        <th data-type="number">Points</th>
+        <th data-type="number">PIM</th>
+        <th data-type="number" data-breakpoints="xs sm">PPG</th>
+        <th data-type="number" data-breakpoints="xs sm md">SHG</th>
+        <th data-type="number" data-breakpoints="xs sm md lg">GWG</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{data.playerStatsCareer.games}}</td>
+        <td>{{data.playerStatsCareer.goals}}</td>
+        <td class="text-right">{{data.playerStatsCareer.assists}}</td>
+        <td class="text-right">{{data.playerStatsCareer.points}}</td>
+        <td class="text-right">{{data.playerStatsCareer.penaltyMinutes}}</td>
+        <td class="text-right">{{data.playerStatsCareer.powerPlayGoals}}</td>
+        <td class="text-right">{{data.playerStatsCareer.shortHandedGoals}}</td>
+        <td class="text-right">{{data.playerStatsCareer.gameWinningGoals}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

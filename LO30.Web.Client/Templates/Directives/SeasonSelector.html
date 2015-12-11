@@ -1,0 +1,17 @@
+﻿<span>
+    <h4 ng-hide="events.userChangingSeason">
+      <a ng-click="userWantsToChangeSeason()">{{data.selectedSeason[0].seasonName}}</a>
+    </h4>
+    <span ng-show="events.userChangingSeason">
+      <span isteven-multi-select
+            selection-mode="single"
+            input-model="data.seasons"
+            output-model="data.selectedSeason"
+            button-label="seasonName"
+            item-label="seasonName"
+            tick-property="ticked"
+            max-height="250px"
+            min-search-length="2">
+      </span>
+    </span>
+</span>

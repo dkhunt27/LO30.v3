@@ -18,9 +18,6 @@ namespace LO30.Data.Models
     [Required, Key, Column(Order = 3)]
     public bool Playoffs { get; set; }
 
-    [Required, Key, Column(Order = 4)]
-    public bool Sub { get; set; }
-
     [Required]
     public int Games { get; set; }
 
@@ -69,12 +66,11 @@ namespace LO30.Data.Models
       Validate();
     }
 
-    public PlayerStatSeason(int pid, int sid, bool pfs, bool sub, int games, int g, int a, int p, int ppg, int shg, int gwg, int pim)
+    public PlayerStatSeason(int pid, int sid, bool pfs, int games, int g, int a, int p, int ppg, int shg, int gwg, int pim)
     {
       this.PlayerId = pid;
       this.SeasonId = sid;
       this.Playoffs = pfs;
-      this.Sub = sub;
 
       this.Games = games;
 
