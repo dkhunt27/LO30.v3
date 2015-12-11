@@ -36,6 +36,7 @@ BEGIN TRY
 		TableName nvarchar(35) NOT NULL,
 		NewRecordsInserted int NOT NULL,
 		ExistingRecordsUpdated int NOT NULL,
+		ExistingRecordsDeleted int NOT NULL,
 		ProcessedRecordsMatchExistingRecords int NOT NULL
 	)
 
@@ -84,6 +85,7 @@ BEGIN TRY
 		'ScoreSheetEntryProcessedGoals' as TableName,
 		0 as NewRecordsInserted,
 		0 as ExistingRecordsUpdated,
+		0 as ExistingRecordsDeleted,
 		0 as ProcessedRecordsMatchExistingRecords
 
 	-- PROCESS SCORE SHEET ENTRY GOALS
@@ -233,6 +235,17 @@ BEGIN TRY
 			select * from #scoreSheetEntryProcessedGoalsNew where ScoreSheetEntryGoalId = 3372
 		*/
 
+		-- NEED TO DELETE ANY RECORDS THAT MIGHT HAVE ALREADY PROCESSED, BUT ARE NO LONGER VALID
+		delete from #scoreSheetEntryProcessedGoalsCopy
+		from
+			#scoreSheetEntryProcessedGoalsCopy c left join
+			#scoreSheetEntryProcessedGoalsNew n on (c.ScoreSheetEntryGoalId = n.ScoreSheetEntryGoalId)
+		where
+			n.GameId is null and
+			c.GameId between @StartingGameId and @EndingGameId
+
+		update #results set ExistingRecordsDeleted = @@ROWCOUNT
+
 		update #scoreSheetEntryProcessedGoalsCopy
 		set
 			SeasonId = n.SeasonId,
@@ -271,6 +284,17 @@ BEGIN TRY
 	ELSE
 	BEGIN
 		PRINT 'NOT A DRY RUN. UPDATING REAL TABLES'
+
+		-- NEED TO DELETE ANY RECORDS THAT MIGHT HAVE ALREADY PROCESSED, BUT ARE NO LONGER VALID
+		delete from ScoreSheetEntryProcessedGoals
+		from
+			ScoreSheetEntryProcessedGoals c LEFT JOIN
+			#scoreSheetEntryProcessedGoalsNew n ON (c.ScoreSheetEntryGoalId = n.ScoreSheetEntryGoalId)
+		where
+			n.GameId is null and
+			c.GameId between @StartingGameId and @EndingGameId
+
+		update #results set ExistingRecordsDeleted = @@ROWCOUNT
 
 		update ScoreSheetEntryProcessedGoals
 		set

@@ -29,6 +29,7 @@ BEGIN TRY
 		TableName nvarchar(35) NOT NULL,
 		NewRecordsInserted int NOT NULL,
 		ExistingRecordsUpdated int NOT NULL,
+		ExistingRecordsDeleted int NOT NULL,
 		ProcessedRecordsMatchExistingRecords int NOT NULL
 	)
 
@@ -36,7 +37,6 @@ BEGIN TRY
 		PlayerId int NOT NULL,
 		SeasonId int NOT NULL,
 		Playoffs bit NOT NULL,
-		Sub bit NOT NULL,
 		Games int NOT NULL,
 		Goals int NOT NULL,
 		Assists int NOT NULL,
@@ -47,13 +47,12 @@ BEGIN TRY
 		GameWinningGoals int NOT NULL,
 		BCS int NULL
 	)
-	CREATE UNIQUE INDEX PK ON #playerStatSeasonsNew(PlayerId, SeasonId, Playoffs, Sub)
+	CREATE UNIQUE INDEX PK ON #playerStatSeasonsNew(PlayerId, SeasonId, Playoffs)
 
 	CREATE TABLE #playerStatSeasonsCopy (
 		PlayerId int NOT NULL,
 		SeasonId int NOT NULL,
 		Playoffs bit NOT NULL,
-		Sub bit NOT NULL,
 		Games int NOT NULL,
 		Goals int NOT NULL,
 		Assists int NOT NULL,
@@ -64,13 +63,14 @@ BEGIN TRY
 		GameWinningGoals int NOT NULL,
 		BCS int NULL
 	)
-	CREATE UNIQUE INDEX PK ON #playerStatSeasonsCopy(PlayerId, SeasonId, Playoffs, Sub)
+	CREATE UNIQUE INDEX PK ON #playerStatSeasonsCopy(PlayerId, SeasonId, Playoffs)
 
 	INSERT INTO #results
 	SELECT
 		'PlayerStatSeasons' as TableName,
 		0 as NewRecordsInserted,
 		0 as ExistingRecordsUpdated,
+		0 as ExistingRecordsDeleted,
 		0 as ProcessedRecordsMatchExistingRecords
 
 	insert into #playerStatSeasonsNew
@@ -78,8 +78,7 @@ BEGIN TRY
 		s.PlayerId,
 		s.SeasonId,
 		s.Playoffs,
-		s.Sub,
-		count(s.GameId) as Games,
+		sum(s.Games) as Games,
 		sum(s.Goals) as Goals,
 		sum(s.Assists) as Assists,
 		sum(s.Points) as Points,
@@ -89,15 +88,14 @@ BEGIN TRY
 		sum(s.GameWinningGoals) as GameWinningGoals,
 		NULL as BCS
 	from
-		PlayerStatGames s
+		PlayerStatTeams s
 	where
 		s.SeasonId between @StartingSeasonId and @EndingSeasonId AND
 		s.PlayerId <> 0
 	group by
 		s.PlayerId,
 		s.SeasonId,
-		s.Playoffs,
-		s.Sub
+		s.Playoffs
 
 
 	update #playerStatSeasonsNew
@@ -105,7 +103,6 @@ BEGIN TRY
 		BCS = BINARY_CHECKSUM(PlayerId,
 								SeasonId,
 								Playoffs,
-								Sub,
 								Games,
 								Goals,
 								Assists,
@@ -121,7 +118,6 @@ BEGIN TRY
 		PlayerId,
 		SeasonId,
 		Playoffs,
-		Sub,
 		Games,
 		Goals,
 		Assists,
@@ -133,7 +129,6 @@ BEGIN TRY
 		BINARY_CHECKSUM(PlayerId,
 								SeasonId,
 								Playoffs,
-								Sub,
 								Games,
 								Goals,
 								Assists,
@@ -151,6 +146,9 @@ BEGIN TRY
 		-- this is not a dry run
 		PRINT 'DRY RUN. NOT UPDATING REAL TABLES'
 
+		-- NEED TO DELETE ANY RECORDS THAT MIGHT HAVE ALREADY PROCESSED, BUT ARE NO LONGER VALID
+		-- TODO FIGURE OUT HOW TO DO CORRECTLY
+
 		update #playerStatSeasonsCopy
 		set
 			Games = n.Games,
@@ -163,7 +161,7 @@ BEGIN TRY
 			GameWinningGoals = n.GameWinningGoals
 		from
 			#playerStatSeasonsCopy c INNER JOIN
-			#playerStatSeasonsNew n ON (c.PlayerId = n.PlayerId AND c.SeasonId = n.SeasonId AND c.Playoffs = n.Playoffs AND c.Sub = n.Sub)
+			#playerStatSeasonsNew n ON (c.PlayerId = n.PlayerId AND c.SeasonId = n.SeasonId AND c.Playoffs = n.Playoffs)
 		where
 			c.BCS <> n.BCS
 
@@ -174,7 +172,7 @@ BEGIN TRY
 			n.*
 		from
 			#playerStatSeasonsNew n left join
-			#playerStatSeasonsCopy c on (c.PlayerId = n.PlayerId AND c.SeasonId = n.SeasonId AND c.Playoffs = n.Playoffs AND c.Sub = n.Sub)
+			#playerStatSeasonsCopy c on (c.PlayerId = n.PlayerId AND c.SeasonId = n.SeasonId AND c.Playoffs = n.Playoffs)
 		where
 			c.PlayerId is null
 
@@ -184,6 +182,9 @@ BEGIN TRY
 	BEGIN
 		-- this is not a dry run
 		PRINT 'NOT A DRY RUN. UPDATING REAL TABLES'
+
+		-- NEED TO DELETE ANY RECORDS THAT MIGHT HAVE ALREADY PROCESSED, BUT ARE NO LONGER VALID
+		-- TODO FIGURE OUT HOW TO DO CORRECTLY
 
 		update PlayerStatSeasons
 		set
@@ -197,8 +198,8 @@ BEGIN TRY
 			GameWinningGoals = n.GameWinningGoals
 		from
 			PlayerStatSeasons r INNER JOIN
-			#playerStatSeasonsCopy c ON (r.PlayerId = c.PlayerId AND r.SeasonId = c.SeasonId AND r.Playoffs = c.Playoffs AND r.Sub = c.Sub) INNER JOIN
-			#playerStatSeasonsNew n ON (c.PlayerId = n.PlayerId AND c.SeasonId = n.SeasonId AND c.Playoffs = n.Playoffs AND c.Sub = n.Sub)
+			#playerStatSeasonsCopy c ON (r.PlayerId = c.PlayerId AND r.SeasonId = c.SeasonId AND r.Playoffs = c.Playoffs) INNER JOIN
+			#playerStatSeasonsNew n ON (c.PlayerId = n.PlayerId AND c.SeasonId = n.SeasonId AND c.Playoffs = n.Playoffs)
 		where
 			c.BCS <> n.BCS
 
@@ -209,7 +210,6 @@ BEGIN TRY
 			n.PlayerId,
 			n.SeasonId,
 			n.Playoffs,
-			n.Sub,
 			n.Games,
 			n.Goals,
 			n.Assists,
@@ -221,7 +221,7 @@ BEGIN TRY
 			GETDATE()
 		from
 			#playerStatSeasonsNew n left join
-			PlayerStatSeasons c on (c.PlayerId = n.PlayerId AND c.SeasonId = n.SeasonId AND c.Playoffs = n.Playoffs AND c.Sub = n.Sub)
+			PlayerStatSeasons c on (c.PlayerId = n.PlayerId AND c.SeasonId = n.SeasonId AND c.Playoffs = n.Playoffs)
 		where
 			c.PlayerId is null
 

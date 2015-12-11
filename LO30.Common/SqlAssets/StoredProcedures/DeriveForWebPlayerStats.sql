@@ -29,6 +29,7 @@ BEGIN TRY
 		TableName nvarchar(35) NOT NULL,
 		NewRecordsInserted int NOT NULL,
 		ExistingRecordsUpdated int NOT NULL,
+		ExistingRecordsDeleted int NOT NULL,
 		ProcessedRecordsMatchExistingRecords int NOT NULL
 	)
 
@@ -81,6 +82,7 @@ BEGIN TRY
 		'ForWebPlayerStats' as TableName,
 		0 as NewRecordsInserted,
 		0 as ExistingRecordsUpdated,
+		0 as ExistingRecordsDeleted,
 		0 as ProcessedRecordsMatchExistingRecords
 
 
@@ -183,6 +185,17 @@ BEGIN TRY
 		-- this is not a dry run
 		PRINT 'DRY RUN. NOT UPDATING REAL TABLES'
 
+		-- NEED TO DELETE ANY RECORDS THAT MIGHT HAVE ALREADY PROCESSED, BUT ARE NO LONGER VALID
+		delete from #forWebPlayerStatsCopy
+		from
+			#forWebPlayerStatsCopy c left join
+			#forWebPlayerStatsNew n on (c.SID = n.SID AND c.TID = n.TID AND c.PID = n.PID AND c.PFS = n.PFS AND c.Sub = n.Sub)
+		where
+			n.SID is null and
+			c.SID between @StartingSeasonId and @EndingSeasonId
+
+		update #results set ExistingRecordsDeleted = @@ROWCOUNT
+
 		update #forWebPlayerStatsCopy
 		set
 			Player = n.Player,
@@ -235,6 +248,17 @@ BEGIN TRY
 	BEGIN
 		-- this is not a dry run
 		PRINT 'NOT A DRY RUN. UPDATING REAL TABLES'
+
+		-- NEED TO DELETE ANY RECORDS THAT MIGHT HAVE ALREADY PROCESSED, BUT ARE NO LONGER VALID
+		delete from ForWebPlayerStats
+		from
+			ForWebPlayerStats c left join
+			#forWebPlayerStatsNew n on (c.SID = n.SID AND c.TID = n.TID AND c.PID = n.PID AND c.PFS = n.PFS AND c.Sub = n.Sub)
+		where
+			n.SID is null and
+			c.SID between @StartingSeasonId and @EndingSeasonId
+
+		update #results set ExistingRecordsDeleted = @@ROWCOUNT
 
 		update ForWebPlayerStats
 		set

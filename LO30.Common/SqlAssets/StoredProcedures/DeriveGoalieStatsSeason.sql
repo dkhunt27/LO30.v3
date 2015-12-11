@@ -29,6 +29,7 @@ BEGIN TRY
 		TableName nvarchar(35) NOT NULL,
 		NewRecordsInserted int NOT NULL,
 		ExistingRecordsUpdated int NOT NULL,
+		ExistingRecordsDeleted int NOT NULL,
 		ProcessedRecordsMatchExistingRecords int NOT NULL
 	)
 
@@ -63,6 +64,7 @@ BEGIN TRY
 		'GoalieStatSeasons' as TableName,
 		0 as NewRecordsInserted,
 		0 as ExistingRecordsUpdated,
+		0 as ExistingRecordsDeleted,
 		0 as ProcessedRecordsMatchExistingRecords
 
 
@@ -71,22 +73,21 @@ BEGIN TRY
 		s.PlayerId,
 		s.SeasonId,
 		s.Playoffs,
-		s.Sub,
-		count(s.GameId) as Games,
+		0 as Sub,  -- TODO ESSENTIALLY REMOVING THIS FIELD UNTIL REMOVED FROM TABLE DIRECTLY
+		sum(s.Games) as Games,
 		sum(s.GoalsAgainst) as GoalsAgainst,
 		sum(s.Shutouts) as Shutouts,
 		sum(s.Wins) as Wins,
 		NULL as BCS
 	from
-		GoalieStatGames s
+		GoalieStatTeams s
 	where
 		s.SeasonId between @StartingSeasonId and @EndingSeasonId AND
 		s.PlayerId <> 0
 	group by
 		s.PlayerId,
 		s.SeasonId,
-		s.Playoffs,
-		s.Sub
+		s.Playoffs
 
 
 	update #goalieStatSeasonsNew
@@ -127,6 +128,9 @@ BEGIN TRY
 		-- this is not a dry run
 		PRINT 'DRY RUN. NOT UPDATING REAL TABLES'
 
+		-- NEED TO DELETE ANY RECORDS THAT MIGHT HAVE ALREADY PROCESSED, BUT ARE NO LONGER VALID
+		-- TODO FIGURE OUT HOW TO DO CORRECTLY
+
 		update #goalieStatSeasonsCopy
 		set
 			Games = n.Games,
@@ -156,6 +160,9 @@ BEGIN TRY
 	BEGIN
 		-- this is not a dry run
 		PRINT 'NOT A DRY RUN. UPDATING REAL TABLES'
+
+		-- NEED TO DELETE ANY RECORDS THAT MIGHT HAVE ALREADY PROCESSED, BUT ARE NO LONGER VALID
+		-- TODO FIGURE OUT HOW TO DO CORRECTLY
 
 		update GoalieStatSeasons
 		set

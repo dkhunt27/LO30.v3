@@ -33,6 +33,7 @@ BEGIN TRY
 		TableName nvarchar(35) NOT NULL,
 		NewRecordsInserted int NOT NULL,
 		ExistingRecordsUpdated int NOT NULL,
+		ExistingRecordsDeleted int NOT NULL,
 		ProcessedRecordsMatchExistingRecords int NOT NULL
 	)
 
@@ -99,6 +100,7 @@ BEGIN TRY
 		'PlayerStatGames' as TableName,
 		0 as NewRecordsInserted,
 		0 as ExistingRecordsUpdated,
+		0 as ExistingRecordsDeleted,
 		0 as ProcessedRecordsMatchExistingRecords
 
 
@@ -343,6 +345,17 @@ BEGIN TRY
 	BEGIN
 		-- this is not a dry run
 		PRINT 'DRY RUN. NOT UPDATING REAL TABLES'
+		
+		-- NEED TO DELETE ANY RECORDS THAT MIGHT HAVE ALREADY PROCESSED, BUT ARE NO LONGER VALID
+		delete from #playerStatGamesCopy
+		from
+			#playerStatGamesCopy c left join
+			#playerStatGamesNew n on (c.PlayerId = n.PlayerId AND c.GameId = n.GameId)
+		where
+			n.GameId is null and
+			c.GameId between @StartingGameId and @EndingGameId
+
+		update #results set ExistingRecordsDeleted = @@ROWCOUNT
 
 		update #playerStatGamesCopy
 		set
@@ -382,6 +395,17 @@ BEGIN TRY
 	BEGIN
 		-- this is not a dry run
 		PRINT 'NOT A DRY RUN. UPDATING REAL TABLES'
+
+		-- NEED TO DELETE ANY RECORDS THAT MIGHT HAVE ALREADY PROCESSED, BUT ARE NO LONGER VALID
+		delete from PlayerStatGames
+		from
+			PlayerStatGames c LEFT JOIN
+			#playerStatGamesNew n ON (c.PlayerId = n.PlayerId AND c.GameId = n.GameId)
+		where
+			n.GameId is null and
+			c.GameId between @StartingGameId and @EndingGameId
+
+		update #results set ExistingRecordsDeleted = @@ROWCOUNT
 
 		update PlayerStatGames
 		set

@@ -22,6 +22,7 @@ BEGIN TRY
 		TableName nvarchar(35) NOT NULL,
 		NewRecordsInserted int NOT NULL,
 		ExistingRecordsUpdated int NOT NULL,
+		ExistingRecordsDeleted int NOT NULL,
 		ProcessedRecordsMatchExistingRecords int NOT NULL
 	)
 
@@ -52,6 +53,7 @@ BEGIN TRY
 		'GoalieStatCareers' as TableName,
 		0 as NewRecordsInserted,
 		0 as ExistingRecordsUpdated,
+		0 as ExistingRecordsDeleted,
 		0 as ProcessedRecordsMatchExistingRecords
 
 
@@ -59,13 +61,13 @@ BEGIN TRY
 	select
 		s.PlayerId,
 		s.Playoffs,
-		count(s.GameId) as Games,
+		sum(s.Games) as Games,
 		sum(s.GoalsAgainst) as GoalsAgainst,
 		sum(s.Shutouts) as Shutouts,
 		sum(s.Wins) as Wins,
 		NULL as BCS
 	from
-		GoalieStatGames s
+		GoalieStatSeasons s
 	where
 		s.PlayerId <> 0
 	group by
@@ -105,6 +107,9 @@ BEGIN TRY
 		-- this is not a dry run
 		PRINT 'DRY RUN. NOT UPDATING REAL TABLES'
 
+		-- NEED TO DELETE ANY RECORDS THAT MIGHT HAVE ALREADY PROCESSED, BUT ARE NO LONGER VALID
+		-- TODO FIGURE OUT HOW TO DO CORRECTLY
+
 		update #goalieStatCareersCopy
 		set
 			Games = n.Games,
@@ -134,6 +139,9 @@ BEGIN TRY
 	BEGIN
 		-- this is not a dry run
 		PRINT 'NOT A DRY RUN. UPDATING REAL TABLES'
+
+		-- NEED TO DELETE ANY RECORDS THAT MIGHT HAVE ALREADY PROCESSED, BUT ARE NO LONGER VALID
+		-- TODO FIGURE OUT HOW TO DO CORRECTLY
 
 		update GoalieStatCareers
 		set

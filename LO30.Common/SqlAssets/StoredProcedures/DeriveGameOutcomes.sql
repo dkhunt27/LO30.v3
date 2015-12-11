@@ -33,6 +33,7 @@ BEGIN TRY
 		TableName nvarchar(35) NOT NULL,
 		NewRecordsInserted int NOT NULL,
 		ExistingRecordsUpdated int NOT NULL,
+		ExistingRecordsDeleted int NOT NULL,
 		ProcessedRecordsMatchExistingRecords int NOT NULL
 	)
 
@@ -79,6 +80,7 @@ BEGIN TRY
 		'GameOutcomes' as TableName,
 		0 as NewRecordsInserted,
 		0 as ExistingRecordsUpdated,
+		0 as ExistingRecordsDeleted,
 		0 as ProcessedRecordsMatchExistingRecords
 
 	-- 'Count GamePIMS (records <= games to process x 2)'
@@ -135,6 +137,16 @@ BEGIN TRY
 		gt.GameId,
 		gt.TeamId
 
+	-- update any overrides
+	UPDATE #gameOutcomesNew
+	SET
+		Overriden = 1,
+		Outcome = goo.Outcome
+	FROM
+		#gameOutcomesNew gout INNER JOIN
+		GameOutcomeOverrides goo ON (gout.GameId = goo.GameId and gout.TeamId = goo.TeamId)
+
+
 	update #gameOutcomesNew
 	set
 		BCS = BINARY_CHECKSUM(GameId,
@@ -181,6 +193,17 @@ BEGIN TRY
 	BEGIN
 		-- this is not a dry run
 		PRINT 'DRY RUN. NOT UPDATING REAL TABLES'
+		
+		-- NEED TO DELETE ANY RECORDS THAT MIGHT HAVE ALREADY PROCESSED, BUT ARE NO LONGER VALID
+		delete from #gameOutcomesCopy
+		from
+			#gameOutcomesCopy c left join
+			#gameOutcomesNew n on (c.GameId = n.GameId AND c.TeamId = n.TeamId)
+		where
+			n.GameId is null and
+			c.GameId between @StartingGameId and @EndingGameId
+
+		update #results set ExistingRecordsDeleted = @@ROWCOUNT
 
 		update #gameOutcomesCopy
 		set
@@ -216,6 +239,17 @@ BEGIN TRY
 	BEGIN
 		-- this is not a dry run
 		PRINT 'NOT A DRY RUN. UPDATING REAL TABLES'
+
+		-- NEED TO DELETE ANY RECORDS THAT MIGHT HAVE ALREADY PROCESSED, BUT ARE NO LONGER VALID
+		delete from GameOutcomes
+		from
+			GameOutcomes c LEFT JOIN
+			#gameOutcomesNew n ON (c.GameId = n.GameId AND c.TeamId = n.TeamId)
+		where
+			n.GameId is null and
+			c.GameId between @StartingGameId and @EndingGameId
+
+		update #results set ExistingRecordsDeleted = @@ROWCOUNT
 
 		update GameOutcomes
 		set

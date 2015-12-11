@@ -37,6 +37,7 @@ BEGIN TRY
 		TableName nvarchar(35) NOT NULL,
 		NewRecordsInserted int NOT NULL,
 		ExistingRecordsUpdated int NOT NULL,
+		ExistingRecordsDeleted int NOT NULL,
 		ProcessedRecordsMatchExistingRecords int NOT NULL
 	)
 
@@ -71,6 +72,7 @@ BEGIN TRY
 		'ScoreSheetEntryProcessedSubs' as TableName,
 		0 as NewRecordsInserted,
 		0 as ExistingRecordsUpdated,
+		0 as ExistingRecordsDeleted,
 		0 as ProcessedRecordsMatchExistingRecords
 
 	INSERT INTO #scoreSheetEntryProcessedSubsNew
@@ -174,7 +176,11 @@ BEGIN TRY
 		a.SubPlayerId,
 		a.SubbingForPlayerId
 
-	IF (@@ROWCOUNT > 0) THROW 51000, 'Duplicate PK2', 1;
+	IF (@@ROWCOUNT > 0) 
+	BEGIN
+		SELECT * FROM #scoreSheetEntryProcessedSubsCopy
+		IF (@@ROWCOUNT > 0) THROW 51000, 'Duplicate PK2', 1;
+	END
 
 	INSERT INTO #scoreSheetEntryProcessedSubsCopy
 	SELECT 
@@ -205,6 +211,17 @@ BEGIN TRY
 			select * from #scoreSheetEntryProcessedSubsCopy where GameId = 3367
 			select * from #scoreSheetEntryProcessedSubsNew where GameId = 3367
 		*/
+		
+		-- NEED TO DELETE ANY RECORDS THAT MIGHT HAVE ALREADY PROCESSED, BUT ARE NO LONGER VALID
+		delete from #scoreSheetEntryProcessedSubsCopy
+		from
+			#scoreSheetEntryProcessedSubsCopy c left join
+			#scoreSheetEntryProcessedSubsNew n on (c.ScoreSheetEntrySubId = n.ScoreSheetEntrySubId)
+		where
+			n.GameId is null and
+			c.GameId between @StartingGameId and @EndingGameId
+
+		update #results set ExistingRecordsDeleted = @@ROWCOUNT
 
 		update #scoreSheetEntryProcessedSubsCopy
 		set
@@ -237,6 +254,17 @@ BEGIN TRY
 	ELSE
 	BEGIN
 		PRINT 'NOT A DRY RUN. UPDATING REAL TABLES'
+
+		-- NEED TO DELETE ANY RECORDS THAT MIGHT HAVE ALREADY PROCESSED, BUT ARE NO LONGER VALID
+		delete from ScoreSheetEntryProcessedSubs
+		from
+			ScoreSheetEntryProcessedSubs c LEFT JOIN
+			#scoreSheetEntryProcessedSubsNew n ON (c.ScoreSheetEntrySubId = n.ScoreSheetEntrySubId)
+		where
+			n.GameId is null and
+			c.GameId between @StartingGameId and @EndingGameId
+
+		update #results set ExistingRecordsDeleted = @@ROWCOUNT
 
 		update ScoreSheetEntryProcessedSubs
 		set

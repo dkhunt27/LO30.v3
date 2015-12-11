@@ -14,12 +14,16 @@ BEGIN TRY
 	DECLARE @DryRun int;
 
 	-- SeasonId 54 Playoffs False
-	SET @StartingGameId = 3200;
+	--SET @StartingGameId = 3200;
 	--SET @EndingGameId = 3319;
 
 	-- SeasonId 54 Playoffs True
 	--SET @StartingGameId = 3324;
-	SET @EndingGameId = 3372;
+	--SET @EndingGameId = 3372;
+
+	-- SeasonId 56 Playoffs False
+	SET @StartingGameId = 3402;
+	SET @EndingGameId = 3477;
 
 	SET @DryRun = 0;
 -- STOP comment this out when saving as stored proc
@@ -33,6 +37,7 @@ BEGIN TRY
 		TableName nvarchar(35) NOT NULL,
 		NewRecordsInserted int NOT NULL,
 		ExistingRecordsUpdated int NOT NULL,
+		ExistingRecordsDeleted int NOT NULL,
 		ProcessedRecordsMatchExistingRecords int NOT NULL
 	)
 
@@ -75,6 +80,7 @@ BEGIN TRY
 		'GameRosters' as TableName,
 		0 as NewRecordsInserted,
 		0 as ExistingRecordsUpdated,
+		0 as ExistingRecordsDeleted,
 		0 as ProcessedRecordsMatchExistingRecords
 
 	-- PROCESS REGULAR PLAYERS WHO DID NOT HAVE A SUB
@@ -151,7 +157,32 @@ BEGIN TRY
 	WHERE
 		g.GameId between @StartingGameId and @EndingGameId AND
 		sseps.SubPlayerId <> sseps.SubbingForPlayerId
-	
+
+	-- PROCESS UNKNOWN SUBS
+	INSERT INTO #gameRostersNew
+	SELECT
+	    g.SeasonId,
+		gt.TeamId,
+		g.GameId,
+		PlayerId = sseps.SubPlayerId,
+		PlayerNumber = sseps.JerseyNumber,
+		'S' as Position,
+		RatingPrimary = 0,
+		RatingSecondary = 0,
+		0 as Line,
+		Goalie = 0,
+		Sub = 1,
+		SubbingForPlayerId = sseps.SubbingForPlayerId,
+		BCS = NULL
+	FROM
+		Games g inner join
+		GameTeams gt on (g.GameId = gt.GameId) inner join
+		ScoreSheetEntryProcessedSubs sseps on (g.GameId = sseps.GameId AND gt.HomeTeam = sseps.HomeTeam)
+	WHERE
+		g.GameId between @StartingGameId and @EndingGameId AND
+		sseps.SubPlayerId <= 0 AND
+		sseps.SubbingForPlayerId <= 0
+			
 	update #gameRostersNew
 	set
 		BCS = BINARY_CHECKSUM(SeasonId,
@@ -228,11 +259,16 @@ BEGIN TRY
 			select * from #gameRostersNew where GameId = 3372 order by SeasonId, GameId, TeamId, PlayerId
 		*/
 
-		-- NEED TO DELETE ANY GAME ROSTERS THAT MIGHT HAVE ALREADY PROCESSED, BUT ARE GOING TO BE CHANGED
+		-- NEED TO DELETE ANY RECORDS THAT MIGHT HAVE ALREADY PROCESSED, BUT ARE NO LONGER VALID
 		delete from #gameRostersCopy
 		from
-			#gameRostersNew n inner join
-			#gameRostersCopy c on (c.GameId = n.GameId AND c.TeamId = n.TeamId AND c.PlayerId = n.PlayerId AND c.PlayerNumber <> n.PlayerNumber)
+			#gameRostersCopy c left join
+			#gameRostersNew n on (c.GameId = n.GameId AND c.TeamId = n.TeamId AND c.PlayerId = n.PlayerId AND c.PlayerNumber = n.PlayerNumber)
+		where
+			n.GameId is null and
+			c.GameId between @StartingGameId and @EndingGameId
+
+		update #results set ExistingRecordsDeleted = @@ROWCOUNT
 
 		update #gameRostersCopy
 		set
@@ -268,11 +304,16 @@ BEGIN TRY
 	BEGIN
 		PRINT 'NOT A DRY RUN. UPDATING REAL TABLES'
 
-		-- NEED TO DELETE ANY GAME ROSTERS THAT MIGHT HAVE ALREADY PROCESSED, BUT ARE GOING TO BE CHANGED
+		-- NEED TO DELETE ANY RECORDS THAT MIGHT HAVE ALREADY PROCESSED, BUT ARE NO LONGER VALID
 		delete from GameRosters
 		from
-			#gameRostersNew n inner join
-			GameRosters c on (c.GameId = n.GameId AND c.TeamId = n.TeamId AND c.PlayerId = n.PlayerId AND c.PlayerNumber <> n.PlayerNumber)
+			GameRosters c LEFT JOIN
+			#gameRostersNew n ON (c.GameId = n.GameId AND c.TeamId = n.TeamId AND c.PlayerNumber = n.PlayerNumber)
+		where
+			n.GameId is null and
+			c.GameId between @StartingGameId and @EndingGameId
+
+		update #results set ExistingRecordsDeleted = @@ROWCOUNT
 
 		update GameRosters
 		set

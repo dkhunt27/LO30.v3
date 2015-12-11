@@ -29,6 +29,7 @@ BEGIN TRY
 */
 
 	IF OBJECT_ID('tempdb..#results') IS NOT NULL DROP TABLE #results
+	IF OBJECT_ID('tempdb..#audit') IS NOT NULL DROP TABLE #audit
 	IF OBJECT_ID('tempdb..#scoreSheetEntryProcessedPenaltiesCopy') IS NOT NULL DROP TABLE #scoreSheetEntryProcessedPenaltiesCopy
 	IF OBJECT_ID('tempdb..#scoreSheetEntryProcessedPenaltiesNew') IS NOT NULL DROP TABLE #scoreSheetEntryProcessedPenaltiesNew
 
@@ -36,6 +37,7 @@ BEGIN TRY
 		TableName nvarchar(35) NOT NULL,
 		NewRecordsInserted int NOT NULL,
 		ExistingRecordsUpdated int NOT NULL,
+		ExistingRecordsDeleted int NOT NULL,
 		ProcessedRecordsMatchExistingRecords int NOT NULL
 	)
 
@@ -76,6 +78,7 @@ BEGIN TRY
 		'ScoreSheetEntryProcessedPenalties' as TableName,
 		0 as NewRecordsInserted,
 		0 as ExistingRecordsUpdated,
+		0 as ExistingRecordsDeleted,
 		0 as ProcessedRecordsMatchExistingRecords
 
 	-- PROCESS SCORE SHEET ENTRY GOALS
@@ -87,7 +90,7 @@ BEGIN TRY
 		gt.GameId,
 		ssep.Period,
 		ssep.HomeTeam,
-		grg.PlayerId,
+		case when grg.PlayerId is null then 0 else grg.PlayerId end,  -- if penalty is unknown, set to unknown player
 		p.PenaltyId,
 		ssep.TimeRemaining,
 		null as TimeElapsed,
@@ -95,9 +98,9 @@ BEGIN TRY
 		null as BCS
 	FROM
 		ScoreSheetEntryPenalties ssep inner join
-		GameTeams gt on (ssep.GameId = gt.GameId AND ssep.HomeTeam = gt.HomeTeam) inner join
-		GameRosters grg ON (ssep.GameId = grg.GameId AND gt.TeamId = grg.TeamId AND ssep.Player = grg.PlayerNumber) inner join
-		Penalties p ON (ssep.PenaltyCode = p.PenaltyCode)
+		Penalties p ON (ssep.PenaltyCode = p.PenaltyCode) inner join
+		GameTeams gt on (ssep.GameId = gt.GameId AND ssep.HomeTeam = gt.HomeTeam) left join
+		GameRosters grg ON (ssep.GameId = grg.GameId AND gt.TeamId = grg.TeamId AND ssep.Player = grg.PlayerNumber)
 	WHERE
 		ssep.GameId between @StartingGameId and @EndingGameId
 
@@ -141,6 +144,25 @@ BEGIN TRY
 
 
 	*/
+
+	-- AUDIT Missing Entries
+  SELECT
+		a.*
+  INTO
+		#audit   -- just inserting into this table to remove the output to the screen
+	FROM
+		ScoreSheetEntryPenalties a left join
+		#scoreSheetEntryProcessedPenaltiesNew b on (a.ScoreSheetEntryPenaltyId = b.ScoreSheetEntryPenaltyId)
+	WHERE
+		b.ScoreSheetEntryPenaltyId is null AND
+		a.GameId between @StartingGameId and @EndingGameId
+
+
+	IF (@@ROWCOUNT > 0) 
+	BEGIN
+		SELECT * FROM #audit
+		IF (@@ROWCOUNT > 0) THROW 51000, 'Missing Entries', 1;
+	END
 
 	update #scoreSheetEntryProcessedPenaltiesNew
 	set
@@ -198,6 +220,17 @@ BEGIN TRY
 	IF (@DryRun = 1) 
 	BEGIN
 		PRINT 'DRY RUN. NOT UPDATING REAL TABLES'
+		
+		-- NEED TO DELETE ANY RECORDS THAT MIGHT HAVE ALREADY PROCESSED, BUT ARE NO LONGER VALID
+		delete from #scoreSheetEntryProcessedPenaltiesCopy
+		from
+			#scoreSheetEntryProcessedPenaltiesCopy c left join
+			#scoreSheetEntryProcessedPenaltiesNew n on (c.ScoreSheetEntryPenaltyId = n.ScoreSheetEntryPenaltyId)
+		where
+			n.GameId is null and
+			c.GameId between @StartingGameId and @EndingGameId
+
+		update #results set ExistingRecordsDeleted = @@ROWCOUNT
 
 		update #scoreSheetEntryProcessedPenaltiesCopy
 		set
@@ -233,6 +266,17 @@ BEGIN TRY
 	ELSE
 	BEGIN
 		PRINT 'NOT A DRY RUN. UPDATING REAL TABLES'
+
+		-- NEED TO DELETE ANY RECORDS THAT MIGHT HAVE ALREADY PROCESSED, BUT ARE NO LONGER VALID
+		delete from ScoreSheetEntryProcessedPenalties
+		from
+			ScoreSheetEntryProcessedPenalties c LEFT JOIN
+			#scoreSheetEntryProcessedPenaltiesNew n ON (c.ScoreSheetEntryPenaltyId = n.ScoreSheetEntryPenaltyId)
+		where
+			n.GameId is null and
+			c.GameId between @StartingGameId and @EndingGameId
+
+		update #results set ExistingRecordsDeleted = @@ROWCOUNT
 
 		update ScoreSheetEntryProcessedPenalties
 		set
