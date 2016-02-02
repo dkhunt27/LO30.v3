@@ -131,7 +131,7 @@
             <td class="pointer text-right" ng-class="{'td-sorted-by':sortOn === 'sub'}" ng-click="sortAscOnly('sub')">Sub</td>
         </thead>
         <tbody>
-          <tr ng-repeat="item in data.playerStats | filterize:user.searchText | orderBy:sortOn:sortDirection">
+          <tr ng-repeat="item in data.playerStats | filterize:local.searchText">
             <td>{{$index+1}}</td>
             <td ng-class="{'td-sorted-by':sortOn === 'team' }">{{item.team}}</td>
             <td ng-class="{'td-sorted-by':sortOn === 'player' }"><a ng-href="/Ng/#/Players/Player/{{item.pid}}/{{item.sid}}">{{item.player}}</a></td>
